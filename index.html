@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OZEAON — Product Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Primitive brand */
+        --primary-green: #00786f;
+        --primary-green-soft: #edfff3;
+        --primary-green-100: #c4fbcc;
+        --ozeaon-blue: #4c647e;
+        --ozeaon-blue-hover: #445a71;
+        --deep-ocean: #1c2b3a;
+
+        /* Actual app gradient — src/styles/globals.css */
+        --gradient-brand: linear-gradient(
+          to right,
+          rgba(76, 100, 126, 0.75),
+          #00786f
+        );
+
+        /* Surfaces (Figma color/background) */
+        --bg-surface: #ffffff;
+        --bg-cold: #f7f8fa;
+        --bg-subtle: #eff3fc;
+        --bg-sunken: #e4ecf6;
+
+        /* Ozeaon secondary backgrounds (Figma color/secondary background) */
+        --azure-mist: #dff3f9;
+        --pale-sky: #d5e8f5;
+        --lavender-mist: #f9f4ff;
+        --body-parchment: #f5f1ed;
+
+        /* Text */
+        --text-primary: #1c2b3a;
+        --text-secondary: #374150;
+        --text-muted: #677888;
+        --text-subtle: #8898a9;
+        --border: #e4ecf6;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        font-family:
+          "Manrope",
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        color: var(--text-primary);
+        background: var(--bg-cold);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 48px 24px 96px;
+        background:
+          radial-gradient(
+            ellipse 900px 600px at 15% -5%,
+            rgba(76, 100, 126, 0.06) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 900px 600px at 105% 20%,
+            rgba(0, 120, 111, 0.05) 0%,
+            transparent 60%
+          ),
+          var(--bg-cold);
+      }
+
+      .page {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--ozeaon-blue);
+        display: grid;
+        place-items: center;
+        box-shadow:
+          0 8px 20px -8px rgba(76, 100, 126, 0.4),
+          0 2px 4px rgba(76, 100, 126, 0.12);
+      }
+
+      .brand-mark svg {
+        width: 18px;
+        height: 25px;
+        fill: #fff;
+      }
+
+      .brand-name {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--deep-ocean);
+      }
+
+      .brand-tagline {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-top: 2px;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        padding: 56px 48px 52px;
+        margin-bottom: 32px;
+        background: var(--gradient-brand);
+        color: #fff;
+        box-shadow:
+          0 24px 48px -20px rgba(28, 43, 58, 0.25),
+          0 4px 12px -4px rgba(28, 43, 58, 0.08);
+      }
+
+      .hero-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 20px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+      }
+
+      .hero h1 {
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin-bottom: 16px;
+        max-width: 15ch;
+      }
+
+      .hero p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 52ch;
+      }
+
+      .hero-wave {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 56px;
+        pointer-events: none;
+      }
+
+      .hero-wave path {
+        fill: var(--bg-cold);
+      }
+
+      /* ── LEGEND ── */
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 24px;
+        padding: 20px 32px;
+        margin-bottom: 20px;
+        background: var(--bg-surface);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+      }
+
+      .legend-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        align-self: center;
+        margin-right: 4px;
+      }
+
+      .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--text-secondary);
+      }
+
+      /* ── LIST ── */
+      .list {
+        background: var(--bg-surface);
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow: 0 2px 8px -4px rgba(28, 43, 58, 0.04);
+      }
+
+      .list-header {
+        padding: 20px 32px;
+        border-bottom: 1px solid var(--border);
+        background: var(--body-parchment);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .list-header h2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .list-header .count {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: 48px 1fr auto;
+        gap: 16px;
+        padding: 22px 32px;
+        border-bottom: 1px solid var(--border);
+        align-items: center;
+        transition: background-color 120ms ease;
+      }
+
+      .item:last-child {
+        border-bottom: none;
+      }
+
+      .item:hover {
+        background: var(--bg-cold);
+      }
+
+      .num {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary-green);
+        font-variant-numeric: tabular-nums;
+        align-self: baseline;
+        padding-top: 3px;
+        letter-spacing: 0.05em;
+      }
+
+      .title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+        letter-spacing: -0.005em;
+      }
+
+      .detail {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: var(--text-muted);
+      }
+
+      /* ── SIZE PILLS — ocean palette ── */
+      .size {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        height: 24px;
+        padding: 0 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .size-s {
+        background: var(--primary-green-soft);
+        color: var(--primary-green);
+      }
+
+      .size-m {
+        background: var(--azure-mist);
+        color: var(--ozeaon-blue);
+      }
+
+      .size-l {
+        background: var(--pale-sky);
+        color: var(--deep-ocean);
+      }
+
+      .size-xl {
+        background: var(--gradient-brand);
+        color: #fff;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        margin-top: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .sdg {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 11px;
+        color: var(--text-subtle);
+      }
+
+      .sdg-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      .sdg-chip::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+      }
+
+      .sdg-13 {
+        background: rgba(76, 159, 56, 0.12);
+        color: #3d7d2d;
+      }
+      .sdg-13::before {
+        background: #4c9f38;
+      }
+
+      .sdg-14 {
+        background: rgba(31, 151, 215, 0.12);
+        color: #1e6f9d;
+      }
+      .sdg-14::before {
+        background: #1f97d7;
+      }
+
+      .meta {
+        font-size: 11px;
+        color: var(--text-subtle);
+        letter-spacing: 0.05em;
+      }
+
+      /* ── MOBILE ── */
+      @media (max-width: 640px) {
+        body {
+          padding: 28px 16px 64px;
+        }
+        .hero {
+          padding: 40px 24px 36px;
+          border-radius: 20px;
+        }
+        .hero h1 {
+          font-size: 32px;
+        }
+        .list {
+          border-radius: 18px;
+        }
+        .list-header,
+        .item {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .item {
+          grid-template-columns: 32px 1fr auto;
+          gap: 12px;
+        }
+        .legend {
+          padding: 16px 20px;
+          gap: 12px 16px;
+        }
+        footer {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Brand line -->
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="8 3 32 43" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M26.5663 3.808C24.8466 5.24863 18.548 11.3916 17.1153 14.1605C16.4943 15.3606 16.5246 16.259 16.7999 16.9113C17.3768 18.2784 17.0532 19.8575 15.9609 20.8619C13.2316 23.3713 10.3145 25.2161 10.0752 25.6599C9.86985 26.0404 9.60279 26.5356 9.69781 27.165C9.81085 27.9136 10.3602 28.351 10.4497 28.4201C11.0723 28.9004 11.8364 28.8706 12.3602 28.8169C14.6603 28.5812 17.1034 27.5542 17.3292 27.4674C18.2559 27.1107 21.8222 25.7079 23.8835 25.0056C25.8096 24.3494 25.0451 24.6197 29.7138 23.1571C30.8666 22.796 37.3994 20.9386 38.3616 21.5742C38.999 21.9953 39.07 22.2567 39.058 23.0092C39.0402 24.124 32.2991 28.8276 30.7703 29.7261C30.0956 30.1227 26.2651 30.9964 24.9408 32.4303C23.1999 34.3152 24.6551 37.6143 24.36 39.3739C24.0796 41.0458 22.4912 42.4301 20.6419 43.3934C20.0371 43.7084 17.5552 44.5646 16.2204 44.7818C15.9114 44.832 14.6869 45.0262 14.1454 44.4415C13.7217 43.9841 13.7118 43.5015 13.822 42.7924C13.9295 42.1014 15.0743 39.3793 15.7822 37.7767C16.4313 36.3076 16.3235 36.4971 18.1819 32.3477C20.2184 27.8 24.9597 17.2091 24.9597 17.2091C26.9423 12.8707 27.4872 11.71 28.7275 9.03068C29.4912 7.38082 29.7082 6.30609 29.4705 4.65899C29.4348 4.41184 29.0209 3.36868 28.2217 3.17693C27.6384 3.03699 27.0426 3.40904 26.5663 3.808Z"
+            />
+            <path
+              d="M34.5899 36.09C34.5899 38.6598 32.5066 40.7429 29.9369 40.7429C27.3671 40.7429 25.2839 38.6598 25.2839 36.09C25.2839 33.5201 27.3671 31.437 29.9369 31.437C32.5066 31.437 34.5899 33.5201 34.5899 36.09Z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">OZEAON</div>
+          <div class="brand-tagline">Ocean · Climate · Community</div>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-eyebrow">Internal Roadmap · 2026</div>
+        <h1>What we're building next.</h1>
+        <p>
+          A living list of the features on our runway — starting with what
+          finishes the current phase, followed by the shape of what comes after.
+          Each item carries an effort indicator so you can see the shape of the
+          work ahead.
+        </p>
+      </section>
+
+      <!-- Legend -->
+      <div class="legend" role="group" aria-label="Effort scale">
+        <span class="legend-title">Effort</span>
+        <span class="legend-item"
+          ><span class="size size-s">S</span> Quick win</span
+        >
+        <span class="legend-item"
+          ><span class="size size-m">M</span> Moderate</span
+        >
+        <span class="legend-item"
+          ><span class="size size-l">L</span> Substantial</span
+        >
+        <span class="legend-item"
+          ><span class="size size-xl">XL</span> Major initiative</span
+        >
+      </div>
+
+      <!-- List -->
+      <section class="list" aria-label="Roadmap items">
+        <div class="list-header">
+          <h2>Backlog</h2>
+          <span class="count">17 items · ordered by priority</span>
+        </div>
+
+        <div class="item">
+          <div class="num">01</div>
+          <div>
+            <div class="title">Mobile designs</div>
+            <div class="detail">
+              Responsive treatment across shipped features.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num">02</div>
+          <div>
+            <div class="title">Articles — comments &amp; reviews</div>
+            <div class="detail">
+              Community discussion and structured peer review on published
+              articles.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num">03</div>
+          <div>
+            <div class="title">Projects — comments</div>
+            <div class="detail">Discussion threads on project pages.</div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num">04</div>
+          <div>
+            <div class="title">Feed filters</div>
+            <div class="detail">
+              Filtering for the posts, articles and projects feeds.
+            </div>
+          </div>
+          <span class="size size-s" aria-label="Quick win">S</span>
+        </div>
+
+        <div class="item">
+          <div class="num">05</div>
+          <div>
+            <div class="title">Payments</div>
+            <div class="detail">Project funding, tipping and donations.</div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+        </div>
+
+        <div class="item">
+          <div class="num">06</div>
+          <div>
+            <div class="title">Paywalls</div>
+            <div class="detail">
+              Optional pay-gating of a user's own content (e.g. articles), built
+              on top of the payments system. Fully opt-in per author.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num">07</div>
+          <div>
+            <div class="title">Search</div>
+            <div class="detail">Global search across every content type.</div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num">08</div>
+          <div>
+            <div class="title">Connections</div>
+            <div class="detail">
+              Rewire the existing connection system back into profile pages.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num">09</div>
+          <div>
+            <div class="title">Educational Resources</div>
+            <div class="detail">
+              Foundation-curated learning library — categories, subcategories
+              and subject pages with references, quizzes and a DAO-driven
+              inclusion queue.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num">10</div>
+          <div>
+            <div class="title">Indigenous Knowledge Hub</div>
+            <div class="detail">
+              Parallel cultural hierarchy with protocol-gated visibility and
+              stewardship roles.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num">11</div>
+          <div>
+            <div class="title">Notes &amp; Bookmarks</div>
+            <div class="detail">
+              Personal saved content and note-taking across the platform.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num">12</div>
+          <div>
+            <div class="title">Open Calls</div>
+            <div class="detail">
+              Organisation-run calls for proposals with a DAO endorsement flow.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num">13</div>
+          <div>
+            <div class="title">Article reactions</div>
+            <div class="detail">Lightweight reactions on article pages.</div>
+          </div>
+          <span class="size size-s" aria-label="Quick win">S</span>
+        </div>
+
+        <div class="item">
+          <div class="num">14</div>
+          <div>
+            <div class="title">For You / Trending / Featured</div>
+            <div class="detail">
+              Home page tabs plus the right-hand sidebar (Upcoming, Your
+              Activity).
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num">15</div>
+          <div>
+            <div class="title">Notifications</div>
+            <div class="detail">
+              Notifications bell and dedicated notifications page.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+        </div>
+
+        <div class="item">
+          <div class="num">16</div>
+          <div>
+            <div class="title">DAO</div>
+            <div class="detail">
+              Governance proposals, weighted voting and outcomes.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+        </div>
+
+        <div class="item">
+          <div class="num">17</div>
+          <div>
+            <div class="title">Events</div>
+            <div class="detail">
+              &ldquo;Upcoming for you&rdquo; calendar of community events.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="meta">Internal use only</div>
+      </footer>
+    </div>
+  </body>
+</html>
