@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OZEAON — Product Roadmap</title>
+    <title>OZEAON - Product Roadmap</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,7 +20,7 @@
         --ozeaon-blue-hover: #445a71;
         --deep-ocean: #1c2b3a;
 
-        /* Actual app gradient — src/styles/globals.css */
+        /* Actual app gradient - src/styles/globals.css */
         --gradient-brand: linear-gradient(
           to right,
           rgba(76, 100, 126, 0.75),
@@ -267,6 +267,17 @@
         border-bottom: none;
       }
 
+      .phase {
+        padding: 12px 32px;
+        background: var(--body-parchment);
+        border-bottom: 1px solid var(--border);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
       .item:hover {
         background: var(--bg-cold);
       }
@@ -296,7 +307,7 @@
         color: var(--text-muted);
       }
 
-      /* ── SIZE PILLS — ocean palette ── */
+      /* ── SIZE PILLS - ocean palette ── */
       .size {
         display: inline-flex;
         align-items: center;
@@ -405,7 +416,8 @@
           border-radius: 18px;
         }
         .list-header,
-        .item {
+        .item,
+        .phase {
           padding-left: 20px;
           padding-right: 20px;
         }
@@ -448,7 +460,7 @@
         <div class="hero-eyebrow">Internal Roadmap · 2026</div>
         <h1>What we're building next.</h1>
         <p>
-          A living list of the features on our runway — starting with what
+          A living list of the features on our runway - starting with what
           finishes the current phase, followed by the shape of what comes after.
           Each item carries an effort indicator so you can see the shape of the
           work ahead.
@@ -476,11 +488,11 @@
       <section class="list" aria-label="Roadmap items">
         <div class="list-header">
           <h2>Backlog</h2>
-          <span class="count">17 items · ordered by priority</span>
+          <span class="count"></span>
         </div>
 
         <div class="item">
-          <div class="num">01</div>
+          <div class="num"></div>
           <div>
             <div class="title">Mobile designs</div>
             <div class="detail">
@@ -491,9 +503,9 @@
         </div>
 
         <div class="item">
-          <div class="num">02</div>
+          <div class="num"></div>
           <div>
-            <div class="title">Articles — comments &amp; reviews</div>
+            <div class="title">Articles - comments &amp; reviews</div>
             <div class="detail">
               Community discussion and structured peer review on published
               articles.
@@ -503,16 +515,42 @@
         </div>
 
         <div class="item">
-          <div class="num">03</div>
+          <div class="num"></div>
           <div>
-            <div class="title">Projects — comments</div>
+            <div class="title">Projects - comments</div>
             <div class="detail">Discussion threads on project pages.</div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
+        <div class="phase">Phase 1</div>
+
         <div class="item">
-          <div class="num">04</div>
+          <div class="num"></div>
+          <div>
+            <div class="title">Articles - publish, unpublish &amp; 'My Articles'</div>
+            <div class="detail">
+              Publish and unpublish flows for articles, plus a dedicated 'My
+              Articles' management page.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Projects - publish, unpublish, 'My Projects' &amp; deletion</div>
+            <div class="detail">
+              Publish and unpublish flows for projects, a dedicated 'My
+              Projects' management page, and project deletion.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
           <div>
             <div class="title">Feed filters</div>
             <div class="detail">
@@ -523,7 +561,7 @@
         </div>
 
         <div class="item">
-          <div class="num">05</div>
+          <div class="num"></div>
           <div>
             <div class="title">Notifications</div>
             <div class="detail">
@@ -535,7 +573,31 @@
         </div>
 
         <div class="item">
-          <div class="num">06</div>
+          <div class="num"></div>
+          <div>
+            <div class="title">Account deletion</div>
+            <div class="detail">
+              User-initiated account deletion with content cascade and
+              confirmation flow.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Organisation deletion</div>
+            <div class="detail">
+              Owner-initiated organisation deletion with member notification and
+              content cascade.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
           <div>
             <div class="title">Payments</div>
             <div class="detail">Project funding, tipping and donations.</div>
@@ -544,7 +606,7 @@
         </div>
 
         <div class="item">
-          <div class="num">07</div>
+          <div class="num"></div>
           <div>
             <div class="title">Paywalls</div>
             <div class="detail">
@@ -556,7 +618,7 @@
         </div>
 
         <div class="item">
-          <div class="num">08</div>
+          <div class="num"></div>
           <div>
             <div class="title">Search</div>
             <div class="detail">Global search across every content type.</div>
@@ -565,7 +627,7 @@
         </div>
 
         <div class="item">
-          <div class="num">09</div>
+          <div class="num"></div>
           <div>
             <div class="title">Connections</div>
             <div class="detail">
@@ -575,12 +637,14 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
+        <div class="phase">Phase 2</div>
+
         <div class="item">
-          <div class="num">10</div>
+          <div class="num"></div>
           <div>
             <div class="title">Educational Resources</div>
             <div class="detail">
-              Foundation-curated learning library — categories, subcategories
+              Foundation-curated learning library - categories, subcategories
               and subject pages with references, quizzes and a DAO-driven
               inclusion queue.
             </div>
@@ -589,7 +653,7 @@
         </div>
 
         <div class="item">
-          <div class="num">11</div>
+          <div class="num"></div>
           <div>
             <div class="title">Indigenous Knowledge Hub</div>
             <div class="detail">
@@ -601,7 +665,7 @@
         </div>
 
         <div class="item">
-          <div class="num">12</div>
+          <div class="num"></div>
           <div>
             <div class="title">Notes &amp; Bookmarks</div>
             <div class="detail">
@@ -612,7 +676,7 @@
         </div>
 
         <div class="item">
-          <div class="num">13</div>
+          <div class="num"></div>
           <div>
             <div class="title">Open Calls</div>
             <div class="detail">
@@ -623,7 +687,7 @@
         </div>
 
         <div class="item">
-          <div class="num">14</div>
+          <div class="num"></div>
           <div>
             <div class="title">Article reactions</div>
             <div class="detail">Lightweight reactions on article pages.</div>
@@ -632,7 +696,7 @@
         </div>
 
         <div class="item">
-          <div class="num">15</div>
+          <div class="num"></div>
           <div>
             <div class="title">For You / Trending / Featured</div>
             <div class="detail">
@@ -644,7 +708,7 @@
         </div>
 
         <div class="item">
-          <div class="num">16</div>
+          <div class="num"></div>
           <div>
             <div class="title">DAO</div>
             <div class="detail">
@@ -655,7 +719,7 @@
         </div>
 
         <div class="item">
-          <div class="num">17</div>
+          <div class="num"></div>
           <div>
             <div class="title">Events</div>
             <div class="detail">
@@ -671,5 +735,17 @@
         <div class="meta">Internal use only</div>
       </footer>
     </div>
+    <script>
+      (() => {
+        const items = document.querySelectorAll(".list .item");
+        items.forEach((item, i) => {
+          const num = item.querySelector(".num");
+          if (num) num.textContent = String(i + 1).padStart(2, "0");
+        });
+        const count = document.querySelector(".list-header .count");
+        if (count)
+          count.textContent = `${items.length} items · ordered by priority`;
+      })();
+    </script>
   </body>
 </html>
