@@ -278,6 +278,46 @@
         color: var(--text-secondary);
       }
 
+      .milestone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 14px 32px;
+        background: var(--primary-green-soft);
+        border-top: 1px solid var(--primary-green-100);
+        border-bottom: 1px solid var(--primary-green-100);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--primary-green);
+      }
+
+      .milestone-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .milestone-label::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--primary-green);
+        box-shadow: 0 0 0 3px rgba(0, 120, 111, 0.18);
+      }
+
+      .milestone-note {
+        color: #b21e39;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
+
       .item:hover {
         background: var(--bg-cold);
       }
@@ -432,7 +472,8 @@
         }
         .list-header,
         .item,
-        .phase {
+        .phase,
+        .milestone {
           padding-left: 20px;
           padding-right: 20px;
         }
@@ -584,8 +625,7 @@
           <div>
             <div class="title">Notifications</div>
             <div class="detail">
-              Notifications bell, dedicated notifications page and external
-              email notifications.
+              Notifications bell, dedicated notifications page.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -617,6 +657,35 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Legal pages</div>
+            <div class="detail">
+              Terms of Service, Privacy Policy and Cookie Policy pages, plus the
+              cookie consent modal.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Compliance audit</div>
+            <div class="detail">
+              Content reporting &amp; moderation tooling, and GDPR data export
+              endpoints alongside account deletion.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="milestone">
+          <span class="milestone-label">Closed public beta</span>
+          <span class="milestone-note">Everything below is subject to change</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Payments</div>
             <div class="detail">Project funding, tipping and donations.</div>
           </div>
@@ -638,6 +707,22 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">User-to-user invites</div>
+            <div class="detail">
+              Invite friends and colleagues to join the platform via a personal
+              invite link.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="milestone">
+          <span class="milestone-label">Open beta</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Search</div>
             <div class="detail">Global search across every content type.</div>
           </div>
@@ -651,30 +736,6 @@
             <div class="detail">
               Rewire the existing connection system back into profile pages, and
               re-enable user blocking.
-            </div>
-          </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Legal pages</div>
-            <div class="detail">
-              Terms of Service, Privacy Policy and Cookie Policy pages, plus the
-              cookie consent modal.
-            </div>
-          </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
-        </div>
-
-        <div class="item ops">
-          <div class="num"></div>
-          <div>
-            <div class="title">Compliance audit</div>
-            <div class="detail">
-              Content reporting &amp; moderation tooling, and GDPR data export
-              endpoints alongside account deletion.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
@@ -717,18 +778,6 @@
         </div>
 
         <div class="phase">Phase 2</div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">User-to-user invites</div>
-            <div class="detail">
-              Invite friends and colleagues to join the platform via a personal
-              invite link.
-            </div>
-          </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
-        </div>
 
         <div class="item">
           <div class="num"></div>
