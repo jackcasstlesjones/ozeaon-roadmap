@@ -282,6 +282,21 @@
         background: var(--bg-cold);
       }
 
+      .item.ops .title::after {
+        content: "Backend";
+        display: inline-block;
+        margin-left: 8px;
+        padding: 2px 7px;
+        border-radius: 999px;
+        background: rgba(31, 130, 200, 0.12);
+        color: #1e6f9d;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        vertical-align: 2px;
+      }
+
       .num {
         font-size: 12px;
         font-weight: 700;
@@ -528,7 +543,9 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Articles - publish, unpublish &amp; 'My Articles'</div>
+            <div class="title">
+              Articles - publish, unpublish &amp; 'My Articles'
+            </div>
             <div class="detail">
               Publish and unpublish flows for articles, plus a dedicated 'My
               Articles' management page.
@@ -540,7 +557,9 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Projects - publish, unpublish, 'My Projects' &amp; deletion</div>
+            <div class="title">
+              Projects - publish, unpublish, 'My Projects' &amp; deletion
+            </div>
             <div class="detail">
               Publish and unpublish flows for projects, a dedicated 'My
               Projects' management page, and project deletion.
@@ -629,15 +648,88 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Connections</div>
+            <div class="title">Connections &amp; blocking</div>
             <div class="detail">
-              Rewire the existing connection system back into profile pages.
+              Rewire the existing connection system back into profile pages, and
+              re-enable user blocking.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Legal pages</div>
+            <div class="detail">
+              Terms of Service, Privacy Policy and Cookie Policy pages, plus
+              the cookie consent modal.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Compliance audit</div>
+            <div class="detail">
+              Content reporting &amp; moderation tooling, and GDPR data export
+              endpoints alongside account deletion.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Rate limiting &amp; monitoring</div>
+            <div class="detail">
+              API rate limiting, error monitoring (Sentry), analytics / GTM and
+              action auditing.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Security hardening</div>
+            <div class="detail">
+              XSS sanitation of rich-text content, Turnstile on signup / login /
+              password reset, and Cloudflare Pro-tier bot protections.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">SEO &amp; metadata</div>
+            <div class="detail">
+              robots.txt and meta robots, standardized page titles, OG / social
+              share metadata, sitemap.xml and PWA manifest.
+            </div>
+          </div>
+          <span class="size size-s" aria-label="Quick win">S</span>
+        </div>
+
         <div class="phase">Phase 2</div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">User-to-user invites</div>
+            <div class="detail">
+              Invite friends and colleagues to join the platform via a personal
+              invite link.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
 
         <div class="item">
           <div class="num"></div>
@@ -727,6 +819,15 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Messaging</div>
+            <div class="detail">Direct messages between users.</div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
         </div>
       </section>
 
