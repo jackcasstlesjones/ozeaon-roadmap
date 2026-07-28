@@ -489,6 +489,156 @@
           justify-content: flex-start;
         }
       }
+
+      /* ── Changelog ── */
+      .changelog {
+        background: var(--bg-card, var(--card, #fff));
+        border: 1px solid var(--border, var(--line, #E7DFD1));
+        border-radius: 12px;
+        margin-bottom: 32px;
+        overflow: hidden;
+      }
+      .changelog__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .changelog__toggle {
+        appearance: none;
+        background: none;
+        border: 0;
+        width: 100%;
+        padding: 14px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        cursor: pointer;
+        color: var(--text, var(--text-primary));
+        font: inherit;
+      }
+      .changelog__toggle:focus-visible {
+        outline: 2px solid var(--accent, var(--primary-green, #00786f));
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .changelog__title {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent, var(--primary-green, #00786f));
+      }
+      .changelog__title::after {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--text-soft, var(--text-muted, #677888));
+      }
+      .changelog__count {
+        color: var(--text-soft, var(--text-muted, #677888));
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+      .changelog__chevron {
+        color: var(--text-soft, var(--text-muted, #677888));
+        font-size: 14px;
+        transition: transform 0.2s ease;
+      }
+      .changelog__toggle[aria-expanded="true"] .changelog__chevron {
+        transform: rotate(180deg);
+      }
+      .changelog__body {
+        padding-bottom: 20px;
+      }
+      .changelog__body[hidden] {
+        display: none;
+      }
+      .changelog__table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      .changelog__table th,
+      .changelog__table td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid
+          var(--border-soft, var(--border, #e4ecf6));
+        vertical-align: top;
+      }
+      .changelog__table th {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-soft, var(--text-muted, #677888));
+        font-weight: 700;
+        background: var(--bg-soft, var(--body-parchment, #f5f1ed));
+      }
+      .changelog__table td:first-child {
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+        color: var(--text-soft, var(--text-muted, #677888));
+        width: 120px;
+      }
+      .changelog__table td:last-child {
+        white-space: nowrap;
+        color: var(--text-soft, var(--text-muted, #677888));
+        width: 140px;
+      }
+      .changelog__table tr.is-milestone td {
+        background: var(--accent-tint, var(--primary-green-soft, #edfff3));
+        border-bottom-color: color-mix(
+          in srgb,
+          var(--accent, var(--primary-green, #00786f)) 35%,
+          transparent
+        );
+        color: var(--text, var(--text-primary));
+        font-weight: 500;
+      }
+      .changelog__table tr.is-milestone td:first-child {
+        border-left: 3px solid
+          var(--accent, var(--primary-green, #00786f));
+        color: var(--accent-deep, var(--primary-green, #00786f));
+        font-weight: 700;
+      }
+      .changelog__milestone-tag {
+        display: inline-block;
+        margin-right: 8px;
+        padding: 2px 7px;
+        background: var(--accent, var(--primary-green, #00786f));
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 4px;
+        vertical-align: 1px;
+      }
+      @media (max-width: 640px) {
+        .changelog__inner {
+          padding: 0 18px;
+        }
+        .changelog__table th,
+        .changelog__table td {
+          padding: 8px 8px;
+          font-size: 13px;
+        }
+        .changelog__table td:first-child {
+          width: auto;
+        }
+        .changelog__table td:last-child {
+          width: auto;
+          white-space: normal;
+        }
+      }
     </style>
   </head>
   <body>
@@ -521,6 +671,138 @@
           Each item carries an effort indicator so you can see the shape of the
           work ahead.
         </p>
+      </section>
+
+      <!-- Changelog -->
+      <section class="changelog" aria-labelledby="changelogTitle">
+        <div class="changelog__inner">
+          <button
+            type="button"
+            class="changelog__toggle"
+            aria-expanded="false"
+            aria-controls="changelogBody"
+            id="changelogToggle"
+          >
+            <span class="changelog__title" id="changelogTitle">
+              Changelog
+              <span class="changelog__count">Last updated 22 Jul 2026</span>
+            </span>
+            <span class="changelog__chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="changelog__body" id="changelogBody" hidden>
+            <table class="changelog__table">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Author</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>22 Jul 2026</td>
+                  <td>
+                    Moved Notifications to sit just after the Closed public
+                    beta milestone, reframed Compliance audit as an assessment
+                    and scoping item, and added Content moderation &amp; GDPR
+                    endpoints as a closed-beta task with a note that it is
+                    handled manually at launch.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>20 Jul 2026</td>
+                  <td>
+                    Added Organization verification system as a new item ahead
+                    of Phase 2, covering verified badges plus the application
+                    and review workflow.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>20 Jul 2026</td>
+                  <td>
+                    Elevated Rate limiting &amp; monitoring, Security
+                    hardening and SEO &amp; metadata above the Open beta
+                    milestone, and repositioned Search and Connections &amp;
+                    blocking to after it.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr class="is-milestone">
+                  <td>
+                    <span class="changelog__milestone-tag">Milestone</span>20
+                    Jul 2026
+                  </td>
+                  <td>
+                    Introduced Closed public beta and Open beta milestone
+                    markers, split the backlog into pre- and post-beta
+                    sections, and trimmed external email from the
+                    Notifications scope.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>20 Jul 2026</td>
+                  <td>
+                    Added Legal pages, Compliance audit, Rate limiting &amp;
+                    monitoring, Security hardening and SEO &amp; metadata as
+                    ops-tagged items; introduced User-to-user invites and
+                    Messaging; expanded Connections to include user blocking.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr class="is-milestone">
+                  <td>
+                    <span class="changelog__milestone-tag">Milestone</span>20
+                    Jul 2026
+                  </td>
+                  <td>
+                    Introduced Phase 1 and Phase 2 groupings and added the
+                    Articles publish/unpublish flow with "My Articles", the
+                    Projects publish/unpublish flow with "My Projects" and
+                    project deletion, Account deletion and Organisation
+                    deletion.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>7 Jul 2026</td>
+                  <td>
+                    Added Notifications as an XL-effort backlog item covering
+                    the notifications bell, a dedicated notifications page
+                    and external email notifications.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr class="is-milestone">
+                  <td>
+                    <span class="changelog__milestone-tag">Milestone</span>6
+                    Jul 2026
+                  </td>
+                  <td>
+                    Roadmap first published with an ordered backlog of the
+                    features currently on the runway.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var btn = document.getElementById("changelogToggle");
+            var body = document.getElementById("changelogBody");
+            if (!btn || !body) return;
+            btn.addEventListener("click", function () {
+              var open = btn.getAttribute("aria-expanded") === "true";
+              btn.setAttribute("aria-expanded", open ? "false" : "true");
+              if (open) body.setAttribute("hidden", "");
+              else body.removeAttribute("hidden");
+            });
+          })();
+        </script>
       </section>
 
       <!-- Legend -->
