@@ -493,7 +493,7 @@
       /* ── Changelog ── */
       .changelog {
         background: var(--bg-card, var(--card, #fff));
-        border: 1px solid var(--border, var(--line, #E7DFD1));
+        border: 1px solid var(--border, var(--line, #e7dfd1));
         border-radius: 12px;
         margin-bottom: 32px;
         overflow: hidden;
@@ -570,8 +570,7 @@
       .changelog__table td {
         text-align: left;
         padding: 10px 12px;
-        border-bottom: 1px solid
-          var(--border-soft, var(--border, #e4ecf6));
+        border-bottom: 1px solid var(--border-soft, var(--border, #e4ecf6));
         vertical-align: top;
       }
       .changelog__table th {
@@ -604,8 +603,7 @@
         font-weight: 500;
       }
       .changelog__table tr.is-milestone td:first-child {
-        border-left: 3px solid
-          var(--accent, var(--primary-green, #00786f));
+        border-left: 3px solid var(--accent, var(--primary-green, #00786f));
         color: var(--accent-deep, var(--primary-green, #00786f));
         font-weight: 700;
       }
@@ -685,7 +683,7 @@
           >
             <span class="changelog__title" id="changelogTitle">
               Changelog
-              <span class="changelog__count">Last updated 22 Jul 2026</span>
+              <span class="changelog__count">Last updated 29 Jul 2026</span>
             </span>
             <span class="changelog__chevron" aria-hidden="true">▾</span>
           </button>
@@ -700,11 +698,48 @@
               </thead>
               <tbody>
                 <tr>
+                  <td>29 Jul 2026</td>
+                  <td>
+                    Clarified the Articles and Projects publish flows and the
+                    Account and Organisation deletion items to explicitly call
+                    out hard deletion, distinguishing them from the soft-delete
+                    retention covered by Content retention &amp; restoration.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>29 Jul 2026</td>
+                  <td>
+                    Added Alpha badges after Compliance audit, granting badges
+                    to users and organisations created before User-to-user
+                    invites ships as recognition for early adopters.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>29 Jul 2026</td>
+                  <td>
+                    Reframed the Closed public beta milestone as Initial launch,
+                    removed the Open beta milestone, and folded the previously
+                    post-beta items back into the single launch runway.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>29 Jul 2026</td>
+                  <td>
+                    Added Content retention &amp; restoration, covering
+                    soft-delete retention windows, admin-initiated restoration
+                    and grace periods on account and organisation deletion.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
                   <td>22 Jul 2026</td>
                   <td>
-                    Moved Notifications to sit just after the Closed public
-                    beta milestone, reframed Compliance audit as an assessment
-                    and scoping item, and added Content moderation &amp; GDPR
+                    Moved Notifications to sit just after the Closed public beta
+                    milestone, reframed Compliance audit as an assessment and
+                    scoping item, and added Content moderation &amp; GDPR
                     endpoints as a closed-beta task with a note that it is
                     handled manually at launch.
                   </td>
@@ -722,10 +757,10 @@
                 <tr>
                   <td>20 Jul 2026</td>
                   <td>
-                    Elevated Rate limiting &amp; monitoring, Security
-                    hardening and SEO &amp; metadata above the Open beta
-                    milestone, and repositioned Search and Connections &amp;
-                    blocking to after it.
+                    Elevated Rate limiting &amp; monitoring, Security hardening
+                    and SEO &amp; metadata above the Open beta milestone, and
+                    repositioned Search and Connections &amp; blocking to after
+                    it.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -736,9 +771,8 @@
                   </td>
                   <td>
                     Introduced Closed public beta and Open beta milestone
-                    markers, split the backlog into pre- and post-beta
-                    sections, and trimmed external email from the
-                    Notifications scope.
+                    markers, split the backlog into pre- and post-beta sections,
+                    and trimmed external email from the Notifications scope.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -770,15 +804,15 @@
                   <td>7 Jul 2026</td>
                   <td>
                     Added Notifications as an XL-effort backlog item covering
-                    the notifications bell, a dedicated notifications page
-                    and external email notifications.
+                    the notifications bell, a dedicated notifications page and
+                    external email notifications.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr class="is-milestone">
                   <td>
-                    <span class="changelog__milestone-tag">Milestone</span>6
-                    Jul 2026
+                    <span class="changelog__milestone-tag">Milestone</span>6 Jul
+                    2026
                   </td>
                   <td>
                     Roadmap first published with an ordered backlog of the
@@ -867,11 +901,11 @@
           <div class="num"></div>
           <div>
             <div class="title">
-              Articles - publish, unpublish &amp; 'My Articles'
+              Articles - publish, unpublish, hard deletion &amp; 'My Articles'
             </div>
             <div class="detail">
-              Publish and unpublish flows for articles, plus a dedicated 'My
-              Articles' management page.
+              Publish, unpublish and hard deletion flows for articles, plus a
+              dedicated 'My Articles' management page.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
@@ -881,11 +915,11 @@
           <div class="num"></div>
           <div>
             <div class="title">
-              Projects - publish, unpublish, 'My Projects' &amp; deletion
+              Projects - publish, unpublish, hard deletion &amp; 'My Projects'
             </div>
             <div class="detail">
-              Publish and unpublish flows for projects, a dedicated 'My
-              Projects' management page, and project deletion.
+              Publish, unpublish and hard deletion flows for projects, plus a
+              dedicated 'My Projects' management page.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
@@ -905,10 +939,10 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Account deletion</div>
+            <div class="title">Account hard deletion</div>
             <div class="detail">
-              User-initiated account deletion with content cascade and
-              confirmation flow.
+              User-initiated hard deletion of an account with content cascade
+              and confirmation flow.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
@@ -917,9 +951,10 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Organisation deletion</div>
+            <div class="title">Organisation hard deletion</div>
             <div class="detail">
-              Owner-initiated organisation deletion with content cascade.
+              Owner-initiated hard deletion of an organisation with content
+              cascade.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
@@ -950,8 +985,21 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Alpha badges</div>
+            <div class="detail">
+              Badges granted to users and organisations created before
+              User-to-user invites ships, recognising early adopters from the
+              alpha period.
+            </div>
+          </div>
+          <span class="size size-s" aria-label="Quick win">S</span>
+        </div>
+
         <div class="milestone">
-          <span class="milestone-label">Closed public beta</span>
+          <span class="milestone-label">Initial launch</span>
           <span class="milestone-note"
             >Everything after this is subject to change</span
           >
@@ -966,6 +1014,19 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Content retention &amp; restoration</div>
+            <div class="detail">
+              Soft-delete retention windows for user content, content
+              restoration, and grace periods on account and organisation
+              deletion.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
         <div class="item">
@@ -1048,10 +1109,6 @@
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
-        </div>
-
-        <div class="milestone">
-          <span class="milestone-label">Open beta</span>
         </div>
 
         <div class="item">
