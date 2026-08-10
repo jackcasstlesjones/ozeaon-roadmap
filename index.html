@@ -683,7 +683,7 @@
           >
             <span class="changelog__title" id="changelogTitle">
               Changelog
-              <span class="changelog__count">Last updated 29 Jul 2026</span>
+              <span class="changelog__count">Last updated 10 Aug 2026</span>
             </span>
             <span class="changelog__chevron" aria-hidden="true">▾</span>
           </button>
@@ -697,6 +697,15 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>10 Aug 2026</td>
+                  <td>
+                    Renamed Payments to Stripe integration to reflect its role
+                    as the underlying payment infrastructure, and split Project
+                    funding out into its own item sitting on top of it.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
                 <tr>
                   <td>29 Jul 2026</td>
                   <td>
@@ -930,7 +939,10 @@
           <div>
             <div class="title">Feed filters</div>
             <div class="detail">
-              Filtering for the posts, articles and projects feeds.
+              In-feed filtering controls on the articles and projects feeds
+              (e.g. Filter icon in top right of feed - opens dialogue, filter by
+              Article Type). This is distinct from the global category colour
+              filters in the sidebar.
             </div>
           </div>
           <span class="size size-s" aria-label="Quick win">S</span>
@@ -1032,8 +1044,23 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Payments</div>
-            <div class="detail">Project funding, tipping and donations.</div>
+            <div class="title">Stripe integration</div>
+            <div class="detail">
+              Underlying Stripe integration and payment infrastructure that
+              tipping, donations, funding and paywalls all sit on top of.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Project funding</div>
+            <div class="detail">
+              Let project owners raise funding from the community, with tipping
+              and donations built on top of the Stripe integration.
+            </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
         </div>
@@ -1044,10 +1071,14 @@
             <div class="title">Paywalls</div>
             <div class="detail">
               Optional pay-gating of a user's own content (e.g. articles), built
-              on top of the payments system. Fully opt-in per author.
+              on top of the Stripe integration. Fully opt-in per author.
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="milestone">
+          <span class="milestone-label">Payments release</span>
         </div>
 
         <div class="item">
@@ -1157,6 +1188,19 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Sidebar category filters</div>
+            <div class="detail">
+              Global category colour filters in the sidebar for toggling content
+              categories across the platform. Separate from the in-feed Feed
+              filters.
+            </div>
+          </div>
+          <span class="size size-s" aria-label="Quick win">S</span>
         </div>
 
         <div class="item">
