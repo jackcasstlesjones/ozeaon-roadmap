@@ -267,6 +267,30 @@
         border-bottom: none;
       }
 
+      /* Done: soft red row with a strong red badge */
+      .item.done {
+        background: rgba(178, 30, 57, 0.06);
+      }
+
+      .item.done:hover {
+        background: rgba(178, 30, 57, 0.1);
+      }
+
+      .item.done .title::after {
+        content: "Done";
+        display: inline-block;
+        margin-left: 8px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #b21e39;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        vertical-align: 2px;
+      }
+
       .phase {
         padding: 12px 32px;
         background: var(--body-parchment);
@@ -683,7 +707,7 @@
           >
             <span class="changelog__title" id="changelogTitle">
               Changelog
-              <span class="changelog__count">Last updated 10 Aug 2026</span>
+              <span class="changelog__count">Last updated 18 Aug 2026</span>
             </span>
             <span class="changelog__chevron" aria-hidden="true">▾</span>
           </button>
@@ -697,6 +721,26 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>18 Aug 2026</td>
+                  <td>
+                    Split Articles - comments &amp; reviews into two items:
+                    Articles - comments, which is complete, and Articles -
+                    reviews, which covers the structured peer review work still
+                    outstanding.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>18 Aug 2026</td>
+                  <td>
+                    Added a Done treatment for shipped items - a soft red row
+                    with a red Done badge - and applied it to Mobile designs,
+                    Articles - comments, Projects - comments, and the Articles
+                    and Projects publish, unpublish and hard deletion items.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
                 <tr>
                   <td>10 Aug 2026</td>
                   <td>
@@ -891,7 +935,7 @@
           <span class="count"></span>
         </div>
 
-        <div class="item">
+        <div class="item done">
           <div class="num"></div>
           <div>
             <div class="title">Mobile designs</div>
@@ -902,19 +946,29 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item">
+        <div class="item done">
           <div class="num"></div>
           <div>
-            <div class="title">Articles - comments &amp; reviews</div>
+            <div class="title">Articles - comments</div>
             <div class="detail">
-              Community discussion and structured peer review on published
-              articles.
+              Community discussion on published articles.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
         <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Articles - reviews</div>
+            <div class="detail">
+              Structured peer review on published articles.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item done">
           <div class="num"></div>
           <div>
             <div class="title">Projects - comments</div>
@@ -925,7 +979,7 @@
 
         <div class="phase">Phase 1</div>
 
-        <div class="item">
+        <div class="item done">
           <div class="num"></div>
           <div>
             <div class="title">
@@ -939,7 +993,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item">
+        <div class="item done">
           <div class="num"></div>
           <div>
             <div class="title">
