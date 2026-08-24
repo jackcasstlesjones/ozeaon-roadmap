@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OZEAON - Release Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Primitive brand */
+        --primary-green: #00786f;
+        --primary-green-soft: #edfff3;
+        --primary-green-100: #c4fbcc;
+        --ozeaon-blue: #4c647e;
+        --ozeaon-blue-hover: #445a71;
+        --deep-ocean: #1c2b3a;
+
+        /* Actual app gradient - src/styles/globals.css */
+        --gradient-brand: linear-gradient(
+          to right,
+          rgba(76, 100, 126, 0.75),
+          #00786f
+        );
+
+        /* Surfaces (Figma color/background) */
+        --bg-surface: #ffffff;
+        --bg-cold: #f7f8fa;
+        --bg-subtle: #eff3fc;
+        --bg-sunken: #e4ecf6;
+
+        /* Ozeaon secondary backgrounds (Figma color/secondary background) */
+        --azure-mist: #dff3f9;
+        --pale-sky: #d5e8f5;
+        --lavender-mist: #f9f4ff;
+        --body-parchment: #f5f1ed;
+
+        /* Text */
+        --text-primary: #1c2b3a;
+        --text-secondary: #374150;
+        --text-muted: #677888;
+        --text-subtle: #8898a9;
+        --border: #e4ecf6;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        font-family:
+          "Manrope",
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        color: var(--text-primary);
+        background: var(--bg-cold);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 48px 24px 96px;
+        background:
+          radial-gradient(
+            ellipse 900px 600px at 15% -5%,
+            rgba(76, 100, 126, 0.06) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 900px 600px at 105% 20%,
+            rgba(0, 120, 111, 0.05) 0%,
+            transparent 60%
+          ),
+          var(--bg-cold);
+      }
+
+      .page {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--ozeaon-blue);
+        display: grid;
+        place-items: center;
+        box-shadow:
+          0 8px 20px -8px rgba(76, 100, 126, 0.4),
+          0 2px 4px rgba(76, 100, 126, 0.12);
+      }
+
+      .brand-mark svg {
+        width: 18px;
+        height: 25px;
+        fill: #fff;
+      }
+
+      .brand-name {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--deep-ocean);
+      }
+
+      .brand-tagline {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-top: 2px;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        padding: 56px 48px 52px;
+        margin-bottom: 32px;
+        background: var(--gradient-brand);
+        color: #fff;
+        box-shadow:
+          0 24px 48px -20px rgba(28, 43, 58, 0.25),
+          0 4px 12px -4px rgba(28, 43, 58, 0.08);
+      }
+
+      .hero-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 20px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+      }
+
+      .hero h1 {
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin-bottom: 16px;
+        max-width: 15ch;
+      }
+
+      .hero p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 52ch;
+      }
+
+      .hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        backdrop-filter: blur(6px);
+        transition:
+          background-color 140ms ease,
+          transform 140ms ease;
+      }
+
+      .hero-link:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+      }
+
+      .hero-link:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
+      /* ── RELEASE INDEX ── */
+      .jump {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 32px;
+        margin-bottom: 20px;
+        background: var(--bg-surface);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+      }
+
+      .jump-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-right: 4px;
+      }
+
+      .jump a {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: var(--bg-subtle);
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        font-variant-numeric: tabular-nums;
+        transition: background-color 120ms ease;
+      }
+
+      .jump a:hover {
+        background: var(--bg-sunken);
+      }
+
+      /* ── RELEASES ── */
+      .releases {
+        background: var(--bg-surface);
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow: 0 2px 8px -4px rgba(28, 43, 58, 0.04);
+      }
+
+      .releases-header {
+        padding: 20px 32px;
+        border-bottom: 1px solid var(--border);
+        background: var(--body-parchment);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .releases-header h2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .releases-header .count {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .release {
+        padding: 26px 32px 28px;
+        border-bottom: 1px solid var(--border);
+        scroll-margin-top: 24px;
+      }
+
+      .release:last-child {
+        border-bottom: none;
+      }
+
+      .release-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .release-date {
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--text-primary);
+      }
+
+      .release-latest {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: var(--gradient-brand);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .group + .group {
+        margin-top: 20px;
+      }
+
+      .group-label {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 10px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .group-label.is-new {
+        background: var(--primary-green-soft);
+        color: var(--primary-green);
+      }
+
+      .group-label.is-fixed {
+        background: var(--azure-mist);
+        color: #1e6f9d;
+      }
+
+      .group-label.is-changed {
+        background: var(--lavender-mist);
+        color: #6d5bab;
+      }
+
+      .changes {
+        list-style: none;
+      }
+
+      .changes li {
+        position: relative;
+        padding: 5px 0 5px 20px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+
+      .changes li::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 12px;
+        width: 5px;
+        height: 5px;
+        border-radius: 999px;
+        background: var(--primary-green-100);
+      }
+
+      .group.fixed .changes li::before {
+        background: var(--pale-sky);
+      }
+
+      .group.changed .changes li::before {
+        background: #ded0f7;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        margin-top: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .meta {
+        font-size: 11px;
+        color: var(--text-subtle);
+        letter-spacing: 0.05em;
+      }
+
+      footer a {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary-green);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── MOBILE ── */
+      @media (max-width: 640px) {
+        body {
+          padding: 28px 16px 64px;
+        }
+        .hero {
+          padding: 40px 24px 36px;
+          border-radius: 20px;
+        }
+        .hero h1 {
+          font-size: 32px;
+        }
+        .releases {
+          border-radius: 18px;
+        }
+        .releases-header,
+        .release {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .jump {
+          padding: 16px 20px;
+          gap: 8px;
+        }
+        footer {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Brand line -->
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="8 3 32 43" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M26.5663 3.808C24.8466 5.24863 18.548 11.3916 17.1153 14.1605C16.4943 15.3606 16.5246 16.259 16.7999 16.9113C17.3768 18.2784 17.0532 19.8575 15.9609 20.8619C13.2316 23.3713 10.3145 25.2161 10.0752 25.6599C9.86985 26.0404 9.60279 26.5356 9.69781 27.165C9.81085 27.9136 10.3602 28.351 10.4497 28.4201C11.0723 28.9004 11.8364 28.8706 12.3602 28.8169C14.6603 28.5812 17.1034 27.5542 17.3292 27.4674C18.2559 27.1107 21.8222 25.7079 23.8835 25.0056C25.8096 24.3494 25.0451 24.6197 29.7138 23.1571C30.8666 22.796 37.3994 20.9386 38.3616 21.5742C38.999 21.9953 39.07 22.2567 39.058 23.0092C39.0402 24.124 32.2991 28.8276 30.7703 29.7261C30.0956 30.1227 26.2651 30.9964 24.9408 32.4303C23.1999 34.3152 24.6551 37.6143 24.36 39.3739C24.0796 41.0458 22.4912 42.4301 20.6419 43.3934C20.0371 43.7084 17.5552 44.5646 16.2204 44.7818C15.9114 44.832 14.6869 45.0262 14.1454 44.4415C13.7217 43.9841 13.7118 43.5015 13.822 42.7924C13.9295 42.1014 15.0743 39.3793 15.7822 37.7767C16.4313 36.3076 16.3235 36.4971 18.1819 32.3477C20.2184 27.8 24.9597 17.2091 24.9597 17.2091C26.9423 12.8707 27.4872 11.71 28.7275 9.03068C29.4912 7.38082 29.7082 6.30609 29.4705 4.65899C29.4348 4.41184 29.0209 3.36868 28.2217 3.17693C27.6384 3.03699 27.0426 3.40904 26.5663 3.808Z"
+            />
+            <path
+              d="M34.5899 36.09C34.5899 38.6598 32.5066 40.7429 29.9369 40.7429C27.3671 40.7429 25.2839 38.6598 25.2839 36.09C25.2839 33.5201 27.3671 31.437 29.9369 31.437C32.5066 31.437 34.5899 33.5201 34.5899 36.09Z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">OZEAON</div>
+          <div class="brand-tagline">Ocean · Climate · Community</div>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-eyebrow">Release Notes · 2026</div>
+        <h1>What we've shipped.</h1>
+        <p>
+          Every release on the platform, newest first - the features that went
+          live and the fixes that went with them.
+        </p>
+        <a class="hero-link" href="../index.html">← Product roadmap</a>
+      </section>
+
+      <!-- Release index -->
+      <nav class="jump" aria-label="Jump to a release">
+        <span class="jump-title">Releases</span>
+        <a href="#r-2026-08-18">18 Aug 2026</a>
+        <a href="#r-2026-08-01">1 Aug 2026</a>
+        <a href="#r-2026-07-29">29 Jul 2026</a>
+        <a href="#r-2026-07-21">21 Jul 2026</a>
+        <a href="#r-2026-07-09">9 Jul 2026</a>
+        <a href="#r-2026-07-06">6 Jul 2026</a>
+        <a href="#r-2026-07-03">3 Jul 2026</a>
+        <a href="#r-2026-07-02">2 Jul 2026</a>
+        <a href="#r-2026-06-30">30 Jun 2026</a>
+        <a href="#r-2026-06-26">26 Jun 2026</a>
+        <a href="#r-2026-06-15">15 Jun 2026</a>
+        <a href="#r-2026-06-03">3 Jun 2026</a>
+        <a href="#r-2026-06-02">2 Jun 2026</a>
+      </nav>
+
+      <section class="releases">
+        <div class="releases-header">
+          <h2>Release history</h2>
+          <span class="count"></span>
+        </div>
+
+        <!-- 18 August 2026 -->
+        <article class="release" id="r-2026-08-18">
+          <div class="release-head">
+            <div class="release-date">18 August 2026</div>
+            <span class="release-latest">Latest</span>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Site-wide search from the top bar, covering articles, projects,
+                organisations and people
+              </li>
+              <li>
+                My Articles dashboard, with filter tabs for published work and
+                drafts
+              </li>
+              <li>
+                My Projects dashboard, with Live, Starting Soon, Completed and
+                Draft filters
+              </li>
+              <li>
+                Organisation projects page for organisation owners and
+                administrators
+              </li>
+              <li>
+                Organisation owners and administrators can now edit and delete
+                their organisation's articles
+              </li>
+              <li>
+                Project ownership can be transferred, and organisation managers
+                can edit and delete their organisation's projects
+              </li>
+              <li>Delete option added to the project create and edit form</li>
+              <li>Edit grace period after publishing an article</li>
+              <li>
+                Resources section added to the sidebar, with clear labels on
+                areas still to come
+              </li>
+              <li>Profile menu and settings navigation reordered</li>
+              <li>
+                Automatic profanity checks on titles, names, tags and links
+                across profiles, organisations, projects and articles
+              </li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>Copied article links no longer lead to a missing page</li>
+              <li>Image gallery now fills the screen on mobile</li>
+              <li>Fields locked after publishing can no longer be changed</li>
+              <li>Funding label now shows on home page project cards</li>
+              <li>Project cards show the category rather than the subcategory</li>
+              <li>
+                Related articles now appear in a project's Related Content
+                section
+              </li>
+              <li>
+                Organisations list on the home page now scrolls on touch devices
+              </li>
+              <li>Organisation preview page layout reworked</li>
+              <li>Profile links and avatar sizing corrected</li>
+              <li>
+                Image upload dialog now fits within the screen on smaller
+                devices
+              </li>
+              <li>
+                Reaction tooltips no longer flicker on touch devices, and liking
+                a post no longer flashes the page
+              </li>
+              <li>Long unbroken text now wraps correctly across the site</li>
+              <li>Sticky sidebar and footer spacing corrected</li>
+              <li>
+                Article reader layout improved at tablet and small desktop
+                widths
+              </li>
+              <li>
+                Search results ordered by publication date, with special
+                characters and project author matching handled correctly
+              </li>
+              <li>
+                Project status badges aligned to the design system; "Coming
+                Soon" renamed to "Starting Soon"
+              </li>
+              <li>
+                Attaching an organisation or article to a post now previews it
+                immediately
+              </li>
+              <li>Reposts use the compact article card</li>
+              <li>Tightened content security policy for images and scripts</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 1 August 2026 -->
+        <article class="release" id="r-2026-08-01">
+          <div class="release-head">
+            <div class="release-date">1 August 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Organisations directory rebuilt as a paginated feed with new
+                organisation cards and member, project and article counts
+              </li>
+              <li>Mobile layout for the create organisation form</li>
+              <li>Footer added to the editor and profile pages</li>
+              <li>Reworked attachment cards on articles</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                Opening an article you cannot edit now shows a proper not-found
+                page
+              </li>
+              <li>Text-only toggle locked once an article is published</li>
+              <li>
+                Project feed cards show categories rather than subcategories,
+                with a tooltip on the overflow badge
+              </li>
+              <li>Project feed card image height corrected</li>
+              <li>
+                Category badge styling unified across projects and articles
+              </li>
+              <li>Sticky sidebar position corrected for the taller footer</li>
+              <li>Author avatar on reposts now loads</li>
+              <li>
+                Organisation section headings and copy aligned to the design
+              </li>
+              <li>
+                Organisation avatar now sizes correctly at every screen width
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 29 July 2026 -->
+        <article class="release" id="r-2026-07-29">
+          <div class="release-head">
+            <div class="release-date">29 July 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>Terms and Privacy pages, and a site footer with legal links</li>
+              <li>
+                Mobile mega menu opens as a full-page overlay covering
+                Community, Articles, Projects, Organisations and Resources
+              </li>
+              <li>Get Started button for signed-out visitors on mobile</li>
+              <li>
+                Create New menu in the dashboard sidebar, and a floating Create
+                button on mobile
+              </li>
+              <li>
+                Back control and current section name shown in the top
+                navigation
+              </li>
+              <li>My Projects and My Articles areas added to navigation</li>
+              <li>
+                Installable app support: manifest, sitemap and search engine
+                configuration
+              </li>
+              <li>
+                Mobile layouts across project pages and forms, organisation
+                settings, and profile pages
+              </li>
+              <li>
+                Image zoom in galleries, and improved image handling and
+                resizing in the article editor
+              </li>
+              <li>Redesigned account switcher and profile menu</li>
+              <li>Clearer publishing feedback on articles</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>Article type can no longer be changed after publication</li>
+              <li>Write Article button now goes to the right place</li>
+              <li>Articles and projects now generate unique links</li>
+              <li>Publishing without an author is now rejected</li>
+              <li>Hardened file downloads in the PDF viewer</li>
+              <li>
+                Mega menu closes on Escape, and creation links now prompt
+                sign-in rather than failing
+              </li>
+              <li>Clicking the current page no longer reloads it</li>
+              <li>
+                Mobile top bar layout and horizontal scrolling corrected
+              </li>
+              <li>Archived organisations no longer counted in the top bar</li>
+              <li>
+                Edit buttons now reachable on mobile for projects and articles
+                you own
+              </li>
+              <li>Article reader padding and width adjusted for mobile</li>
+              <li>Form sections now scroll to the top of the block</li>
+              <li>
+                Date field placeholder no longer pushes the calendar icon out of
+                place
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 21 July 2026 -->
+        <article class="release" id="r-2026-07-21">
+          <div class="release-head">
+            <div class="release-date">21 July 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Community posts: create post form with a mobile drawer,
+                reposts, and an accessible image carousel
+              </li>
+              <li>Mobile dashboard navigation with account switcher</li>
+              <li>Simplified three-section mega menu</li>
+              <li>Verified badge on organisations</li>
+              <li>
+                Mobile designs for profile settings and the home page, plus a
+                "How OZEAON Works" section
+              </li>
+              <li>
+                Project page hero updated with badges, live date and author
+                details
+              </li>
+              <li>
+                Input sanitisation across comments, events, organisations,
+                profiles and projects
+              </li>
+              <li>Profile initials avatars now vary in colour by name</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                British spelling of "Organisation" used in all user-facing copy
+              </li>
+              <li>
+                Project cards cap categories with a tooltip, matching articles
+              </li>
+              <li>Linked organisation now persists on projects</li>
+              <li>Profile form resets correctly after saving</li>
+              <li>Image overflow when reposting</li>
+              <li>Placeholder text now matches the input font size</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 9 July 2026 -->
+        <article class="release" id="r-2026-07-09">
+          <div class="release-head">
+            <div class="release-date">9 July 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Comments on articles and projects, with likes, replies and a
+                collapsible section on cards
+              </li>
+              <li>
+                Rebuilt article page with linked organisation, richer detail and
+                text-only mode
+              </li>
+              <li>
+                Article form: external publication link and date, character
+                counters, tag and attachment limits
+              </li>
+              <li>Comment settings on the project form</li>
+              <li>
+                Page transition animations, respecting reduced-motion
+                preferences
+              </li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                Comment editing and deletion restricted to the person who posted
+              </li>
+              <li>Deleted comment authors now display correctly</li>
+              <li>Liked state on comments now stays in sync</li>
+              <li>Organisation pages list active projects correctly</li>
+              <li>
+                Organisation-authored content no longer appears in personal
+                profile feeds
+              </li>
+              <li>Minimum article title length lowered to 3 characters</li>
+              <li>Home page articles sorted by publication date</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 6 July 2026 -->
+        <article class="release" id="r-2026-07-06">
+          <div class="release-head">
+            <div class="release-date">6 July 2026</div>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                Profile bio no longer shows a Read More link when the text
+                already fits
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 3 July 2026 -->
+        <article class="release" id="r-2026-07-03">
+          <div class="release-head">
+            <div class="release-date">3 July 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Homepage and article previews shown on the sign-in and sign-up
+                pages
+              </li>
+              <li>Read More on profile display cards</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>Warnings category badge now displays</li>
+              <li>PDF viewer no longer errors on documents with no type</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2 July 2026 -->
+        <article class="release" id="r-2026-07-02">
+          <div class="release-head">
+            <div class="release-date">2 July 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                My Organisations in settings, with Active, Invitations and
+                Requests tabs
+              </li>
+              <li>
+                Accept or decline organisation invitations, and cancel a join
+                request
+              </li>
+              <li>My Organisations added to the personal dashboard sidebar</li>
+              <li>Access token field on the signup form</li>
+              <li>Post options now use toggle switches</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>Character limits on team member name and role</li>
+              <li>Team member avatars persist in the project form</li>
+              <li>Related article icon corrected on the project form</li>
+              <li>
+                Organisation settings and tab counts now show an error state
+                instead of failing silently
+              </li>
+              <li>Long text no longer overflows profile cards</li>
+              <li>Right sidebar removed from settings pages</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 30 June 2026 -->
+        <article class="release" id="r-2026-06-30">
+          <div class="release-head">
+            <div class="release-date">30 June 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Full project pages: header, overview, content sections, team,
+                FAQ, documents, related projects and in-page navigation
+              </li>
+              <li>
+                Sustainable Development Goal badges, with the full goal title on
+                hover
+              </li>
+              <li>Project status badges</li>
+              <li>Project owners can edit a published project</li>
+              <li>Organisation feeds, with tabs for each content type</li>
+              <li>About page</li>
+              <li>Redesigned mega menu with live content counts</li>
+              <li>Articles can now link to a related project</li>
+              <li>Author search when crediting an article</li>
+              <li>Post deletion from the post card</li>
+              <li>Content counts on profile tabs</li>
+              <li>Team member roles pre-filled on the project form</li>
+            </ul>
+          </div>
+
+          <div class="group changed">
+            <div class="group-label is-changed">Changed</div>
+            <ul class="changes">
+              <li>Funding marked as coming soon</li>
+              <li>Connect, Follow and Block buttons removed</li>
+              <li>
+                Updates and Comments sections removed from project pages
+              </li>
+              <li>Comments removed from the project creation form</li>
+              <li>"Notify me" removed from the funding section</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                The same person can no longer be added to a project team twice
+              </li>
+              <li>
+                Duplicate tags no longer created when pasting or deleting tags
+              </li>
+              <li>
+                Tag and team member limits now match between the form and its
+                validation
+              </li>
+              <li>
+                Related content no longer lists the project you are already
+                viewing
+              </li>
+              <li>Editing a draft project now opens the right form</li>
+              <li>
+                Back navigation falls back sensibly when there is no previous
+                page
+              </li>
+              <li>Clearer error messages on custom link addresses</li>
+              <li>Search shows all matches, and closes on Escape or touch</li>
+              <li>Profile page refreshes after saving settings</li>
+              <li>Avatar upload dialog matches the design</li>
+              <li>
+                Documents now delete immediately instead of after a delay
+              </li>
+              <li>Line breaks preserved in project overview text</li>
+              <li>Articles can be deleted after the edit window closes</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 26 June 2026 -->
+        <article class="release" id="r-2026-06-26">
+          <div class="release-head">
+            <div class="release-date">26 June 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>
+                Rebuilt article reader with a new hero, public page and link
+                previews
+              </li>
+              <li>
+                New attachment system for articles, covering PDFs, annexes and
+                galleries
+              </li>
+              <li>
+                Account switching between your personal profile and your
+                organisations
+              </li>
+              <li>
+                Rebuilt profile pages: full-width layout, settings, role
+                descriptor and continuous scrolling on each tab
+              </li>
+              <li>
+                Projects feed moved to its own Projects section with the new
+                design
+              </li>
+              <li>Character counters across forms</li>
+              <li>
+                Create post form now confirms and returns you to the community
+                feed
+              </li>
+              <li>Scrollable category badges on project feed cards</li>
+              <li>Tagline and countdown on project and article cards</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                Cover image editor no longer shows a stale image after changes
+              </li>
+              <li>
+                Profile settings hardened against unauthorised field changes
+              </li>
+              <li>
+                Feeds retry after a network hiccup instead of stopping
+              </li>
+              <li>Confirm dialog stays open if removing an image fails</li>
+              <li>Article editor toolbar and editing state corrected</li>
+              <li>
+                Profile link errors now surface instead of failing quietly
+              </li>
+              <li>Public profile updates immediately after saving settings</li>
+              <li>
+                Article edit window now measured in days rather than months
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 15 June 2026 -->
+        <article class="release" id="r-2026-06-15">
+          <div class="release-head">
+            <div class="release-date">15 June 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>Redesigned sign-up pages</li>
+              <li>
+                Redesigned home page cards, including Learn and Connect
+              </li>
+              <li>
+                Metric cards on the home page with real organisation figures and
+                month-on-month comparison
+              </li>
+              <li>Educational resources viewable without signing in</li>
+              <li>My Library section</li>
+              <li>
+                Project form: contact section, drag-to-upload documents, FAQ
+                character counts, and delete confirmation with undo on team and
+                FAQ entries
+              </li>
+              <li>Member picker with chips on the project form</li>
+              <li>Character counter on form fields</li>
+              <li>Site-wide error handling</li>
+            </ul>
+          </div>
+
+          <div class="group changed">
+            <div class="group-label is-changed">Changed</div>
+            <ul class="changes">
+              <li>
+                Pods, quizzes and the events sidebar removed from navigation
+              </li>
+              <li>Follower counts and the Follow button removed</li>
+              <li>Featured section removed from organisation pages</li>
+              <li>
+                Search bar and notifications bell hidden in the top navigation
+              </li>
+              <li>Sidebar navigation reworked with collapsible sections</li>
+              <li>
+                Site excluded from search engine indexing ahead of launch
+              </li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>Organisation avatars and cards now match the design</li>
+              <li>Metrics show on the home page when signed out</li>
+              <li>
+                Disconnecting an organisation from a draft now saves
+              </li>
+              <li>
+                Validation errors now jump to the field that needs attention
+              </li>
+              <li>
+                Buttons in the project form are clickable across their full area
+              </li>
+              <li>Coming soon badge colour corrected</li>
+              <li>
+                Plain error messages shown instead of raw database errors
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 3 June 2026 -->
+        <article class="release" id="r-2026-06-03">
+          <div class="release-head">
+            <div class="release-date">3 June 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>Location search on the project and organisation forms</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2 June 2026 -->
+        <article class="release" id="r-2026-06-02">
+          <div class="release-head">
+            <div class="release-date">2 June 2026</div>
+          </div>
+
+          <div class="group new">
+            <div class="group-label is-new">New</div>
+            <ul class="changes">
+              <li>Required fields marked on project overview sections</li>
+              <li>Undo option when deleting a project section</li>
+              <li>Delete confirmation on collapsible form cards</li>
+            </ul>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                Undo option now disappears together with its notification
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="meta">Internal use only</div>
+        <a href="../index.html">Product roadmap →</a>
+      </footer>
+    </div>
+    <script>
+      (() => {
+        const releases = document.querySelectorAll(".releases .release");
+        const changes = document.querySelectorAll(".releases .changes li");
+        const count = document.querySelector(".releases-header .count");
+        if (count)
+          count.textContent = `${releases.length} releases · ${changes.length} changes`;
+      })();
+    </script>
+  </body>
+</html>

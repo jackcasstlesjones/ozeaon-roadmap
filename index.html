@@ -176,6 +176,37 @@
         max-width: 52ch;
       }
 
+      .hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        backdrop-filter: blur(6px);
+        transition:
+          background-color 140ms ease,
+          transform 140ms ease;
+      }
+
+      .hero-link:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+      }
+
+      .hero-link:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
       .hero-wave {
         position: absolute;
         left: 0;
@@ -718,6 +749,7 @@
           Each item carries an effort indicator so you can see the shape of the
           work ahead.
         </p>
+        <a class="hero-link" href="./changelog/index.html">Release Notes →</a>
       </section>
 
       <!-- Changelog -->
