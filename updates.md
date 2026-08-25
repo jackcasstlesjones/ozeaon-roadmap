@@ -21,7 +21,8 @@
 - Organisation owners and administrators can edit and delete their organisation's articles
 - Newsletter signup when creating an account
 - Deleted posts, projects, articles and organisations now leave an "Unavailable" placeholder where they were attached, instead of disappearing silently
-- Content now outlives the account that created it, with management passing to the organisation owner or administrator
+- Deleting your account removes your own projects, articles and posts, but anything you published as an organisation stays with that organisation
+- Deleting an organisation passes its projects to the organisation's owner, or to whoever created the organisation if it has no owner
 
 **Fixed**
 

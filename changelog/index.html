@@ -473,6 +473,7 @@
       <!-- Release index -->
       <nav class="jump" aria-label="Jump to a release">
         <span class="jump-title">Releases</span>
+        <a href="#r-2026-08-25">25 Aug 2026</a>
         <a href="#r-2026-08-24">24 Aug 2026</a>
         <a href="#r-2026-08-18">18 Aug 2026</a>
         <a href="#r-2026-08-01">1 Aug 2026</a>
@@ -495,11 +496,30 @@
           <span class="count"></span>
         </div>
 
+        <!-- 25 August 2026 -->
+        <article class="release" id="r-2026-08-25">
+          <div class="release-head">
+            <div class="release-date">25 August 2026</div>
+            <span class="release-latest">Latest</span>
+          </div>
+
+          <div class="group fixed">
+            <div class="group-label is-fixed">Fixed</div>
+            <ul class="changes">
+              <li>
+                Article and project pages: the reading column and its side panel
+                now sit centred together, instead of the article hugging the
+                navigation and the side panel pinned to the far edge of wide
+                screens
+              </li>
+            </ul>
+          </div>
+        </article>
+
         <!-- 24 August 2026 -->
         <article class="release" id="r-2026-08-24">
           <div class="release-head">
             <div class="release-date">24 August 2026</div>
-            <span class="release-latest">Latest</span>
           </div>
 
           <div class="group new">
@@ -546,8 +566,14 @@
                 disappearing silently
               </li>
               <li>
-                Content now outlives the account that created it, with
-                management passing to the organisation owner or administrator
+                Deleting your account removes your own projects, articles and
+                posts, but anything you published as an organisation stays with
+                that organisation
+              </li>
+              <li>
+                Deleting an organisation passes its projects to the
+                organisation's owner, or to whoever created the organisation if
+                it has no owner
               </li>
             </ul>
           </div>
