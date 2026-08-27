@@ -417,6 +417,16 @@
         vertical-align: 2px;
       }
 
+      .item.ops.wip .title::after {
+        content: "WIP";
+        padding: 2px 8px;
+        background: linear-gradient(135deg, #12b76a, #00a86b);
+        box-shadow: 0 2px 6px -2px rgba(18, 183, 106, 0.55);
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+
       .num {
         font-size: 12px;
         font-weight: 700;
@@ -750,6 +760,9 @@
           work ahead.
         </p>
         <a class="hero-link" href="./changelog/index.html">Release Notes →</a>
+        <a class="hero-link" href="./notifications/index.html"
+          >Notifications estimate →</a
+        >
       </section>
 
       <!-- Changelog -->
@@ -1053,7 +1066,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item wip">
+        <div class="item done">
           <div class="num"></div>
           <div>
             <div class="title">Account hard deletion</div>
@@ -1065,7 +1078,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item wip">
+        <div class="item done">
           <div class="num"></div>
           <div>
             <div class="title">Organisation hard deletion</div>
@@ -1089,7 +1102,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item ops">
+        <div class="item ops wip">
           <div class="num"></div>
           <div>
             <div class="title">Automated moderation</div>
@@ -1100,20 +1113,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item ops">
-          <div class="num"></div>
-          <div>
-            <div class="title">Compliance audit</div>
-            <div class="detail">
-              Review of legal, moderation and data-protection obligations to
-              confirm the minimum surface area needed to launch closed beta.
-              Scopes the follow-on tooling work.
-            </div>
-          </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
-        </div>
-
-        <div class="item">
+        <div class="item wip">
           <div class="num"></div>
           <div>
             <div class="title">Alpha badges</div>
@@ -1133,6 +1133,19 @@
           >
         </div>
 
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Compliance audit</div>
+            <div class="detail">
+              Review of legal, moderation and data-protection obligations to
+              confirm the minimum surface area needed to launch closed beta.
+              Scopes the follow-on tooling work.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
         <div class="item">
           <div class="num"></div>
           <div>
@@ -1144,7 +1157,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item">
+        <div class="item wip">
           <div class="num"></div>
           <div>
             <div class="title">Feed filters</div>

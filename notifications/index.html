@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OZEAON - Notifications Estimate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Primitive brand */
+        --primary-green: #00786f;
+        --primary-green-soft: #edfff3;
+        --primary-green-100: #c4fbcc;
+        --ozeaon-blue: #4c647e;
+        --ozeaon-blue-hover: #445a71;
+        --deep-ocean: #1c2b3a;
+
+        /* Actual app gradient - src/styles/globals.css */
+        --gradient-brand: linear-gradient(
+          to right,
+          rgba(76, 100, 126, 0.75),
+          #00786f
+        );
+
+        /* Surfaces (Figma color/background) */
+        --bg-surface: #ffffff;
+        --bg-cold: #f7f8fa;
+        --bg-subtle: #eff3fc;
+        --bg-sunken: #e4ecf6;
+
+        /* Ozeaon secondary backgrounds (Figma color/secondary background) */
+        --azure-mist: #dff3f9;
+        --pale-sky: #d5e8f5;
+        --lavender-mist: #f9f4ff;
+        --body-parchment: #f5f1ed;
+
+        /* Text */
+        --text-primary: #1c2b3a;
+        --text-secondary: #374150;
+        --text-muted: #677888;
+        --text-subtle: #8898a9;
+        --border: #e4ecf6;
+
+        /* Blocked / caution */
+        --caution-soft: #fdf4e8;
+        --caution-ink: #96631a;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        font-family:
+          "Manrope",
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        color: var(--text-primary);
+        background: var(--bg-cold);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 48px 24px 96px;
+        background:
+          radial-gradient(
+            ellipse 900px 600px at 15% -5%,
+            rgba(76, 100, 126, 0.06) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 900px 600px at 105% 20%,
+            rgba(0, 120, 111, 0.05) 0%,
+            transparent 60%
+          ),
+          var(--bg-cold);
+      }
+
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--ozeaon-blue);
+        display: grid;
+        place-items: center;
+        box-shadow:
+          0 8px 20px -8px rgba(76, 100, 126, 0.4),
+          0 2px 4px rgba(76, 100, 126, 0.12);
+      }
+
+      .brand-mark svg {
+        width: 18px;
+        height: 25px;
+        fill: #fff;
+      }
+
+      .brand-name {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--deep-ocean);
+      }
+
+      .brand-tagline {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-top: 2px;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        padding: 56px 48px 52px;
+        margin-bottom: 20px;
+        background: var(--gradient-brand);
+        color: #fff;
+        box-shadow:
+          0 24px 48px -20px rgba(28, 43, 58, 0.25),
+          0 4px 12px -4px rgba(28, 43, 58, 0.08);
+      }
+
+      .hero-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 20px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+      }
+
+      .hero h1 {
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin-bottom: 16px;
+        max-width: 17ch;
+      }
+
+      .hero p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 56ch;
+      }
+
+      .hero-figures {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .figure {
+        padding: 10px 16px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        backdrop-filter: blur(6px);
+      }
+
+      .figure-value {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: #fff;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .figure-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        margin-top: 2px;
+      }
+
+      .hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 26px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        backdrop-filter: blur(6px);
+        transition:
+          background-color 140ms ease,
+          transform 140ms ease;
+      }
+
+      .hero-link:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+      }
+
+      .hero-link:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
+      /* ── SOURCES / JUMP ── */
+      .jump {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 32px;
+        margin-bottom: 20px;
+        background: var(--bg-surface);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+      }
+
+      .jump-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-right: 4px;
+      }
+
+      .jump a,
+      .jump span.chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: var(--bg-subtle);
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 120ms ease;
+      }
+
+      .jump a:hover {
+        background: var(--bg-sunken);
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--bg-surface);
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow: 0 2px 8px -4px rgba(28, 43, 58, 0.04);
+      }
+
+      .card + .card {
+        margin-top: 20px;
+      }
+
+      .card-header {
+        padding: 20px 32px;
+        border-bottom: 1px solid var(--border);
+        background: var(--body-parchment);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .card-header h2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .card-header .note {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .card-body {
+        padding: 26px 32px 30px;
+        scroll-margin-top: 24px;
+      }
+
+      .card-body > * + * {
+        margin-top: 16px;
+      }
+
+      .card-body p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-secondary);
+      }
+
+      .card-body h3 {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--text-primary);
+        margin-top: 26px;
+      }
+
+      strong {
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      /* ── CALLOUT ── */
+      .callout {
+        padding: 18px 22px;
+        border-radius: 16px;
+        background: var(--primary-green-soft);
+        border: 1px solid var(--primary-green-100);
+      }
+
+      .callout .callout-label {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 10px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        background: var(--gradient-brand);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .callout p {
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      /* ── TABLES ── */
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13.5px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        line-height: 1.5;
+      }
+
+      th {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        background: var(--bg-cold);
+        white-space: nowrap;
+      }
+
+      td {
+        color: var(--text-secondary);
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      td:first-child {
+        font-weight: 700;
+        color: var(--text-primary);
+        white-space: nowrap;
+      }
+
+      .num {
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      tr.is-mvp td {
+        background: var(--primary-green-soft);
+      }
+
+      tr.is-mvp td:first-child,
+      tr.is-mvp .num {
+        color: var(--primary-green);
+      }
+
+      tr.is-total td {
+        background: var(--bg-subtle);
+      }
+
+      /* ── PILLS ── */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .pill.is-mvp {
+        background: var(--primary-green-soft);
+        color: var(--primary-green);
+      }
+
+      .pill.is-blocked {
+        background: var(--caution-soft);
+        color: var(--caution-ink);
+      }
+
+      .pill.is-later {
+        background: var(--lavender-mist);
+        color: #6d5bab;
+      }
+
+      /* ── LISTS ── */
+      ul.dots,
+      ol.steps {
+        list-style: none;
+      }
+
+      ul.dots li {
+        position: relative;
+        padding: 5px 0 5px 20px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+
+      ul.dots li::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 12px;
+        width: 5px;
+        height: 5px;
+        border-radius: 999px;
+        background: var(--primary-green-100);
+      }
+
+      ul.dots.against li::before {
+        background: #f0d7ae;
+      }
+
+      ol.steps {
+        counter-reset: step;
+      }
+
+      ol.steps li {
+        position: relative;
+        counter-increment: step;
+        padding: 7px 0 7px 34px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+
+      ol.steps li::before {
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--bg-subtle);
+        color: var(--ozeaon-blue);
+        font-size: 11px;
+        font-weight: 800;
+        display: grid;
+        place-items: center;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* ── SPLIT PANELS ── */
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .panel {
+        padding: 20px 22px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--bg-cold);
+      }
+
+      .panel.is-against {
+        background: var(--caution-soft);
+        border-color: #f2e2c9;
+      }
+
+      .panel-label {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      /* ── RISK ROWS ── */
+      .risks {
+        list-style: none;
+      }
+
+      .risks li {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-secondary);
+      }
+
+      .risks li:first-child {
+        padding-top: 0;
+      }
+
+      .risks li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .risks .risk-title {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        margin-top: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .meta {
+        font-size: 11px;
+        color: var(--text-subtle);
+        letter-spacing: 0.05em;
+      }
+
+      footer a {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary-green);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── MOBILE ── */
+      @media (max-width: 720px) {
+        body {
+          padding: 28px 16px 64px;
+        }
+        .hero {
+          padding: 40px 24px 36px;
+          border-radius: 20px;
+        }
+        .hero h1 {
+          font-size: 32px;
+        }
+        .card {
+          border-radius: 18px;
+        }
+        .card-header,
+        .card-body {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .jump {
+          padding: 16px 20px;
+          gap: 8px;
+        }
+        .split {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Brand line -->
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="8 3 32 43" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M26.5663 3.808C24.8466 5.24863 18.548 11.3916 17.1153 14.1605C16.4943 15.3606 16.5246 16.259 16.7999 16.9113C17.3768 18.2784 17.0532 19.8575 15.9609 20.8619C13.2316 23.3713 10.3145 25.2161 10.0752 25.6599C9.86985 26.0404 9.60279 26.5356 9.69781 27.165C9.81085 27.9136 10.3602 28.351 10.4497 28.4201C11.0723 28.9004 11.8364 28.8706 12.3602 28.8169C14.6603 28.5812 17.1034 27.5542 17.3292 27.4674C18.2559 27.1107 21.8222 25.7079 23.8835 25.0056C25.8096 24.3494 25.0451 24.6197 29.7138 23.1571C30.8666 22.796 37.3994 20.9386 38.3616 21.5742C38.999 21.9953 39.07 22.2567 39.058 23.0092C39.0402 24.124 32.2991 28.8276 30.7703 29.7261C30.0956 30.1227 26.2651 30.9964 24.9408 32.4303C23.1999 34.3152 24.6551 37.6143 24.36 39.3739C24.0796 41.0458 22.4912 42.4301 20.6419 43.3934C20.0371 43.7084 17.5552 44.5646 16.2204 44.7818C15.9114 44.832 14.6869 45.0262 14.1454 44.4415C13.7217 43.9841 13.7118 43.5015 13.822 42.7924C13.9295 42.1014 15.0743 39.3793 15.7822 37.7767C16.4313 36.3076 16.3235 36.4971 18.1819 32.3477C20.2184 27.8 24.9597 17.2091 24.9597 17.2091C26.9423 12.8707 27.4872 11.71 28.7275 9.03068C29.4912 7.38082 29.7082 6.30609 29.4705 4.65899C29.4348 4.41184 29.0209 3.36868 28.2217 3.17693C27.6384 3.03699 27.0426 3.40904 26.5663 3.808Z"
+            />
+            <path
+              d="M34.5899 36.09C34.5899 38.6598 32.5066 40.7429 29.9369 40.7429C27.3671 40.7429 25.2839 38.6598 25.2839 36.09C25.2839 33.5201 27.3671 31.437 29.9369 31.437C32.5066 31.437 34.5899 33.5201 34.5899 36.09Z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">OZEAON</div>
+          <div class="brand-tagline">Ocean · Climate · Community</div>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-eyebrow">Notifications · Estimate &amp; Proposal</div>
+        <h1>Notifications: what it takes to ship.</h1>
+        <p>
+          The specification covers seven groups of notifications, seen in four
+          places in the product. Built in full, that is 46 days of work. We
+          propose shipping a 12-day first release covering everything the
+          platform can actually send today, and taking the rest as the features
+          behind them arrive.
+        </p>
+        <div class="hero-figures">
+          <div class="figure">
+            <div class="figure-value">12 days</div>
+            <div class="figure-label">First release</div>
+          </div>
+          <div class="figure">
+            <div class="figure-value">46 days</div>
+            <div class="figure-label">Complete feature</div>
+          </div>
+          <div class="figure">
+            <div class="figure-value">5 of 7</div>
+            <div class="figure-label">Groups ready to build</div>
+          </div>
+          <div class="figure">
+            <div class="figure-value">4</div>
+            <div class="figure-label">Places they appear</div>
+          </div>
+        </div>
+        <a class="hero-link" href="../index.html">← Product roadmap</a>
+      </section>
+
+      <!-- Sources -->
+      <div class="jump">
+        <span class="jump-title">Based on</span>
+        <span class="chip">Notifications discovery document</span>
+        <span class="chip">Notifications designs</span>
+        <span class="chip">27 August 2026</span>
+      </div>
+
+      <!-- Jump links -->
+      <nav class="jump" aria-label="Jump to a section">
+        <span class="jump-title">Sections</span>
+        <a href="#summary">The proposal</a>
+        <a href="#covered">What lands first</a>
+        <a href="#blocked">What has to wait</a>
+        <a href="#plan">Timeline</a>
+        <a href="#questions">Open questions</a>
+        <a href="#decisions">Decisions needed</a>
+      </nav>
+
+      <!-- Summary -->
+      <section class="card">
+        <div class="card-header">
+          <h2>The proposal</h2>
+          <span class="note">Four releases · 46 days in total</span>
+        </div>
+        <div class="card-body" id="summary">
+          <p>
+            The specification describes <strong>seven groups</strong> of
+            notifications, delivered in four places: an unread count, a dropdown
+            panel, a full notifications page, and a settings screen. Each release
+            below is a complete, usable slice of the feature - nothing is left
+            half-wired between them.
+          </p>
+
+          <div class="callout">
+            <div class="callout-label">Recommendation</div>
+            <p>
+              Ship the 12-day first release now. It delivers everything the
+              platform can genuinely send today, on every surface.
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Release</th>
+                  <th scope="col">What it adds</th>
+                  <th scope="col">Days</th>
+                  <th scope="col">Cumulative</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-mvp">
+                  <td>First release</td>
+                  <td>
+                    Everything the platform can send today - posts, projects,
+                    articles, organisation invitations and membership - with the
+                    unread count, dropdown panel and notifications page
+                  </td>
+                  <td class="num">12</td>
+                  <td class="num">12</td>
+                </tr>
+                <tr>
+                  <td>Quick actions</td>
+                  <td>
+                    Accept and decline an invitation or join request straight
+                    from the notification, without opening another screen
+                  </td>
+                  <td class="num">3</td>
+                  <td class="num">15</td>
+                </tr>
+                <tr>
+                  <td>Settings</td>
+                  <td>
+                    Per-alert controls, and choosing which of your accounts'
+                    notifications you see
+                  </td>
+                  <td class="num">7</td>
+                  <td class="num">22</td>
+                </tr>
+                <tr class="is-total">
+                  <td>Funding &amp; payments</td>
+                  <td>
+                    The remaining groups - payouts, funding rounds,
+                    contributions and rewards. Waiting on the features
+                    themselves, see below
+                  </td>
+                  <td class="num">24</td>
+                  <td class="num">46</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- What lands first -->
+      <section class="card">
+        <div class="card-header">
+          <h2>What lands in the first release</h2>
+          <span class="pill is-mvp">Five groups</span>
+        </div>
+        <div class="card-body" id="covered">
+          <p>
+            Everything here is driven by a part of the platform that is already
+            live, so the notification is the only thing being built.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Group</th>
+                  <th scope="col">Area of the platform</th>
+                  <th scope="col">Covers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3A</td>
+                  <td>Community posts</td>
+                  <td>
+                    Tags, mentions, reposts, comments and reactions on posts
+                    (A1-A7)
+                  </td>
+                </tr>
+                <tr>
+                  <td>3B</td>
+                  <td>Projects</td>
+                  <td>
+                    Team invitations and additions, comments, and linked projects
+                    (B1-B5)
+                  </td>
+                </tr>
+                <tr>
+                  <td>3C</td>
+                  <td>Articles</td>
+                  <td>
+                    Co-authorship, organisation links and comments (C1-C4, C6)
+                  </td>
+                </tr>
+                <tr>
+                  <td>3D</td>
+                  <td>Organisation membership</td>
+                  <td>
+                    Invitations sent, join requests received and their outcomes
+                    (D5-D8)
+                  </td>
+                </tr>
+                <tr>
+                  <td>3E</td>
+                  <td>Your own membership</td>
+                  <td>
+                    Being added, approved, removed, or a member leaving (E1-E4)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Where we are starting from</h3>
+          <p>
+            Nothing in the product sends a notification today. There is an unused
+            placeholder from the original build, but it cannot carry what the
+            specification asks for - who did the thing, what it was about, which
+            of your accounts it belongs to, or when you read it. So this is a
+            build from scratch rather than an extension, which is what the first
+            five days of the timeline reflect.
+          </p>
+          <p>
+            One thing already works in our favour: switching between your
+            personal account and an organisation is live, and that is what lets a
+            notification be addressed to an organisation rather than a person.
+          </p>
+        </div>
+      </section>
+
+      <!-- Blocked -->
+      <section class="card">
+        <div class="card-header">
+          <h2>What has to wait, and why</h2>
+          <span class="pill is-blocked">Payments &amp; funding</span>
+        </div>
+        <div class="card-body" id="blocked">
+          <p>
+            Just under half the list describes events the platform cannot yet
+            produce, because the feature that would produce them has not been
+            built. These are not cheaper to build later - they are
+            <strong>not buildable now</strong>.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Group</th>
+                  <th scope="col">Days</th>
+                  <th scope="col">Waiting on</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3D1-4</td>
+                  <td class="num">8</td>
+                  <td>
+                    Payments. There is no payment provider connected yet, so
+                    there are no payouts or transactions to notify anyone about.
+                  </td>
+                </tr>
+                <tr>
+                  <td>3F</td>
+                  <td class="num">8</td>
+                  <td>
+                    Funding rounds. Projects carry a funding target and a total
+                    raised, but named rounds - "Spring 2026" - do not exist as
+                    something the platform can reference, and nothing yet updates
+                    the amount raised.
+                  </td>
+                </tr>
+                <tr>
+                  <td>3G</td>
+                  <td class="num">8</td>
+                  <td>
+                    Contributions, refunds and rewards. None of it is built.
+                  </td>
+                </tr>
+                <tr>
+                  <td>C5</td>
+                  <td class="num">-</td>
+                  <td>Article reviews. The feature does not exist yet.</td>
+                </tr>
+                <tr>
+                  <td>D9</td>
+                  <td class="num">-</td>
+                  <td>
+                    Role changes. Already flagged as blocked in the discovery
+                    document.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Those 24 days are the <strong>notifications work only</strong>.
+            Connecting a payment provider, building funding rounds, and building
+            contributions are separate projects with their own estimates - they
+            are prerequisites, not line items here.
+          </p>
+          <p>
+            A few of these notifications are also time-based - "ends in three
+            days" - which means the platform needs to be able to send something
+            on a schedule rather than in response to an action. Nothing in the
+            first release is time-based, which keeps that work out of it too.
+          </p>
+        </div>
+      </section>
+
+      <!-- Timeline -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Timeline - 12 days</h2>
+          <span class="pill is-mvp">One developer</span>
+        </div>
+        <div class="card-body" id="plan">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Days</th>
+                  <th scope="col">What is delivered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1-5</td>
+                  <td>
+                    <strong>Foundation and community posts.</strong> The
+                    groundwork every notification depends on, plus all three
+                    surfaces - the unread count, the dropdown panel and the
+                    notifications page - and the seven post notifications running
+                    on top of them. At the end of this, notifications are live in
+                    the product.
+                  </td>
+                </tr>
+                <tr>
+                  <td>6-9</td>
+                  <td>
+                    <strong>Projects and articles.</strong> Eleven more
+                    notifications reusing the surfaces already standing.
+                  </td>
+                </tr>
+                <tr>
+                  <td>10-12</td>
+                  <td>
+                    <strong>Organisation invitations and membership.</strong>
+                    Invitations, join outcomes, removals and departures.
+                    <strong>First release complete.</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Is 12 days realistic?</h3>
+          <p>
+            Yes - provided the deferrals below are agreed now rather than decided
+            under pressure in the second week.
+          </p>
+          <p>
+            The risk sits almost entirely in the first five days. That block
+            covers the groundwork, all three surfaces and seven notifications,
+            and the dropdown panel and notifications page carry
+            <strong>29 specified behaviours</strong> between them - including
+            three different ways to clear notifications and two different
+            meanings of "mark all as read". Everything after day five depends on
+            that block, so an overrun there moves the whole timeline.
+          </p>
+
+          <h3>What we are deliberately leaving out</h3>
+          <ol class="steps">
+            <li>
+              <strong>Quick actions.</strong> Invitations and join requests link
+              through to the relevant screen instead of offering accept and
+              decline in the notification itself. Priced separately at three
+              days.
+            </li>
+            <li>
+              <strong>Settings.</strong> The specification has every alert on by
+              default, so launching with nothing to switch off is coherent. One
+              thing still needs deciding - see below.
+            </li>
+            <li>
+              <strong>Grouping.</strong> "Five people liked your post" arrives as
+              five notifications at first, not one. Noisier, but nothing is
+              broken, and switching grouping on later needs no rework.
+            </li>
+            <li>
+              <strong>Automatic clearing of old notifications.</strong> The
+              30-day and one-year rules do not bite for 30 days and a year
+              respectively. We build the groundwork now and add the clearing
+              before the first ones age out.
+            </li>
+            <li>
+              <strong>Instant delivery.</strong> The unread count refreshes on a
+              short interval rather than the moment something happens. The
+              specification does not ask for instant, and it costs noticeably
+              more to run.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Open questions -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Open questions</h2>
+          <span class="pill is-later">Five for design</span>
+        </div>
+        <div class="card-body" id="questions">
+          <ul class="risks">
+            <li>
+              <span class="risk-title">The designs are marked in progress.</span>
+              All four screens are drawn and the settings screen is detailed down
+              to the wording, but this estimate assumes no further structural
+              change. If the layouts move, the front-end figure moves with them.
+            </li>
+            <li>
+              <span class="risk-title"
+                >Every notification type needs its own icon.</span
+              >
+              The specification says design assigns them. Until that list exists
+              the notification row cannot be finished - and the same row is used
+              in both the dropdown and the page.
+            </li>
+            <li>
+              <span class="risk-title"
+                >How long the dropdown is, and how you see more.</span
+              >
+              The specification says "between 10 and 25, design sets the exact
+              number", and leaves open whether you scroll or press a button for
+              more. Those are two different builds.
+            </li>
+            <li>
+              <span class="risk-title">What mobile offers.</span>
+              The notifications page has seven actions on desktop; design chooses
+              which of them mobile gets, and how marking something as read works
+              on a touch screen.
+            </li>
+            <li>
+              <span class="risk-title"
+                >"Mark all as read" currently means two things.</span
+              >
+              In the dropdown it clears only what is on screen; on the page it
+              clears everything. Both are reasonable - we just need confirmation
+              that the difference is intended.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Decisions -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Decisions needed before we start</h2>
+          <span class="note">Six items</span>
+        </div>
+        <div class="card-body" id="decisions">
+          <ol class="steps">
+            <li>
+              Confirm the designs are final, or accept the front-end estimate as
+              provisional.
+            </li>
+            <li>Assign an icon to each notification type.</li>
+            <li>
+              Set the dropdown length, and whether seeing more is a scroll or a
+              button.
+            </li>
+            <li>Choose which actions the notifications page offers on mobile.</li>
+            <li>
+              Decide the default for cross-account visibility - whether someone
+              acting for an organisation sees that organisation's notifications
+              alongside their own from day one. Settings are not in the first
+              release, so whatever we pick is what everyone gets.
+            </li>
+            <li>
+              Confirm the blocked groups - 24 of the 46 days - are deferred, and
+              that payments, funding rounds and contributions are estimated as
+              projects in their own right.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <footer>
+        <span class="meta"
+          >Covers in-app notifications only. Email notifications are out of scope
+          per the discovery document. · 27 August 2026</span
+        >
+        <a href="../index.html">Product roadmap →</a>
+      </footer>
+    </div>
+  </body>
+</html>
