@@ -49,6 +49,11 @@
         /* Blocked / caution */
         --caution-soft: #fdf4e8;
         --caution-ink: #96631a;
+
+        /* Not included / excluded */
+        --excluded-soft: #fdf1ef;
+        --excluded-line: #f3cec7;
+        --excluded-ink: #a83228;
       }
 
       * {
@@ -178,6 +183,11 @@
         line-height: 1.55;
         color: rgba(255, 255, 255, 0.85);
         max-width: 56ch;
+      }
+
+      .hero p strong {
+        color: #fff;
+        font-weight: 700;
       }
 
       .hero-figures {
@@ -379,6 +389,39 @@
         font-weight: 600;
       }
 
+      .callout.is-excluded {
+        background: var(--excluded-soft);
+        border-color: var(--excluded-line);
+      }
+
+      .callout.is-excluded .callout-label {
+        background: var(--excluded-ink);
+      }
+
+      .callout.is-excluded ul {
+        list-style: none;
+        margin-top: 10px;
+      }
+
+      .callout.is-excluded li {
+        position: relative;
+        padding: 4px 0 4px 22px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--excluded-ink);
+      }
+
+      .callout.is-excluded li::before {
+        content: "✕";
+        position: absolute;
+        left: 2px;
+        top: 4px;
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--excluded-ink);
+      }
+
       /* ── TABLES ── */
       .table-wrap {
         overflow-x: auto;
@@ -439,8 +482,13 @@
         color: var(--primary-green);
       }
 
-      tr.is-total td {
-        background: var(--bg-subtle);
+      tr.is-excluded td {
+        background: var(--excluded-soft);
+      }
+
+      tr.is-excluded td:first-child,
+      tr.is-excluded .num {
+        color: var(--excluded-ink);
       }
 
       /* ── PILLS ── */
@@ -469,6 +517,12 @@
       .pill.is-later {
         background: var(--lavender-mist);
         color: #6d5bab;
+      }
+
+      .pill.is-excluded {
+        background: var(--excluded-soft);
+        color: var(--excluded-ink);
+        border: 1px solid var(--excluded-line);
       }
 
       /* ── LISTS ── */
@@ -528,6 +582,59 @@
         display: grid;
         place-items: center;
         font-variant-numeric: tabular-nums;
+      }
+
+      ol.steps.is-excluded li::before {
+        content: "\2715";
+        background: var(--excluded-soft);
+        border: 1px solid var(--excluded-line);
+        color: var(--excluded-ink);
+        font-size: 10px;
+      }
+
+      /* ── INCLUDED / EXCLUDED CARDS ── */
+      .card.is-included {
+        border-color: var(--primary-green-100);
+      }
+
+      .card.is-included .card-header {
+        background: var(--primary-green-soft);
+        border-bottom-color: var(--primary-green-100);
+      }
+
+      .card.is-included .card-header h2 {
+        color: var(--primary-green);
+      }
+
+      .card.is-excluded {
+        border-color: var(--excluded-line);
+      }
+
+      .card.is-excluded .card-header {
+        background: var(--excluded-soft);
+        border-bottom-color: var(--excluded-line);
+      }
+
+      .card.is-excluded .card-header h2 {
+        color: var(--excluded-ink);
+      }
+
+      .excluded-note {
+        padding: 16px 20px;
+        border-radius: 14px;
+        background: var(--excluded-soft);
+        border: 1px solid var(--excluded-line);
+      }
+
+      .excluded-note p {
+        color: var(--excluded-ink);
+        font-weight: 600;
+      }
+
+      .excluded-note strong,
+      ol.steps.is-excluded li strong,
+      .callout.is-excluded p strong {
+        color: var(--excluded-ink);
       }
 
       /* ── SPLIT PANELS ── */
@@ -678,19 +785,16 @@
         <h1>Notifications: what it takes to ship.</h1>
         <p>
           The specification covers seven groups of notifications, seen in four
-          places in the product. Built in full, that is 46 days of work. We
-          propose shipping a 12-day first release covering everything the
-          platform can actually send today, and taking the rest as the features
-          behind them arrive.
+          places in the product. <strong>We are quoting one thing: a 12-day
+          first release</strong> covering everything the platform can actually
+          send today. Quick actions, the settings screen and everything tied to
+          payments and funding are <strong>not in it</strong> - they follow as
+          separate pieces of work.
         </p>
         <div class="hero-figures">
           <div class="figure">
             <div class="figure-value">12 days</div>
             <div class="figure-label">First release</div>
-          </div>
-          <div class="figure">
-            <div class="figure-value">46 days</div>
-            <div class="figure-label">Complete feature</div>
           </div>
           <div class="figure">
             <div class="figure-value">5 of 7</div>
@@ -716,9 +820,9 @@
       <nav class="jump" aria-label="Jump to a section">
         <span class="jump-title">Sections</span>
         <a href="#summary">The proposal</a>
-        <a href="#covered">What lands first</a>
-        <a href="#blocked">What has to wait</a>
-        <a href="#plan">Timeline</a>
+        <a href="#covered">What is included</a>
+        <a href="#plan">Not included</a>
+        <a href="#blocked">Payments &amp; funding</a>
         <a href="#questions">Open questions</a>
         <a href="#decisions">Decisions needed</a>
       </nav>
@@ -727,23 +831,44 @@
       <section class="card">
         <div class="card-header">
           <h2>The proposal</h2>
-          <span class="note">Four releases · 46 days in total</span>
+          <span class="note">One release now · 12 days</span>
         </div>
         <div class="card-body" id="summary">
           <p>
             The specification describes <strong>seven groups</strong> of
             notifications, delivered in four places: an unread count, a dropdown
-            panel, a full notifications page, and a settings screen. Each release
-            below is a complete, usable slice of the feature - nothing is left
-            half-wired between them.
+            panel, a full notifications page, and a settings screen. It is more
+            than one release. The table below splits it into four, and
+            <strong>only the first one is what we are proposing to build
+            now</strong>.
           </p>
 
           <div class="callout">
-            <div class="callout-label">Recommendation</div>
+            <div class="callout-label">What we are building now</div>
             <p>
-              Ship the 12-day first release now. It delivers everything the
-              platform can genuinely send today, on every surface.
+              The 12-day first release, and nothing else. It delivers every
+              notification the platform can genuinely send today, on the unread
+              count, the dropdown panel and the notifications page.
             </p>
+          </div>
+
+          <div class="callout is-excluded">
+            <div class="callout-label">Not in the 12 days</div>
+            <p>
+              These are real, separately quoted pieces of work. Agreeing the 12
+              days does not buy them:
+            </p>
+            <ul>
+              <li>
+                Accept and decline directly from a notification (quick actions)
+              </li>
+              <li>The notification settings screen and per-alert controls</li>
+              <li>
+                Anything to do with payouts, funding rounds, contributions or
+                rewards
+              </li>
+              <li>Grouping, automatic clearing, and instant live delivery</li>
+            </ul>
           </div>
 
           <div class="table-wrap">
@@ -752,48 +877,43 @@
                 <tr>
                   <th scope="col">Release</th>
                   <th scope="col">What it adds</th>
-                  <th scope="col">Days</th>
-                  <th scope="col">Cumulative</th>
+                  <th scope="col">In this quote</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="is-mvp">
-                  <td>First release</td>
+                  <td>First release<br />12 days</td>
                   <td>
                     Everything the platform can send today - posts, projects,
                     articles, organisation invitations and membership - with the
                     unread count, dropdown panel and notifications page
                   </td>
-                  <td class="num">12</td>
-                  <td class="num">12</td>
+                  <td><span class="pill is-mvp">Yes</span></td>
                 </tr>
-                <tr>
+                <tr class="is-excluded">
                   <td>Quick actions</td>
                   <td>
                     Accept and decline an invitation or join request straight
                     from the notification, without opening another screen
                   </td>
-                  <td class="num">3</td>
-                  <td class="num">15</td>
+                  <td><span class="pill is-excluded">No</span></td>
                 </tr>
-                <tr>
+                <tr class="is-excluded">
                   <td>Settings</td>
                   <td>
                     Per-alert controls, and choosing which of your accounts'
                     notifications you see
                   </td>
-                  <td class="num">7</td>
-                  <td class="num">22</td>
+                  <td><span class="pill is-excluded">No</span></td>
                 </tr>
-                <tr class="is-total">
+                <tr class="is-excluded">
                   <td>Funding &amp; payments</td>
                   <td>
                     The remaining groups - payouts, funding rounds,
                     contributions and rewards. Waiting on the features
                     themselves, see below
                   </td>
-                  <td class="num">24</td>
-                  <td class="num">46</td>
+                  <td><span class="pill is-excluded">No</span></td>
                 </tr>
               </tbody>
             </table>
@@ -802,9 +922,9 @@
       </section>
 
       <!-- What lands first -->
-      <section class="card">
+      <section class="card is-included">
         <div class="card-header">
-          <h2>What lands in the first release</h2>
+          <h2>Included in the 12 days</h2>
           <span class="pill is-mvp">Five groups</span>
         </div>
         <div class="card-body" id="covered">
@@ -882,11 +1002,72 @@
         </div>
       </section>
 
-      <!-- Blocked -->
-      <section class="card">
+      <!-- Not included -->
+      <section class="card is-excluded">
         <div class="card-header">
-          <h2>What has to wait, and why</h2>
-          <span class="pill is-blocked">Payments &amp; funding</span>
+          <h2>Not included in the 12 days</h2>
+          <span class="pill is-excluded">Five exclusions</span>
+        </div>
+        <div class="card-body" id="plan">
+          <div class="excluded-note">
+            <p>
+              The 12-day release is deliberately narrower than the
+              specification. Everything listed below is
+              <strong>outside it</strong>. None of it is built, none of it is
+              priced into the 12 days, and each one needs its own go-ahead
+              before it happens.
+            </p>
+          </div>
+
+          <ol class="steps is-excluded">
+            <li>
+              <strong>Quick actions - not included.</strong> Invitations and
+              join requests link through to the relevant screen. Accepting or
+              declining from inside the notification itself is separate work.
+            </li>
+            <li>
+              <strong>The settings screen - not included.</strong> The
+              specification has every alert on by default, so launching with
+              nothing to switch off is coherent - but there is no settings
+              screen and no per-alert control in this release. One default still
+              needs deciding, see below.
+            </li>
+            <li>
+              <strong>Grouping - not included.</strong> "Five people liked your
+              post" arrives as five separate notifications, not one. Noisier,
+              but nothing is broken, and switching grouping on later needs no
+              rework.
+            </li>
+            <li>
+              <strong>Automatic clearing of old notifications - not
+              included.</strong> The 30-day and one-year rules do not bite for
+              30 days and a year respectively. The groundwork goes in now and
+              the clearing is added before the first ones age out.
+            </li>
+            <li>
+              <strong>Instant live delivery - not included.</strong> The unread
+              count refreshes on a short interval rather than the moment
+              something happens. The specification does not ask for instant, and
+              it costs noticeably more to run.
+            </li>
+          </ol>
+
+          <div class="excluded-note">
+            <p>
+              On top of these, the whole of payments, funding rounds and
+              contributions is out - see
+              <a href="#blocked" style="color: inherit">the section below</a>.
+              Those groups cannot be built yet at any price.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blocked -->
+      <section class="card is-excluded">
+        <div class="card-header">
+          <h2>Not included - payments &amp; funding</h2>
+          <span class="pill is-excluded">Cannot be built yet</span>
         </div>
         <div class="card-body" id="blocked">
           <p>
@@ -901,14 +1082,12 @@
               <thead>
                 <tr>
                   <th scope="col">Group</th>
-                  <th scope="col">Days</th>
                   <th scope="col">Waiting on</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>3D1-4</td>
-                  <td class="num">8</td>
                   <td>
                     Payments. There is no payment provider connected yet, so
                     there are no payouts or transactions to notify anyone about.
@@ -916,7 +1095,6 @@
                 </tr>
                 <tr>
                   <td>3F</td>
-                  <td class="num">8</td>
                   <td>
                     Funding rounds. Projects carry a funding target and a total
                     raised, but named rounds - "Spring 2026" - do not exist as
@@ -926,19 +1104,16 @@
                 </tr>
                 <tr>
                   <td>3G</td>
-                  <td class="num">8</td>
                   <td>
                     Contributions, refunds and rewards. None of it is built.
                   </td>
                 </tr>
                 <tr>
                   <td>C5</td>
-                  <td class="num">-</td>
                   <td>Article reviews. The feature does not exist yet.</td>
                 </tr>
                 <tr>
                   <td>D9</td>
-                  <td class="num">-</td>
                   <td>
                     Role changes. Already flagged as blocked in the discovery
                     document.
@@ -949,10 +1124,11 @@
           </div>
 
           <p>
-            Those 24 days are the <strong>notifications work only</strong>.
-            Connecting a payment provider, building funding rounds, and building
-            contributions are separate projects with their own estimates - they
-            are prerequisites, not line items here.
+            Any estimate for these groups covers the
+            <strong>notifications work only</strong>. Connecting a payment
+            provider, building funding rounds, and building contributions are
+            separate projects with their own estimates - they are prerequisites,
+            not line items here.
           </p>
           <p>
             A few of these notifications are also time-based - "ends in three
@@ -960,101 +1136,6 @@
             on a schedule rather than in response to an action. Nothing in the
             first release is time-based, which keeps that work out of it too.
           </p>
-        </div>
-      </section>
-
-      <!-- Timeline -->
-      <section class="card">
-        <div class="card-header">
-          <h2>Timeline - 12 days</h2>
-          <span class="pill is-mvp">One developer</span>
-        </div>
-        <div class="card-body" id="plan">
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Days</th>
-                  <th scope="col">What is delivered</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1-5</td>
-                  <td>
-                    <strong>Foundation and community posts.</strong> The
-                    groundwork every notification depends on, plus all three
-                    surfaces - the unread count, the dropdown panel and the
-                    notifications page - and the seven post notifications running
-                    on top of them. At the end of this, notifications are live in
-                    the product.
-                  </td>
-                </tr>
-                <tr>
-                  <td>6-9</td>
-                  <td>
-                    <strong>Projects and articles.</strong> Eleven more
-                    notifications reusing the surfaces already standing.
-                  </td>
-                </tr>
-                <tr>
-                  <td>10-12</td>
-                  <td>
-                    <strong>Organisation invitations and membership.</strong>
-                    Invitations, join outcomes, removals and departures.
-                    <strong>First release complete.</strong>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3>Is 12 days realistic?</h3>
-          <p>
-            Yes - provided the deferrals below are agreed now rather than decided
-            under pressure in the second week.
-          </p>
-          <p>
-            The risk sits almost entirely in the first five days. That block
-            covers the groundwork, all three surfaces and seven notifications,
-            and the dropdown panel and notifications page carry
-            <strong>29 specified behaviours</strong> between them - including
-            three different ways to clear notifications and two different
-            meanings of "mark all as read". Everything after day five depends on
-            that block, so an overrun there moves the whole timeline.
-          </p>
-
-          <h3>What we are deliberately leaving out</h3>
-          <ol class="steps">
-            <li>
-              <strong>Quick actions.</strong> Invitations and join requests link
-              through to the relevant screen instead of offering accept and
-              decline in the notification itself. Priced separately at three
-              days.
-            </li>
-            <li>
-              <strong>Settings.</strong> The specification has every alert on by
-              default, so launching with nothing to switch off is coherent. One
-              thing still needs deciding - see below.
-            </li>
-            <li>
-              <strong>Grouping.</strong> "Five people liked your post" arrives as
-              five notifications at first, not one. Noisier, but nothing is
-              broken, and switching grouping on later needs no rework.
-            </li>
-            <li>
-              <strong>Automatic clearing of old notifications.</strong> The
-              30-day and one-year rules do not bite for 30 days and a year
-              respectively. We build the groundwork now and add the clearing
-              before the first ones age out.
-            </li>
-            <li>
-              <strong>Instant delivery.</strong> The unread count refreshes on a
-              short interval rather than the moment something happens. The
-              specification does not ask for instant, and it costs noticeably
-              more to run.
-            </li>
-          </ol>
         </div>
       </section>
 
@@ -1110,10 +1191,15 @@
       <section class="card">
         <div class="card-header">
           <h2>Decisions needed before we start</h2>
-          <span class="note">Six items</span>
+          <span class="note">Seven items</span>
         </div>
         <div class="card-body" id="decisions">
           <ol class="steps">
+            <li>
+              <strong>Confirm the scope is the 12-day release only</strong>, and
+              that the five exclusions and the payments and funding groups are
+              accepted as outside it.
+            </li>
             <li>
               Confirm the designs are final, or accept the front-end estimate as
               provisional.
@@ -1131,9 +1217,9 @@
               release, so whatever we pick is what everyone gets.
             </li>
             <li>
-              Confirm the blocked groups - 24 of the 46 days - are deferred, and
-              that payments, funding rounds and contributions are estimated as
-              projects in their own right.
+              Confirm the blocked groups are deferred, and that payments,
+              funding rounds and contributions are estimated as projects in
+              their own right.
             </li>
           </ol>
         </div>
