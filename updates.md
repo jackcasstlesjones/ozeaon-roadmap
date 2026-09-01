@@ -1,5 +1,57 @@
 # OZEAON Changelog
 
+## 1 September 2026
+
+**New**
+
+- Automatic content checks before publishing: articles, projects, posts, comments, organisation mission and description, and your profile bio are all screened before they go live
+- Images are screened as they are added, both in the post composer and in every image upload field, so a rejected image never reaches a published page
+- A rejected submission names what was flagged, highlights the exact field that caused it and scrolls to it, and links to a form for reporting a check you think is wrong
+- Publishing is held back with a clear message when the checking service cannot be reached, rather than letting unchecked content through
+- Founding Member badge on user and organisation profiles, granted automatically to everyone who joins before the alpha signup window closes on 2 December 2026
+- Two new resource categories, Discovery & Scientific Exploration and Culture, Heritage & Worldviews, together with 31 new subcategories across the existing tree
+- Fullscreen document view closes on Escape or a click outside, and returns you to the page you were reading
+- Edit Organisation button on the organisation profile, so owners and administrators can reach organisation settings without going through the account switcher or memberships list
+- Article form on mobile now carries a page title — Create Article for a new article, or the title of the article you are editing
+- Empty articles feed now shows a message, an icon and a link to create an article, matching My Articles
+
+**Changed**
+
+- Document viewer rebuilt: pages load as you scroll and scale to fit the space they are in, at any orientation
+- Image lightbox navigation buttons, image counter and thumbnails resized for smaller screens
+- Article authors now appear inline within the article content on mobile
+- The Regulations "Overview" subcategory is now called "Regulations Overview"; existing article and project links to it still work
+- The View link has been removed from the article form's navigation
+- Organisation profile header: the edit or join action sits inside the header card, and the mission sits above the link icons
+- Edit Organisation and Join Organisation use the Ozeaon blue fill, and stretch to the full width of the card on mobile
+- Organisation owners and administrators can delete their organisation's posts, not only the member who wrote them
+- Editing and deleting an organisation's articles and posts now requires acting as that organisation, so switch accounts first
+- Posts published by an organisation are attributed to the organisation everywhere they appear, including inside a repost
+- The account menu names the organisation beside its logo while you are acting as an organisation
+- Placeholder funding figures have been removed from a project attached to a post, so the project's own cover image shows instead
+- The article author name field is capped at 100 characters and shows the remaining count
+- The article form's publish button reads Publish on mobile and Publish Article on wider screens
+- Article body text is screened for profanity and unsafe content, reported on Main Content
+- Like and unlike animation reworked
+- The sender name on platform emails is now Ozeaon
+
+**Fixed**
+
+- Images attached to a repost now open in the lightbox
+- The thumbnail for the image you are viewing now scrolls into view in the lightbox thumbnail strip
+- Documents no longer scroll sideways at high zoom, and no longer show blank gaps while scrolling
+- The article content length error now clears once the text is cut back under the limit
+- Publishing an article keeps the button loading until the published article opens, instead of reading as a publish that did nothing
+- Publishing an article no longer raises the unsaved-changes warning while the published article is still loading
+- Subcategories appear in a set order within each category, instead of an arbitrary one
+- Article body text can be selected, highlighted and copied again
+- Pressing Enter anywhere in the article form no longer clears a selected tag
+- Collapsed article sections expand to the full height of their content, with no gap left underneath
+- Long account names no longer overflow the account switcher
+- Repeated Enter presses in the post composer no longer send the same post more than once
+- Post composer action icons are large enough to tap on mobile
+- The dashboard header shows your own name and profile picture instead of the word Account
+
 ## 25 August 2026
 
 **Fixed**
