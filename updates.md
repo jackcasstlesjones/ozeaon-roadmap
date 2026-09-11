@@ -1,5 +1,79 @@
 # OZEAON Changelog
 
+## 11 September 2026
+
+**New**
+
+- Search from the mobile top navigation: the search icon opens a search field in the navigation bar, and on the results page that field stays docked with your query in it, ready to be refined or cleared
+
+**Changed**
+
+- Long-form content is set in a darker tone for readability — article body text and headings, and a project's overview, proposal, custom sections and FAQ questions and answers
+- The article, post composer and title validation changes withdrawn on 10 September are live again, and article titles and subtitles now accept emoji
+- Editing a project, and uploading or deleting its documents and section images, now requires acting as the account that owns it: an organisation's project while acting as that organisation, a personal project in personal mode
+- Personal profile controls are hidden while you are acting as an organisation — Edit Profile, the profile picture and cover controls, and the post composer
+- The cover button on a profile sits at the left of the cover, reads Edit profile cover or Add profile cover, and is a frosted text-only button with no camera icon
+- Organisation cards in profile settings use the parchment background, and the tab counts read inline as Invitations (2) instead of in a separate badge
+- Declining an organisation invitation uses a circle-slash icon in place of a cross
+
+**Fixed**
+
+- Backspace no longer deletes the last tag you added in the project and article forms; tags are removed with their delete button
+- The profile picture and organisation logo upload controls show an upload prompt when empty, instead of initials on a coloured background
+- Mobile pages no longer pan sideways, which had left the Create button and the top navigation drifting off the edge of the screen
+- Organisation titles are no longer cropped
+- Opening the edit page for a project you cannot manage links back to the project instead of leaving you at a dead end
+
+## 10 September 2026
+
+**Changed**
+
+- The article, post composer and title validation changes released on 9 September were withdrawn
+- The organisation create form numbers its section blocks, matching the numbered steps beside them
+
+**Fixed**
+
+- Submitting an incomplete organisation form now scrolls to the first field that still needs filling in, rather than only showing a message
+- The profile picture in profile settings no longer shows a doubled border on mobile
+- The wordmark no longer shifts sideways when the mobile menu opens and back when it closes
+
+## 9 September 2026
+
+**Changed**
+
+- Article titles and subtitles need only contain a letter or number rather than start with one, and accept more punctuation, including quotation marks, #, %, * and currency symbols
+- The Bounty section has been removed from articles
+- The post composer on mobile opens in a rebuilt drawer that keeps focus inside it and closes on Escape
+
+**Fixed**
+
+- Article card titles are no longer cropped
+- Article cards and article headers no longer show an empty type label when an article has no type set
+- Browsing a category with no subcategories no longer fails
+
+## 8 September 2026
+
+**New**
+
+- Projects show their keywords beneath the overview
+
+**Changed**
+
+- The article page's Main Content heading is now Article, with a dividing rule above it
+- Articles show three times as much text before the Read more link, and the link is centred beneath it
+
+**Fixed**
+
+- Creating an organisation with a web address already in use explains that it is taken, on the field itself, instead of showing a generic failure message
+- Project cards in carousels show the project's real status instead of reading Live for every published project
+
+## 3 September 2026
+
+**Changed**
+
+- Organisations are marked with a single building icon throughout, in the sidebar and on profile and article bylines
+- The organisation credited on a project page is marked with a box icon
+
 ## 1 September 2026
 
 **New**
