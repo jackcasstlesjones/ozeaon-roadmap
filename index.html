@@ -298,6 +298,66 @@
         border-bottom: none;
       }
 
+      /* ── BREAKDOWN ACCORDION (L / XL / XXL items) ── */
+      .breakdown {
+        grid-column: 2 / -1;
+        margin-top: 10px;
+      }
+      .breakdown__toggle {
+        appearance: none;
+        background: none;
+        border: 0;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary-green);
+      }
+      .breakdown__toggle:focus-visible {
+        outline: 2px solid var(--primary-green);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .breakdown__chevron {
+        font-size: 12px;
+        transition: transform 0.2s ease;
+      }
+      .breakdown__toggle[aria-expanded="true"] .breakdown__chevron {
+        transform: rotate(180deg);
+      }
+      .breakdown__body {
+        margin-top: 10px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background: var(--bg-cold);
+        border: 1px solid var(--border);
+      }
+      .breakdown__body[hidden] {
+        display: none;
+      }
+      .breakdown__body ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .breakdown__body li {
+        font-size: 12.5px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 3px;
+      }
+      .breakdown__body li:last-child {
+        margin-bottom: 0;
+      }
+      .breakdown__body li::marker {
+        color: var(--text-subtle);
+      }
+
       /* Done: soft red row with a strong red badge */
       .item.done {
         background: rgba(178, 30, 57, 0.06);
@@ -1226,6 +1286,25 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd1">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd1">
+              <ul>
+                <li>Notification types taxonomy and per-type templates</li>
+                <li>In-app bell with unread counts and read/seen state</li>
+                <li>Dedicated notifications page with grouping and pagination</li>
+                <li>Per-type user preferences and mute controls</li>
+                <li>Fan-out and batching so high-volume actors do not flood feeds</li>
+                <li>Digest rollups for repeat events on the same object</li>
+                <li>Backfill hooks so later features register new types without schema change</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1262,6 +1341,26 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd2">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd2">
+              <ul>
+                <li>Stripe account, webhook ingestion and idempotent event handling</li>
+                <li>Customer and payment-method storage, SCA / 3DS flows</li>
+                <li>Stripe Connect onboarding for payout recipients (KYC, verification states)</li>
+                <li>Payouts, balance handling and payout scheduling</li>
+                <li>Refunds, chargebacks and dispute handling</li>
+                <li>Platform fee take at source (feeds the Phase 3 fee engine)</li>
+                <li>Tax reporting surface and invoice / receipt generation</li>
+                <li>Currency handling and minimum-amount rules</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1274,6 +1373,25 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd3">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd3">
+              <ul>
+                <li>Funding goals, progress display and contribution records</li>
+                <li>One-off and recurring contribution flows</li>
+                <li>Payout release to project owners via Connect</li>
+                <li>Refund policy and failed-goal handling</li>
+                <li>Funder-facing receipts and contribution history</li>
+                <li>Public funder list with anonymity option</li>
+                <li>Event retention for later PRG backfill (see retroactivity decision)</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1286,6 +1404,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd4">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd4">
+              <ul>
+                <li>Tip flow on articles and projects with amount presets</li>
+                <li>Recipient eligibility and Connect onboarding gate</li>
+                <li>Tip history for sender and recipient</li>
+                <li>Minimums, rate limits and self-tipping prevention</li>
+                <li>Fee take at 1% per the white paper fee table</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1298,6 +1433,24 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd5">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd5">
+              <ul>
+                <li>Per-article pay-gating toggle for authors</li>
+                <li>Price setting and currency rules</li>
+                <li>Purchase flow, entitlement storage and access checks</li>
+                <li>Preview / teaser rendering for non-purchasers</li>
+                <li>Author earnings view and payout routing</li>
+                <li>Overlap to resolve with Premium accounts</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="milestone">
@@ -1314,6 +1467,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd6">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd6">
+              <ul>
+                <li>Personal invite link generation and attribution</li>
+                <li>Invite acceptance flow and signup binding</li>
+                <li>Invite quota and abuse limits</li>
+                <li>Transactional email delivery (currently unowned - see missing items)</li>
+                <li>Inviter-facing status list</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item ops">
@@ -1372,6 +1542,24 @@
             <div class="detail">Global search across every content type.</div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd7">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd7">
+              <ul>
+                <li>Search infrastructure choice and index pipeline</li>
+                <li>Indexing for articles, projects, users, organisations</li>
+                <li>Re-index hooks for content types shipping later (Educational Resources, Open Calls, Events)</li>
+                <li>Query parsing, ranking and typo tolerance</li>
+                <li>Filters, facets and result-type tabs</li>
+                <li>Permission-aware results (drafts, paywalled, protocol-gated content)</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="phase">Phase 2</div>
@@ -1388,6 +1576,25 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd8">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd8">
+              <ul>
+                <li>Category / subcategory hierarchy and subject pages</li>
+                <li>Resource authoring and Foundation curation workflow</li>
+                <li>Reference and citation handling</li>
+                <li>Quiz authoring, question bank and answer storage</li>
+                <li>Quiz taking, scoring and attempt history</li>
+                <li>Anti-cheat hardening (required before Learn2Earn pays out)</li>
+                <li>Progress tracking per learner</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1472,6 +1679,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd9">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd9">
+              <ul>
+                <li>Call creation, editing and lifecycle states for organisations</li>
+                <li>Call directory with filters (grants, fellowships, residencies)</li>
+                <li>Application submission and applicant management</li>
+                <li>Organisation-run endorsement flow</li>
+                <li>Deadline handling and closure</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1493,6 +1717,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd10">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd10">
+              <ul>
+                <li>Home page tab shell and per-tab data sources</li>
+                <li>Trending scoring and decay window</li>
+                <li>Featured curation tooling</li>
+                <li>For You ranking inputs and cold-start handling</li>
+                <li>Right-hand sidebar: Upcoming, Your Activity</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1504,6 +1745,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd11">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd11">
+              <ul>
+                <li>Event creation and editing for users and organisations</li>
+                <li>Calendar and list views with timezone handling</li>
+                <li>RSVP / attendance and capacity</li>
+                <li>Reminders (depends on Notifications)</li>
+                <li>Recurring events and cancellation</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1513,6 +1771,25 @@
             <div class="detail">Direct messages between users.</div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd12">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd12">
+              <ul>
+                <li>Conversation and message data model</li>
+                <li>Realtime transport and delivery guarantees</li>
+                <li>Read receipts, typing state and unread counts</li>
+                <li>Blocking and privacy enforcement (depends on Connections & blocking)</li>
+                <li>Attachments and link handling</li>
+                <li>Abuse reporting and moderation surface for DMs</li>
+                <li>Retention and export obligations</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1522,6 +1799,24 @@
             <div class="detail">Paid account tiers.</div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd13">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd13">
+              <ul>
+                <li>Tier definition and entitlement model</li>
+                <li>Subscription checkout, upgrade / downgrade and proration</li>
+                <li>Cancellation, dunning and failed-payment recovery</li>
+                <li>Entitlement checks across gated surfaces</li>
+                <li>Billing portal and invoice history</li>
+                <li>Overlap to resolve with Paywalls</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1534,6 +1829,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd14">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd14">
+              <ul>
+                <li>Event capture for views, reads and referrers</li>
+                <li>Aggregation pipeline and retention windows</li>
+                <li>Per-article and per-project dashboards</li>
+                <li>Audience and engagement breakdowns</li>
+                <li>Export and date-range controls</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="phase">Phase 3 &mdash; Token economy</div>
@@ -1553,6 +1865,25 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd15">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd15">
+              <ul>
+                <li>Model PRG emissions ladder against projected activity</li>
+                <li>Model $OZN mint rate from Proof-of-Progress under realistic PRG supply</li>
+                <li>Close the self-dealing tipping loop (10 PRG per US$1 vs 50 PRG per $OZN)</li>
+                <li>Sybil-resistance requirements and cost-per-fake-account analysis</li>
+                <li>Activity buff caps and runaway-emission bounds</li>
+                <li>Inactivity decay and treasury recycling behaviour</li>
+                <li>Publish revised parameter table and reconcile against the white paper</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item ops">
@@ -1569,6 +1900,25 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd16">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd16">
+              <ul>
+                <li>External counsel engagement across operating jurisdictions</li>
+                <li>MiCA classification of $OZN and PRG</li>
+                <li>FCA registration requirements and financial-promotions scope</li>
+                <li>Securities treatment of the ICO and of founding-member PRG grants</li>
+                <li>Custodial vs self-custody determination (drives the wallet architecture)</li>
+                <li>KYC / AML obligations and provider selection</li>
+                <li>Review of existing public claims on ozeaon.com and in the white paper</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1585,6 +1935,27 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd17">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">9 items</span>
+            </button>
+            <div class="breakdown__body" id="bd17">
+              <ul>
+                <li>Balance and earning-event data model</li>
+                <li>Earning hooks: publishing, peer review, Open Calls, funding, tipping</li>
+                <li>Emissions adjustment ladder (bidirectional, treasury-share driven)</li>
+                <li>Inactivity decay tiers and Foundation Treasury recycling</li>
+                <li>Activity buffs and streak multipliers with emission caps</li>
+                <li>Attestor / signed-claim pathway for variable rewards</li>
+                <li>Treasury accounting and reconciliation reporting</li>
+                <li>Backfill of pre-ledger tipping and funding events (pending decision)</li>
+                <li>Anti-farming limits and audit trail</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1599,6 +1970,24 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd18">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd18">
+              <ul>
+                <li>1 PRG per correct answer, +1 PRG to resource creator</li>
+                <li>Answer-verification hardening against client-side tampering</li>
+                <li>Per-user, per-resource and per-period earning caps</li>
+                <li>Retake and repeat-answer rules</li>
+                <li>Streak multiplier integration</li>
+                <li>Creator earnings visibility</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1612,6 +2001,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd19">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd19">
+              <ul>
+                <li>Resource proposal submission</li>
+                <li>Queue surface and proposal states</li>
+                <li>Progress-weighted vote binding</li>
+                <li>Outcome execution into the Educational Resources library</li>
+                <li>Migration path from Foundation-curated entries</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1625,6 +2031,22 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd20">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">4 items</span>
+            </button>
+            <div class="breakdown__body" id="bd20">
+              <ul>
+                <li>Endorsement proposal creation from an existing call</li>
+                <li>Progress-weighted vote binding</li>
+                <li>Endorsed badge and directory ranking effect</li>
+                <li>Migration from organisation-run endorsement</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1638,6 +2060,24 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd21">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd21">
+              <ul>
+                <li>Pod creation, membership and roles</li>
+                <li>Proposal lifecycle: draft, active, resolved, executed</li>
+                <li>Pod-scoped vs public proposal visibility</li>
+                <li>Pod treasuries and wallet binding (gated on the wallet layer)</li>
+                <li>Pod-level bounty and Open Call authority</li>
+                <li>Overlap to resolve with Progress-weighted governance</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1652,6 +2092,25 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd22">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd22">
+              <ul>
+                <li>Proposal deposits by actor type (100 / 200 / 300 PRG)</li>
+                <li>Per-actor vote caps</li>
+                <li>Tiered refund ladder on a 72-hour window</li>
+                <li>85% passing threshold and quorum handling</li>
+                <li>Proposal timing windows up to 30 days</li>
+                <li>Deposit forfeiture routing to Foundation Treasury</li>
+                <li>Overlap to resolve with DAO pods</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="milestone">
@@ -1675,6 +2134,25 @@
           <span class="size size-xxl" aria-label="Longer-timeline initiative"
             >XXL</span
           >
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd23">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd23">
+              <ul>
+                <li>Custodial vs self-custody implementation (set by the regulatory assessment)</li>
+                <li>Wallet provisioning and account binding</li>
+                <li>Key management, rotation and recovery flows</li>
+                <li>Gas abstraction / sponsored transactions</li>
+                <li>Transaction, pending and failure states across every money surface</li>
+                <li>Chain and RPC provider selection with failover</li>
+                <li>Security review of the key-handling path</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item ops">
@@ -1690,6 +2168,25 @@
           <span class="size size-xxl" aria-label="Longer-timeline initiative"
             >XXL</span
           >
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd24">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd24">
+              <ul>
+                <li>Capped ERC-20 $OZN implementation</li>
+                <li>Soulbound PRG contract if PRG moves on-chain</li>
+                <li>Treasury multisig and signer policy</li>
+                <li>Indexer, reorg handling and chain reconciliation against the platform ledger</li>
+                <li>Deployment, upgrade and emergency-pause strategy</li>
+                <li>External audit engagement (4-12 week lead time, repeats after changes)</li>
+                <li>Remediation cycle and re-audit</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1706,6 +2203,25 @@
           <span class="size size-xxl" aria-label="Longer-timeline initiative"
             >XXL</span
           >
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd25">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd25">
+              <ul>
+                <li>Staking rounds, minimum 50 PRG / full probability at 100 PRG</li>
+                <li>Verifiable randomness integration (Chainlink VRF or equivalent)</li>
+                <li>Consecutive-loss boost at 314 basis points per loss</li>
+                <li>Minting from the 750M $OZN reserve with reserve exhaustion handling</li>
+                <li>PRG cost on win routed to Foundation Treasury</li>
+                <li>Auto-unstake below threshold</li>
+                <li>Hardening: the off-chain ledger becomes the minting authority for a liquid asset</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1721,6 +2237,25 @@
           <span class="size size-xxl" aria-label="Longer-timeline initiative"
             >XXL</span
           >
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd26">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd26">
+              <ul>
+                <li>Token sale mechanics and allocation caps</li>
+                <li>KYC / AML provider and onboarding surface</li>
+                <li>Third-party fiat on-ramp integration</li>
+                <li>Exchange listing and liquidity provision</li>
+                <li>Vesting schedules for team, partnership and Foundation allocations</li>
+                <li>Jurisdiction gating and restricted-territory handling</li>
+                <li>Funding-sequence dependency: what pays for the work above this item</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1733,6 +2268,23 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd27">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd27">
+              <ul>
+                <li>Token payment flows on projects, articles and Open Calls</li>
+                <li>Price oracles for PRG reward conversion</li>
+                <li>Dual-rail UX where fiat and $OZN both apply</li>
+                <li>Failure, retry and reconciliation against the fiat rails</li>
+                <li>Bounty payouts in $OZN (depends on the missing Bounties item)</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item ops">
@@ -1745,6 +2297,23 @@
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd28">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd28">
+              <ul>
+                <li>Governance-configurable rates with bounded min / max</li>
+                <li>Fee bands: funding 1-2%, tipping 1%, bounties 2-3%, premium 3-5%</li>
+                <li>Migration from hard-coded Phase 1 Stripe fee take</li>
+                <li>DAO treasury disbursement fee (0-1%, optional)</li>
+                <li>Fee revenue reporting and Foundation Reserve routing</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1763,6 +2332,18 @@
         const count = document.querySelector(".list-header .count");
         if (count)
           count.textContent = `${items.length} items · ordered by priority`;
+
+        document.querySelectorAll(".breakdown__toggle").forEach((btn) => {
+          const body = document.getElementById(
+            btn.getAttribute("aria-controls"),
+          );
+          if (!body) return;
+          btn.addEventListener("click", () => {
+            const open = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", open ? "false" : "true");
+            body.toggleAttribute("hidden", open);
+          });
+        });
       })();
     </script>
   </body>
