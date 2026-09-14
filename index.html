@@ -373,6 +373,127 @@
         border-bottom: none;
       }
 
+      /* ── NOT IN ROADMAP ── */
+      .unscoped {
+        margin-top: 28px;
+        border-style: dashed;
+        border-color: rgba(28, 43, 58, 0.26);
+        background: var(--body-parchment);
+      }
+
+      .unscoped .list-header {
+        background: var(--bg-surface);
+        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
+      }
+
+      .unscoped .list-header h2 {
+        color: var(--text-muted);
+      }
+
+      .unscoped-lede {
+        padding: 18px 32px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
+        background: var(--bg-surface);
+      }
+
+      .unscoped .item {
+        grid-template-columns: 1fr auto;
+        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
+        background: transparent;
+        align-items: start;
+      }
+
+      .unscoped .item:hover {
+        background: rgba(28, 43, 58, 0.03);
+      }
+
+      .unscoped .item:last-child {
+        border-bottom: none;
+      }
+
+      .unscoped .title {
+        color: var(--text-muted);
+      }
+
+      .unscoped .breakdown__body {
+        background: rgba(28, 43, 58, 0.035);
+        border-top: 1px dashed rgba(28, 43, 58, 0.26);
+      }
+
+      .dep {
+        margin-top: 10px;
+        font-size: 11.5px;
+        line-height: 1.6;
+        color: var(--text-subtle);
+      }
+
+      .dep-label {
+        display: inline-block;
+        margin-right: 6px;
+        padding: 1px 7px;
+        border-radius: 999px;
+        border: 1px solid rgba(28, 43, 58, 0.22);
+        font-size: 9.5px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        vertical-align: 1px;
+      }
+
+      .group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 12px;
+        padding: 18px 32px;
+        background: rgba(28, 43, 58, 0.05);
+        border-top: 1px dashed rgba(28, 43, 58, 0.26);
+        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
+      }
+
+      .group:first-child {
+        border-top: none;
+      }
+
+      .group-name {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+      }
+
+      .group-note {
+        font-size: 12px;
+        color: var(--text-subtle);
+      }
+
+      .note {
+        padding: 20px 32px;
+        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
+      }
+
+      .note:last-child {
+        border-bottom: none;
+      }
+
+      .note-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-muted);
+        margin-bottom: 5px;
+      }
+
+      .note-body {
+        font-size: 12.5px;
+        line-height: 1.6;
+        color: var(--text-subtle);
+      }
+
       /* Done: soft red row with a strong red badge */
       .item.done {
         background: rgba(178, 30, 57, 0.06);
@@ -661,6 +782,21 @@
         .breakdown {
           margin: 12px -20px -22px;
         }
+        .unscoped-lede,
+        .group,
+        .note {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .unscoped .item {
+          grid-template-columns: 1fr;
+        }
+
+        .unscoped .item .size {
+          justify-self: start;
+        }
+
         .breakdown__toggle {
           padding: 0 20px 10px;
         }
@@ -1289,6 +1425,44 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Content versioning &amp; edit history</div>
+            <div class="detail">
+              Immutable version snapshots on publish, with history and diff
+              views. Reviews, citations and later PRG rewards have to bind to
+              the version they were given for, not to whatever the author edits
+              it into afterwards.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd45"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd45">
+              <ul>
+                <li>Version snapshot on every publish and republish</li>
+                <li>History and diff view for authors and readers</li>
+                <li>
+                  Review, citation and reward binding to a specific version
+                </li>
+                <li>Restore from an earlier version</li>
+                <li>Interaction with retention windows and hard deletion</li>
+                <li>Storage and pruning policy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Articles - reviews</div>
             <div class="detail">
               Structured peer review on published articles.
@@ -1391,6 +1565,46 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Founding member entitlements</div>
+            <div class="detail">
+              The benefits already promised publicly: free publishing without
+              platform fees, lifetime premium access excluding OCIS, a private
+              community space and 1,000 PRG. Has to exist before Paywalls,
+              Premium accounts and the fee engine can honour it.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd36"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd36">
+              <ul>
+                <li>Entitlement flag and grant cut-off rules</li>
+                <li>Platform-fee exemption on publishing and payouts</li>
+                <li>
+                  Lifetime premium grant honoured by Premium accounts (OCIS
+                  excluded)
+                </li>
+                <li>Private community space</li>
+                <li>1,000 PRG grant recorded for later ledger credit</li>
+                <li>Public benefit-terms page (currently missing)</li>
+                <li>Reconciliation against the $OZN and PRG supply tables</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Stripe integration</div>
             <div class="detail">
               Underlying Stripe integration and payment infrastructure that
@@ -1466,6 +1680,44 @@
                 <li>
                   Event retention for later PRG backfill (see retroactivity
                   decision)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Project milestones &amp; verified reporting</div>
+            <div class="detail">
+              Milestone definition, evidence and verification on project pages,
+              with milestone-gated release of raised funds. Also the object the
+              white paper's milestone PRG reward later attaches to.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd34"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd34">
+              <ul>
+                <li>Milestone definition, ordering and timeline</li>
+                <li>Evidence and deliverable attachment</li>
+                <li>Verification workflow and verifier roles</li>
+                <li>Milestone-gated release of funding</li>
+                <li>Public progress reporting on the project page</li>
+                <li>
+                  PRG reward hook on a verified milestone (variable, needs
+                  attestation)
                 </li>
               </ul>
             </div>
@@ -1570,8 +1822,8 @@
                 <li>Invite acceptance flow and signup binding</li>
                 <li>Invite quota and abuse limits</li>
                 <li>
-                  Transactional email delivery (currently unowned - see missing
-                  items)
+                  Invite email delivery (depends on Transactional email &amp;
+                  delivery)
                 </li>
                 <li>Inviter-facing status list</li>
               </ul>
@@ -1606,6 +1858,46 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
+            <div class="title">Accessibility audit &amp; remediation</div>
+            <div class="detail">
+              WCAG 2.2 AA audit and remediation across shipped surfaces, plus
+              the regression checks that keep it from drifting back. The
+              European Accessibility Act applies to consumer-facing digital
+              services in the EU.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd48"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd48">
+              <ul>
+                <li>Automated and manual audit of shipped surfaces</li>
+                <li>Keyboard navigation and focus management</li>
+                <li>Screen-reader semantics and landmark structure</li>
+                <li>Colour contrast, including the category colour system</li>
+                <li>
+                  Form labelling and error messaging (ties into Forms rework)
+                </li>
+                <li>Media captions, transcripts and alt-text authoring flow</li>
+                <li>Published accessibility statement</li>
+                <li>Regression checks in CI so the fixes hold</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
             <div class="title">SEO &amp; metadata</div>
             <div class="detail">
               robots.txt and meta robots, standardized page titles, OG / social
@@ -1626,6 +1918,50 @@
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Admin &amp; back-office console</div>
+            <div class="detail">
+              The internal surface the ops items assume: moderation queues,
+              Featured curation, refunds, entitlement overrides and, later,
+              treasury and PRG adjustments. Everything here happens manually
+              until it ships.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd37"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">9 items</span>
+            </button>
+            <div class="breakdown__body" id="bd37">
+              <ul>
+                <li>User and organisation administration</li>
+                <li>Role-based admin permissions and least-privilege access</li>
+                <li>Moderation queue and report triage</li>
+                <li>
+                  Payment operations: refunds, disputes, payout investigation
+                </li>
+                <li>Entitlement and feature-flag management</li>
+                <li>
+                  Curation tooling for Featured and the Educational Resources
+                  library
+                </li>
+                <li>Manual adjustment surface for balances and grants</li>
+                <li>Audit log of every admin action</li>
+                <li>Support view onto a single user's account state</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="item">
@@ -1660,6 +1996,50 @@
                   Permission-aware results (drafts, paywalled, protocol-gated
                   content)
                 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Internationalisation &amp; localisation</div>
+            <div class="detail">
+              Locale routing, translation pipeline, formatting and RTL support.
+              Placed here because the cost scales with surface area, and because
+              the white paper's PRG reward for translating knowledge resources
+              needs a translation model underneath it.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd47"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd47">
+              <ul>
+                <li>Locale routing, detection and user language preference</li>
+                <li>String extraction and translation pipeline</li>
+                <li>Date, number and currency formatting per locale</li>
+                <li>RTL layout support</li>
+                <li>
+                  Translated-content model for user-generated content and
+                  fallbacks
+                </li>
+                <li>
+                  Translator tooling and review (feeds the PRG translation
+                  reward)
+                </li>
+                <li>Localised email and notification templates</li>
+                <li>hreflang, localised metadata and sitemap entries</li>
               </ul>
             </div>
           </div>
@@ -1703,6 +2083,48 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Open review &amp; validation</div>
+            <div class="detail">
+              Extends article review to projects and open research outputs, and
+              gives reviews the accepted / rejected states the PRG ledger later
+              reads from.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd46"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd46">
+              <ul>
+                <li>Reviewer invitation, assignment and acceptance</li>
+                <li>Review states: submitted, accepted, rejected, withdrawn</li>
+                <li>Review on projects and open research outputs</li>
+                <li>
+                  Reviewer credentials and conflict-of-interest declaration
+                </li>
+                <li>Open, blind and editor-mediated review modes</li>
+                <li>Review binding to a content version</li>
+                <li>Review quality signals and reviewer reputation</li>
+                <li>
+                  PRG reward hook on accepted review (variable, needs
+                  attestation)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Open Calls</div>
             <div class="detail">
               Organisation-run calls for proposals. Endorsement is
@@ -1733,6 +2155,49 @@
                 <li>Application submission and applicant management</li>
                 <li>Organisation-run endorsement flow</li>
                 <li>Deadline handling and closure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Transactional email &amp; delivery</div>
+            <div class="detail">
+              The mail layer notifications, invites, receipts, funding updates
+              and moderation notices all send through. Flagged as unowned inside
+              the User-to-user invites breakdown.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd30"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd30">
+              <ul>
+                <li>
+                  Provider selection and sending-domain authentication (SPF,
+                  DKIM, DMARC)
+                </li>
+                <li>Template system, branding and plain-text fallbacks</li>
+                <li>
+                  Per-type routing, unsubscribe handling and a preference centre
+                </li>
+                <li>Bounce, complaint and suppression-list handling</li>
+                <li>Deliverability monitoring and reputation warm-up</li>
+                <li>
+                  Transactional vs marketing separation and consent records
+                </li>
+                <li>Localisation hooks for translated templates</li>
               </ul>
             </div>
           </div>
@@ -1921,6 +2386,43 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Notifications &mdash; second pass</div>
+            <div class="detail">
+              The notification types held back at first ship because the
+              features that raise them did not exist yet: payments, funding
+              rounds, contributions, reviews and role changes.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd49"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">6 items</span>
+            </button>
+            <div class="breakdown__body" id="bd49">
+              <ul>
+                <li>Payment, payout and refund notification types</li>
+                <li>Funding round, contribution and milestone types</li>
+                <li>Review, bounty and Open Call application types</li>
+                <li>
+                  Role change, invitation and organisation membership types
+                </li>
+                <li>Email digest rollups across the new types</li>
+                <li>Preference surface updated for the expanded taxonomy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Premium accounts</div>
             <div class="detail">Paid account tiers.</div>
           </div>
@@ -2095,6 +2597,138 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Sybil resistance &amp; identity assurance</div>
+            <div class="detail">
+              Proof-of-personhood, duplicate detection and graduated earning
+              limits. Until this lands the 10 PRG per US$1 rule is an open mint:
+              the cost of a fake account is the only thing between self-dealing
+              and $OZN. Implements the requirements the simulation above
+              produces.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd35"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd35">
+              <ul>
+                <li>
+                  Proof-of-personhood approach selection and privacy review
+                </li>
+                <li>
+                  Identity / KYC provider selection (shared with the ICO
+                  surface)
+                </li>
+                <li>Duplicate-account and account-linking detection</li>
+                <li>Device, network and velocity signals</li>
+                <li>Graduated earning limits by assurance level</li>
+                <li>Appeals path for false positives</li>
+                <li>Data-minimisation and retention position</li>
+                <li>Ongoing monitoring and re-scoring of existing accounts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Attestation &amp; signed claims</div>
+            <div class="detail">
+              The mechanism behind every variable PRG reward. The white paper
+              issues peer review, milestone and citizen-science rewards through
+              signed claims by authorised attestors &mdash; a role system, a
+              claim format and a revocation path.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd33"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd33">
+              <ul>
+                <li>
+                  Attestor roles, authorisation and governance control of the
+                  attestor set
+                </li>
+                <li>Claim schema, signing and verification</li>
+                <li>
+                  Claim issuance surfaces for reviewers, sponsors, verifiers and
+                  pods
+                </li>
+                <li>Replay protection and single-use enforcement</li>
+                <li>Revocation and downstream clawback</li>
+                <li>Audit trail of every issued and revoked claim</li>
+                <li>On-chain attestation path once the wallet layer exists</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Treasury accounting &amp; disbursement</div>
+            <div class="detail">
+              The Foundation Treasury and group treasuries the rest of Phase 3
+              keeps routing value into: decay recycling, forfeited deposits, fee
+              revenue and pod budgets all need a destination. Starts off-chain
+              with the ledger and binds to multisig later.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd32"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd32">
+              <ul>
+                <li>Foundation PRG treasury balances, inflows and recycling</li>
+                <li>Off-chain treasury ledger and reconciliation reporting</li>
+                <li>Disbursement request, approval and execution workflow</li>
+                <li>
+                  Pod, organisation and project group treasuries (white paper
+                  5.12)
+                </li>
+                <li>
+                  Budget allocation, spend caps and delegated authority limits
+                </li>
+                <li>On-chain multisig binding once the wallet layer lands</li>
+                <li>
+                  DAO treasury disbursement fee (0-1%, governance-configurable)
+                </li>
+                <li>Public treasury reporting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Progress (PRG) contribution ledger</div>
             <div class="detail">
               Balances and earning events wired into what the platform already
@@ -2141,6 +2775,45 @@
                   decision)
                 </li>
                 <li>Anti-farming limits and audit trail</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">PRG clawback, disputes &amp; appeals</div>
+            <div class="detail">
+              The path backwards when a reward turns out to be fraudulent. PRG
+              becomes governance weight and, through staking, a liquid asset, so
+              this also needs a position on votes already cast and $OZN already
+              minted.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd50"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd50">
+              <ul>
+                <li>
+                  Reversal of individual earning events and balance correction
+                </li>
+                <li>Effect on governance weight and on votes already cast</li>
+                <li>Position on $OZN already minted from clawed-back PRG</li>
+                <li>User-facing appeal flow and evidence submission</li>
+                <li>Reviewer tooling and decision record</li>
+                <li>Statute of limitations on reversals</li>
+                <li>Notification and audit trail</li>
               </ul>
             </div>
           </div>
@@ -2357,6 +3030,50 @@
                 <li>Proposal timing windows up to 30 days</li>
                 <li>Deposit forfeiture routing to Foundation Treasury</li>
                 <li>Overlap to resolve with DAO pods</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Token economy monitoring &amp; reporting</div>
+            <div class="detail">
+              The instrumentation the white paper's monitoring table assumes:
+              circulating supply, PRG issued and active, decay volume, staking
+              emissions, treasury balances and governance participation. Without
+              it there is no way to tell whether the emissions ladder is
+              behaving.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd52"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">8 items</span>
+            </button>
+            <div class="breakdown__body" id="bd52">
+              <ul>
+                <li>
+                  Metrics pipeline and warehouse for token and activity data
+                </li>
+                <li>PRG issued, active, decayed and sunk</li>
+                <li>
+                  $OZN circulating supply, staking emissions and treasury
+                  balances
+                </li>
+                <li>Bounty, funding and transaction volume</li>
+                <li>Active governance participation and DAO health</li>
+                <li>Anomaly alerting on emission and mint rates</li>
+                <li>Public transparency dashboard</li>
+                <li>Reconciliation reports against the on-chain state</li>
               </ul>
             </div>
           </div>
@@ -2583,9 +3300,7 @@
                 <li>
                   Failure, retry and reconciliation against the fiat rails
                 </li>
-                <li>
-                  Bounty payouts in $OZN (depends on the missing Bounties item)
-                </li>
+                <li>Bounty payouts in $OZN</li>
               </ul>
             </div>
           </div>
@@ -2628,6 +3343,45 @@
         </div>
       </section>
 
+      <!-- Not in roadmap -->
+      <section class="list unscoped" aria-label="Sequencing questions">
+        <div class="list-header">
+          <h2>Sequencing questions</h2>
+          <span class="count"></span>
+        </div>
+        <div class="unscoped-lede">
+          Ordering questions on the roadmap above. Not missing work &mdash;
+          these are decisions to confirm.
+        </div>
+        <div class="unscoped-body">
+          <div class="note">
+            <div class="note-title">
+              Phase 3 DAO items sit above the vote they bind to
+            </div>
+            <div class="note-body">
+              DAO-driven inclusion queue and Open Calls - DAO endorsement flow
+              both list &ldquo;Progress-weighted vote binding&rdquo; as a
+              sub-item, but sit above DAO pods and Progress-weighted governance,
+              which is where that vote gets built. This is about the Phase 3
+              ordering only; the Phase 2 Open Calls build is deliberately
+              organisation-run and is not affected.
+            </div>
+          </div>
+
+          <div class="note">
+            <div class="note-title">
+              The ICO sits below the work it pays for
+            </div>
+            <div class="note-body">
+              Public ICO &amp; fiat on-ramp is placed after four XXL items, and
+              its own breakdown asks what pays for the work above it. That is a
+              funding-sequence decision rather than a build-order one, but it is
+              currently unanswered on the roadmap.
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Footer -->
       <footer>
         <div class="meta">Internal use only</div>
@@ -2635,14 +3389,23 @@
     </div>
     <script>
       (() => {
-        const items = document.querySelectorAll(".list .item");
+        const items = document.querySelectorAll(".list:not(.unscoped) .item");
         items.forEach((item, i) => {
           const num = item.querySelector(".num");
           if (num) num.textContent = String(i + 1).padStart(2, "0");
         });
-        const count = document.querySelector(".list-header .count");
+        const count = document.querySelector(
+          ".list:not(.unscoped) .list-header .count",
+        );
         if (count)
           count.textContent = `${items.length} items · ordered by priority`;
+
+        const unscoped = document.querySelectorAll(".unscoped .note");
+        const unscopedCount = document.querySelector(
+          ".unscoped .list-header .count",
+        );
+        if (unscopedCount)
+          unscopedCount.textContent = `${unscoped.length} open questions`;
 
         document.querySelectorAll(".breakdown__toggle").forEach((btn) => {
           const body = document.getElementById(
