@@ -1341,8 +1341,10 @@
           <div>
             <div class="title">Forms rework</div>
             <div class="detail">
-              Consistent validation, error and loading states across the
-              platform's forms.
+              Visual and UX pass across the platform's forms: layout, spacing,
+              field styling and interaction patterns brought into line with each
+              other. Presentation only &mdash; validation behaviour is
+              unchanged.
             </div>
           </div>
           <span class="size size-s" aria-label="Quick win">S</span>
@@ -1430,50 +1432,11 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Founding member entitlements</div>
-            <div class="detail">
-              The benefits already promised publicly: free publishing without
-              platform fees, lifetime premium access excluding OCIS, a private
-              community space and 1,000 PRG. Has to exist before Paywalls,
-              Premium accounts and the fee engine can honour it.
-            </div>
-          </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd36"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">7 items</span>
-            </button>
-            <div class="breakdown__body" id="bd36">
-              <ul>
-                <li>Entitlement flag and grant cut-off rules</li>
-                <li>Platform-fee exemption on publishing and payouts</li>
-                <li>
-                  Lifetime premium grant honoured by Premium accounts (OCIS
-                  excluded)
-                </li>
-                <li>Private community space</li>
-                <li>1,000 PRG grant recorded for later ledger credit</li>
-                <li>Public benefit-terms page (currently missing)</li>
-                <li>Reconciliation against the $OZN and PRG supply tables</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
             <div class="title">Stripe integration</div>
             <div class="detail">
               Underlying Stripe integration and payment infrastructure that
-              tipping, funding and paywalls all sit on top of.
+              tipping, funding and paywalls all sit on top of. Also carries the
+              founding-member fee exemption, keyed off the alpha badge.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -1486,7 +1449,7 @@
               aria-controls="bd2"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">8 items</span>
+              <span class="breakdown__label">9 items</span>
             </button>
             <div class="breakdown__body" id="bd2">
               <ul>
@@ -1506,6 +1469,10 @@
                 </li>
                 <li>Tax reporting surface and invoice / receipt generation</li>
                 <li>Currency handling and minimum-amount rules</li>
+                <li>
+                  Founding-member platform-fee exemption, keyed off the alpha
+                  badge
+                </li>
               </ul>
             </div>
           </div>
@@ -1663,6 +1630,118 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Educational Resources</div>
+            <div class="detail">
+              Foundation-curated learning library - categories, subcategories
+              and subject pages with references and quizzes. Inclusion is
+              Foundation-curated in this iteration; the DAO-driven inclusion
+              queue comes later in Phase 3.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd8"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">3 items</span>
+            </button>
+            <div class="breakdown__body" id="bd8">
+              <ul>
+                <li>Category / subcategory hierarchy and subject pages</li>
+                <li>Resource authoring and Foundation curation workflow</li>
+                <li>Reference and citation handling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Open Calls</div>
+            <div class="detail">
+              Organisation-run calls for proposals. Endorsement is
+              organisation-run in this iteration; the DAO endorsement flow comes
+              later in Phase 3.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd9"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd9">
+              <ul>
+                <li>
+                  Call creation, editing and lifecycle states for organisations
+                </li>
+                <li>
+                  Call directory with filters (grants, fellowships, residencies)
+                </li>
+                <li>Application submission and applicant management</li>
+                <li>Organisation-run endorsement flow</li>
+                <li>Deadline handling and closure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item ops">
+          <div class="num"></div>
+          <div>
+            <div class="title">Content reporting &amp; moderation queue</div>
+            <div class="detail">
+              User-facing reporting on every content type, plus the queue and
+              actions behind it. Sits here rather than later because the DSA
+              obliges a notice-and-action route for flagging illegal content,
+              and until it ships a user who finds something harmful has no route
+              that is not emailing you.
+            </div>
+          </div>
+          <span class="size size-m" aria-label="Moderate effort">M</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd53"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd53">
+              <ul>
+                <li>
+                  Report action on articles, projects, comments and profiles
+                </li>
+                <li>Report reason taxonomy and duplicate handling</li>
+                <li>Moderation queue with triage states and an action log</li>
+                <li>
+                  Outcome notice to reporter and author (DSA statement of
+                  reasons)
+                </li>
+                <li>Appeal route against a removal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">User-to-user invites</div>
             <div class="detail">
               Invite friends and colleagues to join the platform via a personal
@@ -1775,11 +1854,11 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">Content moderation &amp; GDPR endpoints</div>
+            <div class="title">GDPR self-serve endpoints</div>
             <div class="detail">
-              User-facing content reporting, moderation queue tooling, and
-              self-serve GDPR data export endpoints. Handled manually during
-              closed beta.
+              Self-serve data export and erasure endpoints so users can exercise
+              their GDPR rights without a manual request. Handled manually until
+              this ships.
             </div>
           </div>
           <span class="size size-m" aria-label="Moderate effort">M</span>
@@ -1812,7 +1891,10 @@
               <ul>
                 <li>User and organisation administration</li>
                 <li>Role-based admin permissions and least-privilege access</li>
-                <li>Moderation queue and report triage</li>
+                <li>
+                  Moderation queue surfaced in the console (built in Content
+                  reporting)
+                </li>
                 <li>
                   Payment operations: refunds, disputes, payout investigation
                 </li>
@@ -1915,39 +1997,6 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Educational Resources</div>
-            <div class="detail">
-              Foundation-curated learning library - categories, subcategories
-              and subject pages with references and quizzes. Inclusion is
-              Foundation-curated in this iteration; the DAO-driven inclusion
-              queue comes later in Phase 3.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd8"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">3 items</span>
-            </button>
-            <div class="breakdown__body" id="bd8">
-              <ul>
-                <li>Category / subcategory hierarchy and subject pages</li>
-                <li>Resource authoring and Foundation curation workflow</li>
-                <li>Reference and citation handling</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
             <div class="title">Open review &amp; validation</div>
             <div class="detail">
               Extends article review to projects and open research outputs, and
@@ -1982,44 +2031,6 @@
                   PRG reward hook on accepted review (variable, needs
                   attestation)
                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Open Calls</div>
-            <div class="detail">
-              Organisation-run calls for proposals. Endorsement is
-              organisation-run in this iteration; the DAO endorsement flow comes
-              later in Phase 3.
-            </div>
-          </div>
-          <span class="size size-xl" aria-label="Major initiative">XL</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd9"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">5 items</span>
-            </button>
-            <div class="breakdown__body" id="bd9">
-              <ul>
-                <li>
-                  Call creation, editing and lifecycle states for organisations
-                </li>
-                <li>
-                  Call directory with filters (grants, fellowships, residencies)
-                </li>
-                <li>Application submission and applicant management</li>
-                <li>Organisation-run endorsement flow</li>
-                <li>Deadline handling and closure</li>
               </ul>
             </div>
           </div>
@@ -2308,7 +2319,10 @@
           <div class="num"></div>
           <div>
             <div class="title">Premium accounts</div>
-            <div class="detail">Paid account tiers.</div>
+            <div class="detail">
+              Paid account tiers. Also where founding members get the lifetime
+              premium access they were promised, excluding OCIS.
+            </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
 
@@ -2320,7 +2334,7 @@
               aria-controls="bd13"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">6 items</span>
+              <span class="breakdown__label">7 items</span>
             </button>
             <div class="breakdown__body" id="bd13">
               <ul>
@@ -2332,6 +2346,9 @@
                 <li>Entitlement checks across gated surfaces</li>
                 <li>Billing portal and invoice history</li>
                 <li>Overlap to resolve with Paywalls</li>
+                <li>
+                  Lifetime premium grant for founding members (OCIS excluded)
+                </li>
               </ul>
             </div>
           </div>
@@ -2620,7 +2637,8 @@
               funding and tipping - plus the emissions ladder, inactivity decay
               and treasury accounting. PRG is non-transferable, so this needs no
               chain: it is a ledger, and it is the authority that later triggers
-              $OZN minting.
+              $OZN minting. Also where the founding-member 1,000 PRG grant
+              lands.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -2633,7 +2651,7 @@
               aria-controls="bd17"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">9 items</span>
+              <span class="breakdown__label">11 items</span>
             </button>
             <div class="breakdown__body" id="bd17">
               <ul>
@@ -2659,6 +2677,13 @@
                   decision)
                 </li>
                 <li>Anti-farming limits and audit trail</li>
+                <li>
+                  Founding-member 1,000 PRG grant, keyed off the alpha badge
+                </li>
+                <li>
+                  Reconciliation against the white paper $OZN and PRG supply
+                  tables
+                </li>
               </ul>
             </div>
           </div>
@@ -2784,6 +2809,7 @@
               Pod structure, membership and the proposal / outcome lifecycle.
               Moved out of Phase 2: pods are the body that votes, so they cannot
               land before the Progress ledger that gives votes their weight.
+              Also carries the private founding-member community space.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -2796,7 +2822,7 @@
               aria-controls="bd21"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">6 items</span>
+              <span class="breakdown__label">7 items</span>
             </button>
             <div class="breakdown__body" id="bd21">
               <ul>
@@ -2808,6 +2834,7 @@
                 </li>
                 <li>Pod-level bounty and Open Call authority</li>
                 <li>Overlap to resolve with Progress-weighted governance</li>
+                <li>Private founding-member pod</li>
               </ul>
             </div>
           </div>
