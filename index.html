@@ -373,127 +373,6 @@
         border-bottom: none;
       }
 
-      /* ── NOT IN ROADMAP ── */
-      .unscoped {
-        margin-top: 28px;
-        border-style: dashed;
-        border-color: rgba(28, 43, 58, 0.26);
-        background: var(--body-parchment);
-      }
-
-      .unscoped .list-header {
-        background: var(--bg-surface);
-        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
-      }
-
-      .unscoped .list-header h2 {
-        color: var(--text-muted);
-      }
-
-      .unscoped-lede {
-        padding: 18px 32px;
-        font-size: 13px;
-        line-height: 1.6;
-        color: var(--text-muted);
-        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
-        background: var(--bg-surface);
-      }
-
-      .unscoped .item {
-        grid-template-columns: 1fr auto;
-        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
-        background: transparent;
-        align-items: start;
-      }
-
-      .unscoped .item:hover {
-        background: rgba(28, 43, 58, 0.03);
-      }
-
-      .unscoped .item:last-child {
-        border-bottom: none;
-      }
-
-      .unscoped .title {
-        color: var(--text-muted);
-      }
-
-      .unscoped .breakdown__body {
-        background: rgba(28, 43, 58, 0.035);
-        border-top: 1px dashed rgba(28, 43, 58, 0.26);
-      }
-
-      .dep {
-        margin-top: 10px;
-        font-size: 11.5px;
-        line-height: 1.6;
-        color: var(--text-subtle);
-      }
-
-      .dep-label {
-        display: inline-block;
-        margin-right: 6px;
-        padding: 1px 7px;
-        border-radius: 999px;
-        border: 1px solid rgba(28, 43, 58, 0.22);
-        font-size: 9.5px;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        vertical-align: 1px;
-      }
-
-      .group {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 4px 12px;
-        padding: 18px 32px;
-        background: rgba(28, 43, 58, 0.05);
-        border-top: 1px dashed rgba(28, 43, 58, 0.26);
-        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
-      }
-
-      .group:first-child {
-        border-top: none;
-      }
-
-      .group-name {
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--text-primary);
-      }
-
-      .group-note {
-        font-size: 12px;
-        color: var(--text-subtle);
-      }
-
-      .note {
-        padding: 20px 32px;
-        border-bottom: 1px dashed rgba(28, 43, 58, 0.26);
-      }
-
-      .note:last-child {
-        border-bottom: none;
-      }
-
-      .note-title {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--text-muted);
-        margin-bottom: 5px;
-      }
-
-      .note-body {
-        font-size: 12.5px;
-        line-height: 1.6;
-        color: var(--text-subtle);
-      }
-
       /* Done: soft red row with a strong red badge */
       .item.done {
         background: rgba(178, 30, 57, 0.06);
@@ -781,20 +660,6 @@
         }
         .breakdown {
           margin: 12px -20px -22px;
-        }
-        .unscoped-lede,
-        .group,
-        .note {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-
-        .unscoped .item {
-          grid-template-columns: 1fr;
-        }
-
-        .unscoped .item .size {
-          justify-self: start;
         }
 
         .breakdown__toggle {
@@ -2286,13 +2151,19 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">For You / Trending / Featured</div>
+            <div class="title">Recommendation &amp; ranking engine</div>
             <div class="detail">
-              Home page tabs plus the right-hand sidebar (Upcoming, Your
-              Activity).
+              The ranking system behind the feeds and the surfaces it feeds:
+              what shows, for whom, and in what order. Scores content on
+              engagement (likes, comments, reactions) and on the viewer's
+              relationship to the author through connections and follows.
+              Absorbs For You / Trending / Featured, which was the same work
+              described from the front end.
             </div>
           </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
+          <span class="size size-xxl" aria-label="Longer-timeline initiative"
+            >XXL</span
+          >
 
           <div class="breakdown">
             <button
@@ -2302,15 +2173,28 @@
               aria-controls="bd10"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">5 items</span>
+              <span class="breakdown__label">9 items</span>
             </button>
             <div class="breakdown__body" id="bd10">
               <ul>
-                <li>Home page tab shell and per-tab data sources</li>
-                <li>Trending scoring and decay window</li>
+                <li>
+                  For You / Trending / Featured: home page tab shell and per-tab
+                  data sources
+                </li>
+                <li>Engagement signals: likes, reactions and comments</li>
+                <li>Social graph signals from connections and follows</li>
+                <li>
+                  Scoring pass with trending velocity, decay and basic
+                  anti-gaming
+                </li>
+                <li>Cold-start handling for new accounts</li>
+                <li>
+                  Permission-aware filtering: drafts, paywalled, protocol-gated,
+                  blocked users
+                </li>
                 <li>Featured curation tooling</li>
-                <li>For You ranking inputs and cold-start handling</li>
                 <li>Right-hand sidebar: Upcoming, Your Activity</li>
+                <li>Precomputation and caching so the feed stays fast</li>
               </ul>
             </div>
           </div>
@@ -2895,75 +2779,6 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">DAO-driven inclusion queue</div>
-            <div class="detail">
-              Moves Educational Resources curation from Foundation-selected to
-              governance-approved, putting proposed resources through the
-              Progress-weighted vote rather than an internal decision.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd19"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">5 items</span>
-            </button>
-            <div class="breakdown__body" id="bd19">
-              <ul>
-                <li>Resource proposal submission</li>
-                <li>Queue surface and proposal states</li>
-                <li>Progress-weighted vote binding</li>
-                <li>
-                  Outcome execution into the Educational Resources library
-                </li>
-                <li>Migration path from Foundation-curated entries</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Open Calls - DAO endorsement flow</div>
-            <div class="detail">
-              Moves Open Calls endorsement from organisation-run to
-              governance-approved, putting calls through the Progress-weighted
-              vote. Extends the Open Calls work shipped in Phase 2.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd20"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">4 items</span>
-            </button>
-            <div class="breakdown__body" id="bd20">
-              <ul>
-                <li>Endorsement proposal creation from an existing call</li>
-                <li>Progress-weighted vote binding</li>
-                <li>Endorsed badge and directory ranking effect</li>
-                <li>Migration from organisation-run endorsement</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
             <div class="title">DAO pods</div>
             <div class="detail">
               Pod structure, membership and the proposal / outcome lifecycle.
@@ -3030,6 +2845,75 @@
                 <li>Proposal timing windows up to 30 days</li>
                 <li>Deposit forfeiture routing to Foundation Treasury</li>
                 <li>Overlap to resolve with DAO pods</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">DAO-driven inclusion queue</div>
+            <div class="detail">
+              Moves Educational Resources curation from Foundation-selected to
+              governance-approved, putting proposed resources through the
+              Progress-weighted vote rather than an internal decision.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd19"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd19">
+              <ul>
+                <li>Resource proposal submission</li>
+                <li>Queue surface and proposal states</li>
+                <li>Progress-weighted vote binding</li>
+                <li>
+                  Outcome execution into the Educational Resources library
+                </li>
+                <li>Migration path from Foundation-curated entries</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Open Calls - DAO endorsement flow</div>
+            <div class="detail">
+              Moves Open Calls endorsement from organisation-run to
+              governance-approved, putting calls through the Progress-weighted
+              vote. Extends the Open Calls work shipped in Phase 2.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd20"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">4 items</span>
+            </button>
+            <div class="breakdown__body" id="bd20">
+              <ul>
+                <li>Endorsement proposal creation from an existing call</li>
+                <li>Progress-weighted vote binding</li>
+                <li>Endorsed badge and directory ranking effect</li>
+                <li>Migration from organisation-run endorsement</li>
               </ul>
             </div>
           </div>
@@ -3178,6 +3062,52 @@
         <div class="item">
           <div class="num"></div>
           <div>
+            <div class="title">Public ICO &amp; fiat on-ramp</div>
+            <div class="detail">
+              Token sale mechanics, exchange liquidity, third-party on-ramp and
+              the KYC surface that comes with it. Vesting schedules for team,
+              partnership and Foundation allocations. The build above is
+              investor and grant funded &mdash; the ICO is a liquidity event,
+              not the thing that pays for it.
+            </div>
+          </div>
+          <span class="size size-xxl" aria-label="Longer-timeline initiative"
+            >XXL</span
+          >
+
+          <div class="breakdown">
+            <button
+              class="breakdown__toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bd26"
+            >
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">7 items</span>
+            </button>
+            <div class="breakdown__body" id="bd26">
+              <ul>
+                <li>Token sale mechanics and allocation caps</li>
+                <li>KYC / AML provider and onboarding surface</li>
+                <li>Third-party fiat on-ramp integration</li>
+                <li>Exchange listing and liquidity provision</li>
+                <li>
+                  Vesting schedules for team, partnership and Foundation
+                  allocations
+                </li>
+                <li>Jurisdiction gating and restricted-territory handling</li>
+                <li>
+                  Funding-sequence dependency: what pays for the work above this
+                  item
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
             <div class="title">Proof-of-Progress staking</div>
             <div class="detail">
               Staking rounds, verifiable randomness, the consecutive-loss boost
@@ -3219,50 +3149,6 @@
                 <li>
                   Hardening: the off-chain ledger becomes the minting authority
                   for a liquid asset
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Public ICO &amp; fiat on-ramp</div>
-            <div class="detail">
-              Token sale mechanics, exchange liquidity, third-party on-ramp and
-              the KYC surface that comes with it. Vesting schedules for team,
-              partnership and Foundation allocations.
-            </div>
-          </div>
-          <span class="size size-xxl" aria-label="Longer-timeline initiative"
-            >XXL</span
-          >
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd26"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">7 items</span>
-            </button>
-            <div class="breakdown__body" id="bd26">
-              <ul>
-                <li>Token sale mechanics and allocation caps</li>
-                <li>KYC / AML provider and onboarding surface</li>
-                <li>Third-party fiat on-ramp integration</li>
-                <li>Exchange listing and liquidity provision</li>
-                <li>
-                  Vesting schedules for team, partnership and Foundation
-                  allocations
-                </li>
-                <li>Jurisdiction gating and restricted-territory handling</li>
-                <li>
-                  Funding-sequence dependency: what pays for the work above this
-                  item
                 </li>
               </ul>
             </div>
@@ -3343,45 +3229,6 @@
         </div>
       </section>
 
-      <!-- Not in roadmap -->
-      <section class="list unscoped" aria-label="Sequencing questions">
-        <div class="list-header">
-          <h2>Sequencing questions</h2>
-          <span class="count"></span>
-        </div>
-        <div class="unscoped-lede">
-          Ordering questions on the roadmap above. Not missing work &mdash;
-          these are decisions to confirm.
-        </div>
-        <div class="unscoped-body">
-          <div class="note">
-            <div class="note-title">
-              Phase 3 DAO items sit above the vote they bind to
-            </div>
-            <div class="note-body">
-              DAO-driven inclusion queue and Open Calls - DAO endorsement flow
-              both list &ldquo;Progress-weighted vote binding&rdquo; as a
-              sub-item, but sit above DAO pods and Progress-weighted governance,
-              which is where that vote gets built. This is about the Phase 3
-              ordering only; the Phase 2 Open Calls build is deliberately
-              organisation-run and is not affected.
-            </div>
-          </div>
-
-          <div class="note">
-            <div class="note-title">
-              The ICO sits below the work it pays for
-            </div>
-            <div class="note-body">
-              Public ICO &amp; fiat on-ramp is placed after four XXL items, and
-              its own breakdown asks what pays for the work above it. That is a
-              funding-sequence decision rather than a build-order one, but it is
-              currently unanswered on the roadmap.
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Footer -->
       <footer>
         <div class="meta">Internal use only</div>
@@ -3389,23 +3236,14 @@
     </div>
     <script>
       (() => {
-        const items = document.querySelectorAll(".list:not(.unscoped) .item");
+        const items = document.querySelectorAll(".list .item");
         items.forEach((item, i) => {
           const num = item.querySelector(".num");
           if (num) num.textContent = String(i + 1).padStart(2, "0");
         });
-        const count = document.querySelector(
-          ".list:not(.unscoped) .list-header .count",
-        );
+        const count = document.querySelector(".list-header .count");
         if (count)
           count.textContent = `${items.length} items · ordered by priority`;
-
-        const unscoped = document.querySelectorAll(".unscoped .note");
-        const unscopedCount = document.querySelector(
-          ".unscoped .list-header .count",
-        );
-        if (unscopedCount)
-          unscopedCount.textContent = `${unscoped.length} open questions`;
 
         document.querySelectorAll(".breakdown__toggle").forEach((btn) => {
           const body = document.getElementById(
