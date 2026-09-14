@@ -255,7 +255,7 @@
       .list {
         background: var(--bg-surface);
         border-radius: 24px;
-        border: 1px solid var(--border);
+        border: 2px solid rgba(28, 43, 58, 0.32);
         overflow: hidden;
         box-shadow: 0 2px 8px -4px rgba(28, 43, 58, 0.04);
       }
@@ -289,7 +289,7 @@
         grid-template-columns: 48px 1fr auto;
         gap: 16px;
         padding: 22px 32px;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 2px solid rgba(28, 43, 58, 0.32);
         align-items: center;
         transition: background-color 120ms ease;
       }
@@ -300,14 +300,14 @@
 
       /* ── BREAKDOWN ACCORDION (L / XL / XXL items) ── */
       .breakdown {
-        grid-column: 2 / -1;
-        margin-top: 10px;
+        grid-column: 1 / -1;
+        margin: 14px -32px -22px;
       }
       .breakdown__toggle {
         appearance: none;
         background: none;
         border: 0;
-        padding: 0;
+        padding: 0 32px 12px;
         display: inline-flex;
         align-items: center;
         gap: 6px;
@@ -332,30 +332,45 @@
         transform: rotate(180deg);
       }
       .breakdown__body {
-        margin-top: 10px;
-        padding: 12px 16px;
-        border-radius: 12px;
-        background: var(--bg-cold);
-        border: 1px solid var(--border);
+        padding: 16px 32px;
+        background: var(--bg-subtle);
+        border-top: 1px solid var(--border);
       }
       .breakdown__body[hidden] {
         display: none;
       }
       .breakdown__body ul {
         margin: 0;
-        padding-left: 18px;
+        padding: 0;
+        list-style: none;
       }
       .breakdown__body li {
+        position: relative;
         font-size: 12.5px;
         line-height: 1.6;
         color: var(--text-muted);
-        margin-bottom: 3px;
+        padding: 8px 0 8px 16px;
+        border-bottom: 1px solid rgba(28, 43, 58, 0.14);
+      }
+      .breakdown__body li::before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 15px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--text-subtle);
+      }
+      .breakdown__body li:first-child {
+        padding-top: 0;
+      }
+      .breakdown__body li:first-child::before {
+        top: 7px;
       }
       .breakdown__body li:last-child {
-        margin-bottom: 0;
-      }
-      .breakdown__body li::marker {
-        color: var(--text-subtle);
+        padding-bottom: 0;
+        border-bottom: none;
       }
 
       /* Done: soft red row with a strong red badge */
@@ -638,6 +653,15 @@
         .item {
           grid-template-columns: 32px 1fr auto;
           gap: 12px;
+        }
+        .breakdown {
+          margin: 12px -20px -22px;
+        }
+        .breakdown__toggle {
+          padding: 0 20px 10px;
+        }
+        .breakdown__body {
+          padding: 14px 20px;
         }
         .legend {
           padding: 16px 20px;
@@ -1263,6 +1287,18 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Forms rework</div>
+            <div class="detail">
+              Consistent validation, error and loading states across the
+              platform's forms.
+            </div>
+          </div>
+          <span class="size size-s" aria-label="Quick win">S</span>
+        </div>
+
         <div class="item wip">
           <div class="num"></div>
           <div>
@@ -1581,17 +1617,43 @@
             <button class="breakdown__toggle" type="button"
               aria-expanded="true" aria-controls="bd8">
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">7 items</span>
+              <span class="breakdown__label">3 items</span>
             </button>
             <div class="breakdown__body" id="bd8">
               <ul>
                 <li>Category / subcategory hierarchy and subject pages</li>
                 <li>Resource authoring and Foundation curation workflow</li>
                 <li>Reference and citation handling</li>
-                <li>Quiz authoring, question bank and answer storage</li>
-                <li>Quiz taking, scoring and attempt history</li>
-                <li>Anti-cheat hardening (required before Learn2Earn pays out)</li>
-                <li>Progress tracking per learner</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Open Calls</div>
+            <div class="detail">
+              Organisation-run calls for proposals. Endorsement is
+              organisation-run in this iteration; the DAO endorsement flow comes
+              later in Phase 3.
+            </div>
+          </div>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
+        
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd9">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">5 items</span>
+            </button>
+            <div class="breakdown__body" id="bd9">
+              <ul>
+                <li>Call creation, editing and lifecycle states for organisations</li>
+                <li>Call directory with filters (grants, fellowships, residencies)</li>
+                <li>Application submission and applicant management</li>
+                <li>Organisation-run endorsement flow</li>
+                <li>Deadline handling and closure</li>
               </ul>
             </div>
           </div>
@@ -1668,37 +1730,7 @@
           <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Open Calls</div>
-            <div class="detail">
-              Organisation-run calls for proposals. Endorsement is
-              organisation-run in this iteration; the DAO endorsement flow comes
-              later in Phase 3.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-        
-          <div class="breakdown">
-            <button class="breakdown__toggle" type="button"
-              aria-expanded="true" aria-controls="bd9">
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">5 items</span>
-            </button>
-            <div class="breakdown__body" id="bd9">
-              <ul>
-                <li>Call creation, editing and lifecycle states for organisations</li>
-                <li>Call directory with filters (grants, fellowships, residencies)</li>
-                <li>Application submission and applicant management</li>
-                <li>Organisation-run endorsement flow</li>
-                <li>Deadline handling and closure</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
+                <div class="item">
           <div class="num"></div>
           <div>
             <div class="title">Article reactions</div>
@@ -1953,6 +1985,35 @@
                 <li>Treasury accounting and reconciliation reporting</li>
                 <li>Backfill of pre-ledger tipping and funding events (pending decision)</li>
                 <li>Anti-farming limits and audit trail</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="num"></div>
+          <div>
+            <div class="title">Quizzes</div>
+            <div class="detail">
+              Quiz engine behind the Educational Resources library. Split out
+              of Educational Resources: quizzes are the earning event Learn2Earn
+              pays against, so they need anti-cheat hardening before PRG is on
+              the line.
+            </div>
+          </div>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
+          <div class="breakdown">
+            <button class="breakdown__toggle" type="button"
+              aria-expanded="true" aria-controls="bd29">
+              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
+              <span class="breakdown__label">4 items</span>
+            </button>
+            <div class="breakdown__body" id="bd29">
+              <ul>
+                <li>Quiz authoring, question bank and answer storage</li>
+                <li>Quiz taking, scoring and attempt history</li>
+                <li>Anti-cheat hardening (required before Learn2Earn pays out)</li>
+                <li>Progress tracking per learner</li>
               </ul>
             </div>
           </div>
