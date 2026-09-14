@@ -574,6 +574,27 @@
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
       }
 
+      /* ── LEGAL FLAG - statutory obligation, not a product choice ── */
+      .flag-legal {
+        display: inline-block;
+        margin-right: 8px;
+        padding: 2px 7px;
+        border-radius: 999px;
+        background: #c0182f;
+        box-shadow: 0 2px 6px -2px rgba(192, 24, 47, 0.55);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        vertical-align: 2px;
+      }
+
+      .item.done .flag-legal {
+        background: #8f1224;
+        box-shadow: none;
+      }
+
       /* ── FOOTER ── */
       footer {
         margin-top: 36px;
@@ -1139,6 +1160,15 @@
         >
       </div>
 
+      <div class="legend" role="group" aria-label="Flags">
+        <span class="legend-title">Flags</span>
+        <span class="legend-item"
+          ><span class="flag-legal">Legal</span> Compelled by statute &mdash;
+          the timing is a legal exposure question, not a prioritisation
+          one</span
+        >
+      </div>
+
       <!-- List -->
       <section class="list" aria-label="Roadmap items">
         <div class="list-header">
@@ -1210,7 +1240,9 @@
         <div class="item done">
           <div class="num"></div>
           <div>
-            <div class="title">Account hard deletion</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Account hard deletion
+            </div>
             <div class="detail">
               User-initiated hard deletion of an account with content cascade
               and confirmation flow.
@@ -1234,7 +1266,9 @@
         <div class="item wip">
           <div class="num"></div>
           <div>
-            <div class="title">Legal pages</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Legal pages
+            </div>
             <div class="detail">
               Terms of Service, Privacy Policy and Cookie Policy pages, plus the
               cookie consent modal.
@@ -1277,7 +1311,9 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">Compliance audit</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Compliance audit
+            </div>
             <div class="detail">
               Review of legal, moderation and data-protection obligations to
               confirm the minimum surface area needed post-launch. Scopes the
@@ -1432,7 +1468,9 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Stripe integration</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Stripe integration
+            </div>
             <div class="detail">
               Underlying Stripe integration and payment infrastructure that
               tipping, funding and paywalls all sit on top of. Also carries the
@@ -1521,44 +1559,6 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Project milestones &amp; verified reporting</div>
-            <div class="detail">
-              Milestone definition, evidence and verification on project pages,
-              with milestone-gated release of raised funds. Also the object the
-              white paper's milestone PRG reward later attaches to.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd34"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">6 items</span>
-            </button>
-            <div class="breakdown__body" id="bd34">
-              <ul>
-                <li>Milestone definition, ordering and timeline</li>
-                <li>Evidence and deliverable attachment</li>
-                <li>Verification workflow and verifier roles</li>
-                <li>Milestone-gated release of funding</li>
-                <li>Public progress reporting on the project page</li>
-                <li>
-                  PRG reward hook on a verified milestone (variable, needs
-                  attestation)
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
             <div class="title">Tipping</div>
             <div class="detail">
               Tipping on projects and articles, built on top of the Stripe
@@ -1583,7 +1583,7 @@
                 <li>Recipient eligibility and Connect onboarding gate</li>
                 <li>Tip history for sender and recipient</li>
                 <li>Minimums, rate limits and self-tipping prevention</li>
-                <li>Fee take at 1% per the white paper fee table</li>
+                <li>Fee take at 5%</li>
               </ul>
             </div>
           </div>
@@ -1701,7 +1701,10 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">Content reporting &amp; moderation queue</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Content reporting &amp;
+              moderation queue
+            </div>
             <div class="detail">
               User-facing reporting on every content type, plus the queue and
               actions behind it. Sits here rather than later because the DSA
@@ -1802,7 +1805,10 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">Accessibility audit &amp; remediation</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Accessibility audit &amp;
+              remediation
+            </div>
             <div class="detail">
               WCAG 2.2 AA audit and remediation across shipped surfaces, plus
               the regression checks that keep it from drifting back. The
@@ -1854,7 +1860,9 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">GDPR self-serve endpoints</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>GDPR self-serve endpoints
+            </div>
             <div class="detail">
               Self-serve data export and erasure endpoints so users can exercise
               their GDPR rights without a manual request. Handled manually until
@@ -2303,7 +2311,7 @@
             <div class="breakdown__body" id="bd49">
               <ul>
                 <li>Payment, payout and refund notification types</li>
-                <li>Funding round, contribution and milestone types</li>
+                <li>Funding round and contribution types</li>
                 <li>Review, bounty and Open Call application types</li>
                 <li>
                   Role change, invitation and organisation membership types
@@ -2446,7 +2454,10 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">Regulatory &amp; custody assessment</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Regulatory &amp; custody
+              assessment
+            </div>
             <div class="detail">
               External counsel on $OZN and the public ICO across operating
               jurisdictions, covering MiCA, FCA registration and securities
@@ -2490,50 +2501,6 @@
                   Review of existing public claims on ozeaon.com and in the
                   white paper
                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Sybil resistance &amp; identity assurance</div>
-            <div class="detail">
-              Proof-of-personhood, duplicate detection and graduated earning
-              limits. Until this lands the 10 PRG per US$1 rule is an open mint:
-              the cost of a fake account is the only thing between self-dealing
-              and $OZN. Implements the requirements the simulation above
-              produces.
-            </div>
-          </div>
-          <span class="size size-xl" aria-label="Major initiative">XL</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd35"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">8 items</span>
-            </button>
-            <div class="breakdown__body" id="bd35">
-              <ul>
-                <li>
-                  Proof-of-personhood approach selection and privacy review
-                </li>
-                <li>
-                  Identity / KYC provider selection (shared with the ICO
-                  surface)
-                </li>
-                <li>Duplicate-account and account-linking detection</li>
-                <li>Device, network and velocity signals</li>
-                <li>Graduated earning limits by assurance level</li>
-                <li>Appeals path for false positives</li>
-                <li>Data-minimisation and retention position</li>
-                <li>Ongoing monitoring and re-scoring of existing accounts</li>
               </ul>
             </div>
           </div>
@@ -2684,45 +2651,6 @@
                   Reconciliation against the white paper $OZN and PRG supply
                   tables
                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">PRG clawback, disputes &amp; appeals</div>
-            <div class="detail">
-              The path backwards when a reward turns out to be fraudulent. PRG
-              becomes governance weight and, through staking, a liquid asset, so
-              this also needs a position on votes already cast and $OZN already
-              minted.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd50"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">7 items</span>
-            </button>
-            <div class="breakdown__body" id="bd50">
-              <ul>
-                <li>
-                  Reversal of individual earning events and balance correction
-                </li>
-                <li>Effect on governance weight and on votes already cast</li>
-                <li>Position on $OZN already minted from clawed-back PRG</li>
-                <li>User-facing appeal flow and evidence submission</li>
-                <li>Reviewer tooling and decision record</li>
-                <li>Statute of limitations on reversals</li>
-                <li>Notification and audit trail</li>
               </ul>
             </div>
           </div>
@@ -2946,50 +2874,6 @@
           </div>
         </div>
 
-        <div class="item ops">
-          <div class="num"></div>
-          <div>
-            <div class="title">Token economy monitoring &amp; reporting</div>
-            <div class="detail">
-              The instrumentation the white paper's monitoring table assumes:
-              circulating supply, PRG issued and active, decay volume, staking
-              emissions, treasury balances and governance participation. Without
-              it there is no way to tell whether the emissions ladder is
-              behaving.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd52"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">8 items</span>
-            </button>
-            <div class="breakdown__body" id="bd52">
-              <ul>
-                <li>
-                  Metrics pipeline and warehouse for token and activity data
-                </li>
-                <li>PRG issued, active, decayed and sunk</li>
-                <li>
-                  $OZN circulating supply, staking emissions and treasury
-                  balances
-                </li>
-                <li>Bounty, funding and transaction volume</li>
-                <li>Active governance participation and DAO health</li>
-                <li>Anomaly alerting on emission and mint rates</li>
-                <li>Public transparency dashboard</li>
-                <li>Reconciliation reports against the on-chain state</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
         <div class="milestone">
           <span class="milestone-label">Chain dependency begins</span>
           <span class="milestone-note"
@@ -3000,7 +2884,9 @@
         <div class="item ops">
           <div class="num"></div>
           <div>
-            <div class="title">Wallet &amp; custody layer</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Wallet &amp; custody layer
+            </div>
             <div class="detail">
               Wallet provisioning, key management and recovery, gas abstraction,
               and the transaction, pending and failure states across the
@@ -3089,7 +2975,9 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Public ICO &amp; fiat on-ramp</div>
+            <div class="title">
+              <span class="flag-legal">Legal</span>Public ICO &amp; fiat on-ramp
+            </div>
             <div class="detail">
               Token sale mechanics, exchange liquidity, third-party on-ramp and
               the KYC surface that comes with it. Vesting schedules for team,
@@ -3244,7 +3132,7 @@
               <ul>
                 <li>Governance-configurable rates with bounded min / max</li>
                 <li>
-                  Fee bands: funding 1-2%, tipping 1%, bounties 2-3%, premium
+                  Fee bands: funding 1-2%, tipping 5%, bounties 2-3%, premium
                   3-5%
                 </li>
                 <li>Migration from hard-coded Phase 1 Stripe fee take</li>
