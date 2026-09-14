@@ -1405,10 +1405,13 @@
           <div>
             <div class="title">Notifications</div>
             <div class="detail">
-              Notifications bell, dedicated notifications page.
+              First release only: the bell, dropdown panel and notifications
+              page, covering the five groups the platform can already raise.
+              Grouping, settings, quick actions and realtime delivery move to
+              the second pass.
             </div>
           </div>
-          <span class="size size-xl" aria-label="Major initiative">XL</span>
+          <span class="size size-l" aria-label="Substantial effort">L</span>
 
           <div class="breakdown">
             <button
@@ -1418,20 +1421,25 @@
               aria-controls="bd1"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">7 items</span>
+              <span class="breakdown__label">6 items</span>
             </button>
             <div class="breakdown__body" id="bd1">
               <ul>
-                <li>Notification types taxonomy and per-type templates</li>
-                <li>In-app bell with unread counts and read/seen state</li>
                 <li>
-                  Dedicated notifications page with grouping and pagination
+                  Notification types, templates and per-type icons for the five
+                  live groups: posts, projects, articles, organisation
+                  membership and your own membership
                 </li>
-                <li>Per-type user preferences and mute controls</li>
+                <li>In-app bell with unread count and read/seen state</li>
+                <li>Dropdown panel and dedicated notifications page</li>
                 <li>
-                  Fan-out and batching so high-volume actors do not flood feeds
+                  Cross-account addressing so a notification belongs to an
+                  organisation or a person
                 </li>
-                <li>Digest rollups for repeat events on the same object</li>
+                <li>
+                  Interval-polled unread count &mdash; realtime deferred to the
+                  second pass
+                </li>
                 <li>
                   Backfill hooks so later features register new types without
                   schema change
@@ -2250,12 +2258,14 @@
           <div>
             <div class="title">Notifications &mdash; second pass</div>
             <div class="detail">
-              The notification types held back at first ship because the
+              Everything the first release deliberately left out &mdash; the
+              settings screen, grouping, quick actions, retention and realtime
+              delivery &mdash; plus the notification types held back because the
               features that raise them did not exist yet: payments, funding
               rounds, contributions, reviews and role changes.
             </div>
           </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
+          <span class="size size-xl" aria-label="Major initiative">XL</span>
 
           <div class="breakdown">
             <button
@@ -2265,18 +2275,40 @@
               aria-controls="bd49"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">6 items</span>
+              <span class="breakdown__label">12 items</span>
             </button>
             <div class="breakdown__body" id="bd49">
               <ul>
+                <li>
+                  Notification settings screen with per-type preferences and
+                  mute controls
+                </li>
+                <li>
+                  Quick actions &mdash; accept or decline straight from the
+                  notification
+                </li>
+                <li>
+                  Grouping and digest rollups for repeat events on one object
+                </li>
+                <li>
+                  Fan-out and batching so high-volume actors do not flood feeds
+                </li>
+                <li>
+                  Retention and automatic clearing (the 30-day and one-year
+                  rules)
+                </li>
+                <li>
+                  Realtime delivery replacing the interval-polled unread count
+                </li>
+                <li>
+                  Scheduled, time-based notifications (&ldquo;ends in three
+                  days&rdquo;)
+                </li>
                 <li>Payment, payout and refund notification types</li>
                 <li>Funding round and contribution types</li>
                 <li>Review, bounty and Open Call application types</li>
-                <li>
-                  Role change, invitation and organisation membership types
-                </li>
+                <li>Role change types</li>
                 <li>Email digest rollups across the new types</li>
-                <li>Preference surface updated for the expanded taxonomy</li>
               </ul>
             </div>
           </div>
