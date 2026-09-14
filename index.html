@@ -794,8 +794,9 @@
                 <tr>
                   <td>14 Sep 2026</td>
                   <td>
-                    Added Phase 3 - Token economy, covering the dual-token model
-                    from the white paper. Split at the point where chain work
+                    Added Phase 3 - Token economy, covering the dual-token
+                    model from the white paper as an integration over existing
+                    platform features. Split at the point where chain work
                     becomes unavoidable: Progress (PRG) is non-transferable and
                     so ships as a ledger with no blockchain, while $OZN, staking
                     and the ICO sit below a Chain dependency begins milestone
@@ -1544,11 +1545,11 @@
           <div>
             <div class="title">Regulatory &amp; custody assessment</div>
             <div class="detail">
-              External counsel on $OZN, the public ICO and Impact Staking across
-              operating jurisdictions, covering MiCA, FCA registration and
-              securities treatment. Determines custodial versus self-custody
-              wallets. A gate, not a task: the answers change the architecture,
-              and the exposure sits with the operating entity rather than any
+              External counsel on $OZN and the public ICO across operating
+              jurisdictions, covering MiCA, FCA registration and securities
+              treatment. Determines custodial versus self-custody wallets. A
+              gate, not a task: the answers change the architecture, and the
+              exposure sits with the operating entity rather than any
               contractor.
             </div>
           </div>
@@ -1560,10 +1561,12 @@
           <div>
             <div class="title">Progress (PRG) contribution ledger</div>
             <div class="detail">
-              Balances, earning events, the bidirectional emissions ladder and
-              source / sink accounting against the Foundation treasury. PRG is
-              non-transferable, so this needs no chain &mdash; it is a ledger,
-              and it is the authority that later triggers $OZN minting.
+              Balances and earning events wired into what the platform already
+              does - publishing articles and projects, reviews, Open Calls,
+              funding and tipping - plus the emissions ladder, inactivity decay
+              and treasury accounting. PRG is non-transferable, so this needs no
+              chain: it is a ledger, and it is the authority that later triggers
+              $OZN minting.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -1574,39 +1577,13 @@
           <div>
             <div class="title">Learn2Earn quizzes</div>
             <div class="detail">
-              Quiz authoring and verification on educational resources, awarding
-              PRG to the learner and the resource creator. Builds on Educational
-              Resources.
+              Quiz authoring and answer verification on educational resources,
+              awarding PRG to the learner and to the resource creator. Builds on
+              Educational Resources in Phase 2, which the white paper assumes is
+              already in place.
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Attestation &amp; validation pathways</div>
-            <div class="detail">
-              Signed claims for the variable-reward routes &mdash; peer review,
-              project milestones, bounty completion, content approval and
-              citizen-science data collection. Each needs an authorised attestor
-              and an anti-gaming story.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Activity buffs &amp; inactivity decay</div>
-            <div class="detail">
-              Streak and consistency multipliers, plus monthly PRG decay for
-              dormant accounts with recycling into the Foundation treasury. Both
-              governance-tunable and capped.
-            </div>
-          </div>
-          <span class="size size-m" aria-label="Moderate effort">M</span>
         </div>
 
         <div class="item">
@@ -1621,19 +1598,6 @@
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Pod &amp; organisation treasuries</div>
-            <div class="detail">
-              Group-scoped proposals, membership-limited voting and treasury
-              wallets for Pods, organisations and the Foundation, with delegated
-              spending limits.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
         </div>
 
         <div class="milestone">
@@ -1662,10 +1626,9 @@
           <div>
             <div class="title">$OZN contracts &amp; external audit</div>
             <div class="detail">
-              Capped ERC-20 $OZN, soulbound PRG mirror if required on-chain,
-              treasury multisig, indexer, reorg handling and reconciliation
-              against the platform ledger. External audit is mandatory and has
-              to be repeated after changes.
+              Capped ERC-20 $OZN, treasury multisig, indexer, reorg handling and
+              reconciliation against the platform ledger. External audit is
+              mandatory and has to be repeated after changes.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -1701,11 +1664,10 @@
         <div class="item">
           <div class="num"></div>
           <div>
-            <div class="title">Funding, tipping &amp; bounty rails</div>
+            <div class="title">$OZN funding &amp; tipping rails</div>
             <div class="detail">
-              $OZN payment flows on projects, articles, creators and bounties,
-              with price oracles for the PRG reward conversion. Hooks into Open
-              Calls and project milestones.
+              Token payment flows on the projects, articles and Open Calls that
+              already exist, with price oracles for the PRG reward conversion.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -1716,38 +1678,11 @@
           <div>
             <div class="title">Platform fee engine</div>
             <div class="detail">
-              Governance-configurable fee rates across funding, tipping,
-              bounties, premium access and treasury disbursement, with bounded
-              limits and reporting.
+              Governance-configurable fee rates across funding, tipping and
+              premium access, with bounded limits and reporting.
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Impact staking</div>
-            <div class="detail">
-              Capital-preserving staking of third-party assets with yield routed
-              to projects and bounties. Carries smart-contract, counterparty,
-              bridge and market risk, and needs its own disclosures.
-            </div>
-          </div>
-          <span class="size size-xl" aria-label="Major initiative">XL</span>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">IP-NFT &amp; licensing flows</div>
-            <div class="detail">
-              Tokenised IP, licensing terms and the associated $OZN transactions
-              referenced throughout the tokenomics model. Least specified part
-              of the white paper.
-            </div>
-          </div>
-          <span class="size size-xl" aria-label="Major initiative">XL</span>
         </div>
       </section>
 
