@@ -900,7 +900,7 @@
           >
             <span class="changelog__title" id="changelogTitle">
               Changelog
-              <span class="changelog__count">Last updated 14 Sep 2026</span>
+              <span class="changelog__count">Last updated 15 Sep 2026</span>
             </span>
             <span class="changelog__chevron" aria-hidden="true">▾</span>
           </button>
@@ -914,6 +914,19 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>15 Sep 2026</td>
+                  <td>
+                    Removed Premium accounts and Advanced premium analytics, and
+                    cleared the references they left behind in Paywalls and the
+                    Platform fee engine. Split the pre-token runway into two
+                    phases at the Payments release milestone: Educational
+                    Resources through Internationalisation &amp; localisation
+                    now form Phase 2, the previous Phase 2 becomes Phase 3, and
+                    Token economy becomes Phase 4.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
                 <tr>
                   <td>14 Sep 2026</td>
                   <td>
@@ -1511,7 +1524,7 @@
                 <li>Payouts, balance handling and payout scheduling</li>
                 <li>Refunds, chargebacks and dispute handling</li>
                 <li>
-                  Platform fee take at source (feeds the Phase 3 fee engine)
+                  Platform fee take at source (feeds the Phase 4 fee engine)
                 </li>
                 <li>Tax reporting surface and invoice / receipt generation</li>
                 <li>Currency handling and minimum-amount rules</li>
@@ -1616,7 +1629,7 @@
               aria-controls="bd5"
             >
               <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">6 items</span>
+              <span class="breakdown__label">5 items</span>
             </button>
             <div class="breakdown__body" id="bd5">
               <ul>
@@ -1625,7 +1638,6 @@
                 <li>Purchase flow, entitlement storage and access checks</li>
                 <li>Preview / teaser rendering for non-purchasers</li>
                 <li>Author earnings view and payout routing</li>
-                <li>Overlap to resolve with Premium accounts</li>
               </ul>
             </div>
           </div>
@@ -1635,6 +1647,8 @@
           <span class="milestone-label">Payments release</span>
         </div>
 
+        <div class="phase">Phase 2</div>
+
         <div class="item">
           <div class="num"></div>
           <div>
@@ -1643,7 +1657,7 @@
               Foundation-curated learning library - categories, subcategories
               and subject pages with references and quizzes. Inclusion is
               Foundation-curated in this iteration; the DAO-driven inclusion
-              queue comes later in Phase 3.
+              queue comes later in Phase 4.
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
@@ -1675,7 +1689,7 @@
             <div class="detail">
               Organisation-run calls for proposals. Endorsement is
               organisation-run in this iteration; the DAO endorsement flow comes
-              later in Phase 3.
+              later in Phase 4.
             </div>
           </div>
           <span class="size size-xl" aria-label="Major initiative">XL</span>
@@ -2009,7 +2023,7 @@
           </div>
         </div>
 
-        <div class="phase">Phase 2</div>
+        <div class="phase">Phase 3</div>
 
         <div class="item ops">
           <div class="num"></div>
@@ -2314,79 +2328,7 @@
           </div>
         </div>
 
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Premium accounts</div>
-            <div class="detail">
-              Paid account tiers. Also where founding members get the lifetime
-              premium access they were promised, excluding OCIS.
-            </div>
-          </div>
-          <span class="size size-xl" aria-label="Major initiative">XL</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd13"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">7 items</span>
-            </button>
-            <div class="breakdown__body" id="bd13">
-              <ul>
-                <li>Tier definition and entitlement model</li>
-                <li>
-                  Subscription checkout, upgrade / downgrade and proration
-                </li>
-                <li>Cancellation, dunning and failed-payment recovery</li>
-                <li>Entitlement checks across gated surfaces</li>
-                <li>Billing portal and invoice history</li>
-                <li>Overlap to resolve with Paywalls</li>
-                <li>
-                  Lifetime premium grant for founding members (OCIS excluded)
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="num"></div>
-          <div>
-            <div class="title">Advanced premium analytics</div>
-            <div class="detail">
-              Views and deeper content analytics for premium accounts, built on
-              top of Premium accounts.
-            </div>
-          </div>
-          <span class="size size-l" aria-label="Substantial effort">L</span>
-
-          <div class="breakdown">
-            <button
-              class="breakdown__toggle"
-              type="button"
-              aria-expanded="true"
-              aria-controls="bd14"
-            >
-              <span class="breakdown__chevron" aria-hidden="true">&#9662;</span>
-              <span class="breakdown__label">5 items</span>
-            </button>
-            <div class="breakdown__body" id="bd14">
-              <ul>
-                <li>Event capture for views, reads and referrers</li>
-                <li>Aggregation pipeline and retention windows</li>
-                <li>Per-article and per-project dashboards</li>
-                <li>Audience and engagement breakdowns</li>
-                <li>Export and date-range controls</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="phase">Phase 3 &mdash; Token economy</div>
+        <div class="phase">Phase 4 &mdash; Token economy</div>
 
         <div class="item ops">
           <div class="num"></div>
@@ -2545,7 +2487,7 @@
           <div>
             <div class="title">Treasury accounting &amp; disbursement</div>
             <div class="detail">
-              The Foundation Treasury and group treasuries the rest of Phase 3
+              The Foundation Treasury and group treasuries the rest of Phase 4
               keeps routing value into: decay recycling, forfeited deposits, fee
               revenue and pod budgets all need a destination. Starts off-chain
               with the ledger and binds to multisig later.
@@ -2726,7 +2668,7 @@
             <div class="title">DAO pods</div>
             <div class="detail">
               Pod structure, membership and the proposal / outcome lifecycle.
-              Moved out of Phase 2: pods are the body that votes, so they cannot
+              Moved out of Phase 3: pods are the body that votes, so they cannot
               land before the Progress ledger that gives votes their weight.
               Also carries the private founding-member community space.
             </div>
@@ -3104,7 +3046,7 @@
             <div class="title">Platform fee engine</div>
             <div class="detail">
               Governance-configurable fee rates across funding, tipping and
-              premium access, with bounded limits and reporting.
+              bounties, with bounded limits and reporting.
             </div>
           </div>
           <span class="size size-l" aria-label="Substantial effort">L</span>
@@ -3122,10 +3064,7 @@
             <div class="breakdown__body" id="bd28">
               <ul>
                 <li>Governance-configurable rates with bounded min / max</li>
-                <li>
-                  Fee bands: funding 1-2%, tipping 5%, bounties 2-3%, premium
-                  3-5%
-                </li>
+                <li>Fee bands: funding 1-2%, tipping 5%, bounties 2-3%</li>
                 <li>Migration from hard-coded Phase 1 Stripe fee take</li>
                 <li>DAO treasury disbursement fee (0-1%, optional)</li>
                 <li>Fee revenue reporting and Foundation Reserve routing</li>
