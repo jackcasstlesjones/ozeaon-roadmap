@@ -263,6 +263,130 @@
         font-variant-numeric: tabular-nums;
       }
 
+      /* ── ESTIMATE ── */
+      .estimate {
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px 32px;
+        margin-bottom: 20px;
+      }
+
+      .estimate__title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-bottom: 16px;
+      }
+
+      .estimate__headline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 40px;
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .estimate__stat {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .estimate__value {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .estimate__label {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .estimate__table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .estimate__table th {
+        text-align: left;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        padding: 0 12px 8px 0;
+      }
+
+      .estimate__table td {
+        padding: 6px 12px 6px 0;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border);
+      }
+
+      .estimate__table th:not(:first-child),
+      .estimate__table td:not(:first-child) {
+        text-align: right;
+        padding-right: 0;
+      }
+
+      .estimate__table tfoot td {
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .estimate__note {
+        margin-top: 14px;
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .phasebar {
+        display: flex;
+        width: 100%;
+        height: 12px;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 18px;
+        background: var(--bg-cold);
+      }
+
+      .phasebar span {
+        display: block;
+        height: 100%;
+      }
+
+      .phasebar__key {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin-bottom: 18px;
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+
+      .phasebar__key span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .phasebar__key i {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        flex: none;
+      }
+
       /* ── LIST ── */
       .list {
         background: var(--bg-surface);
@@ -709,6 +833,15 @@
         .legend {
           padding: 16px 20px;
           gap: 12px 16px;
+        }
+        .estimate {
+          padding: 18px 20px;
+        }
+        .estimate__headline {
+          gap: 12px 24px;
+        }
+        .estimate__value {
+          font-size: 22px;
         }
         footer {
           justify-content: flex-start;
@@ -1197,6 +1330,158 @@
           one</span
         >
       </div>
+
+      <!-- Phase breakdown -->
+      <section class="estimate" aria-label="Effort by phase">
+        <div class="estimate__title">Effort by phase</div>
+        <div class="phasebar" role="img"
+          aria-label="Share of remaining effort: Phase 1 16 percent, Phase 2 18 percent, Phase 3 19 percent, Phase 4 47 percent">
+          <span style="width: 15.75%; background: var(--primary-green)"></span>
+          <span style="width: 18.5%; background: var(--ozeaon-blue)"></span>
+          <span style="width: 18.75%; background: #8aa6bf"></span>
+          <span style="width: 47%; background: var(--deep-ocean)"></span>
+        </div>
+        <div class="phasebar__key">
+          <span><i style="background: var(--primary-green)"></i> Phase 1</span>
+          <span><i style="background: var(--ozeaon-blue)"></i> Phase 2</span>
+          <span><i style="background: #8aa6bf"></i> Phase 3</span>
+          <span
+            ><i style="background: var(--deep-ocean)"></i> Phase 4 &mdash; Token
+            economy</span
+          >
+        </div>
+        <table class="estimate__table">
+          <thead>
+            <tr>
+              <th scope="col">Phase</th>
+              <th scope="col">Open items</th>
+              <th scope="col">Weeks</th>
+              <th scope="col">Share</th>
+              <th scope="col">Cumulative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Phase 1</td>
+              <td>13</td>
+              <td>63</td>
+              <td>16%</td>
+              <td>63</td>
+            </tr>
+            <tr>
+              <td>Phase 2</td>
+              <td>12</td>
+              <td>74</td>
+              <td>18%</td>
+              <td>137</td>
+            </tr>
+            <tr>
+              <td>Phase 3</td>
+              <td>12</td>
+              <td>75</td>
+              <td>19%</td>
+              <td>212</td>
+            </tr>
+            <tr>
+              <td>Phase 4 &mdash; Token economy</td>
+              <td>17</td>
+              <td>188</td>
+              <td>47%</td>
+              <td>400</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Total remaining</td>
+              <td>54</td>
+              <td>400</td>
+              <td>100%</td>
+              <td>400</td>
+            </tr>
+          </tfoot>
+        </table>
+        <p class="estimate__note">
+          Weeks count open items only. Shipped work adds 17 weeks inside Phase 1
+          and 9 weeks ahead of it. Cumulative assumes the phases run in order on
+          a single stream. Phase 4 alone is 47% of everything left.
+        </p>
+      </section>
+
+      <!-- Estimation -->
+      <section class="estimate" aria-label="Effort estimation">
+        <div class="estimate__title">Estimation</div>
+        <div class="estimate__headline">
+          <div class="estimate__stat">
+            <span class="estimate__value">400 weeks</span>
+            <span class="estimate__label">Remaining &mdash; 54 open items</span>
+          </div>
+          <div class="estimate__stat">
+            <span class="estimate__value">26 weeks</span>
+            <span class="estimate__label">Delivered &mdash; 9 closed items</span>
+          </div>
+          <div class="estimate__stat">
+            <span class="estimate__value">6%</span>
+            <span class="estimate__label">Of 426 weeks total scope</span>
+          </div>
+        </div>
+        <table class="estimate__table">
+          <thead>
+            <tr>
+              <th scope="col">Size</th>
+              <th scope="col">Each</th>
+              <th scope="col">Open</th>
+              <th scope="col">Weeks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S &mdash; Quick win</td>
+              <td>2</td>
+              <td>6</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>M &mdash; Moderate</td>
+              <td>3</td>
+              <td>14</td>
+              <td>42</td>
+            </tr>
+            <tr>
+              <td>L &mdash; Substantial</td>
+              <td>6</td>
+              <td>17</td>
+              <td>102</td>
+            </tr>
+            <tr>
+              <td>XL &mdash; Major initiative</td>
+              <td>12</td>
+              <td>12</td>
+              <td>144</td>
+            </tr>
+            <tr>
+              <td>XXL &mdash; Longer-timeline initiative</td>
+              <td>20</td>
+              <td>5</td>
+              <td>100</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Total remaining</td>
+              <td></td>
+              <td>54</td>
+              <td>400</td>
+            </tr>
+          </tfoot>
+        </table>
+        <p class="estimate__note">
+          Sizes are summed at the scale above. 400 weeks is roughly 7 years 8
+          months of single-stream delivery; two parallel streams bring that to
+          about 3 years 10 months, three to about 2 years 7 months. Estimates
+          cover build effort only &mdash; no discovery, review or release
+          overhead &mdash; and assume no item is descoped.
+        </p>
+      </section>
 
       <!-- List -->
       <section class="list" aria-label="Roadmap items">
