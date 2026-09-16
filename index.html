@@ -350,6 +350,23 @@
         line-height: 1.6;
       }
 
+      .estimate__callout {
+        margin-top: 14px;
+        padding: 14px 18px;
+        background: var(--bg-cold);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--deep-ocean);
+        border-radius: 10px;
+        font-size: 12px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .estimate__callout strong {
+        color: var(--text-primary);
+        font-weight: 700;
+      }
+
       .phasebar {
         display: flex;
         width: 100%;
@@ -1357,7 +1374,6 @@
               <th scope="col">Open items</th>
               <th scope="col">Weeks</th>
               <th scope="col">Share</th>
-              <th scope="col">Cumulative</th>
             </tr>
           </thead>
           <tbody>
@@ -1366,44 +1382,30 @@
               <td>13</td>
               <td>63</td>
               <td>16%</td>
-              <td>63</td>
             </tr>
             <tr>
               <td>Phase 2</td>
               <td>12</td>
               <td>74</td>
               <td>18%</td>
-              <td>137</td>
             </tr>
             <tr>
               <td>Phase 3</td>
               <td>12</td>
               <td>75</td>
               <td>19%</td>
-              <td>212</td>
             </tr>
             <tr>
               <td>Phase 4 &mdash; Token economy</td>
               <td>17</td>
               <td>188</td>
               <td>47%</td>
-              <td>400</td>
             </tr>
           </tbody>
-          <tfoot>
-            <tr>
-              <td>Total remaining</td>
-              <td>54</td>
-              <td>400</td>
-              <td>100%</td>
-              <td>400</td>
-            </tr>
-          </tfoot>
         </table>
         <p class="estimate__note">
-          Weeks count open items only. Shipped work adds 17 weeks inside Phase 1
-          and 9 weeks ahead of it. Cumulative assumes the phases run in order on
-          a single stream. Phase 4 alone is 47% of everything left.
+          Weeks count open items only. Phase 4 alone is 47% of everything
+          left.
         </p>
       </section>
 
@@ -1413,15 +1415,15 @@
         <div class="estimate__headline">
           <div class="estimate__stat">
             <span class="estimate__value">400 weeks</span>
-            <span class="estimate__label">Remaining &mdash; 54 open items</span>
+            <span class="estimate__label">Remaining effort</span>
           </div>
           <div class="estimate__stat">
-            <span class="estimate__value">26 weeks</span>
-            <span class="estimate__label">Delivered &mdash; 9 closed items</span>
+            <span class="estimate__value">54</span>
+            <span class="estimate__label">Open items</span>
           </div>
           <div class="estimate__stat">
-            <span class="estimate__value">6%</span>
-            <span class="estimate__label">Of 426 weeks total scope</span>
+            <span class="estimate__value">4</span>
+            <span class="estimate__label">Phases still to run</span>
           </div>
         </div>
         <table class="estimate__table">
@@ -1475,11 +1477,60 @@
           </tfoot>
         </table>
         <p class="estimate__note">
-          Sizes are summed at the scale above. 400 weeks is roughly 7 years 8
-          months of single-stream delivery; two parallel streams bring that to
-          about 3 years 10 months, three to about 2 years 7 months. Estimates
-          cover build effort only &mdash; no discovery, review or release
-          overhead &mdash; and assume no item is descoped.
+          Sizes are summed at the scale above.
+        </p>
+      </section>
+
+      <!-- Team scaling -->
+      <section class="estimate" aria-label="Team scaling">
+        <div class="estimate__title">Scaling the team</div>
+        <div class="estimate__headline">
+          <div class="estimate__stat">
+            <span class="estimate__value">7 yrs 8 mo</span>
+            <span class="estimate__label">400 weeks on one stream</span>
+          </div>
+          <div class="estimate__stat">
+            <span class="estimate__value">2 yrs 7 mo</span>
+            <span class="estimate__label">Same scope across three streams</span>
+          </div>
+        </div>
+        <table class="estimate__table">
+          <thead>
+            <tr>
+              <th scope="col">Parallel streams</th>
+              <th scope="col">Weeks</th>
+              <th scope="col">Calendar time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>400</td>
+              <td>7 years 8 months</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>200</td>
+              <td>3 years 10 months</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>133</td>
+              <td>2 years 7 months</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="estimate__note">
+          Straight division of the 400 remaining weeks. Dependencies between
+          items put a floor under the parallel figures &mdash; work that must
+          run in order cannot be split across streams.
+        </p>
+        <p class="estimate__callout">
+          <strong>Phase 4 is the sharpest case:</strong> at 188 weeks it is 47%
+          of everything left, and most of it sits behind the Chain dependency
+          begins milestone, where the tokenomics and regulatory assessments gate
+          every item below them. Extra streams buy little there, so the
+          parallel figures are a floor no team size reaches in practice.
         </p>
       </section>
 
