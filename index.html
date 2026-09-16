@@ -251,6 +251,18 @@
         color: var(--text-secondary);
       }
 
+      .legend-weeks {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--text-muted);
+        background: var(--bg-cold);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-variant-numeric: tabular-nums;
+      }
+
       /* ── LIST ── */
       .list {
         background: var(--bg-surface);
@@ -1156,20 +1168,24 @@
       <div class="legend" role="group" aria-label="Effort scale">
         <span class="legend-title">Effort</span>
         <span class="legend-item"
-          ><span class="size size-s">S</span> Quick win</span
+          ><span class="size size-s">S</span> Quick win
+          <span class="legend-weeks">2 weeks</span></span
         >
         <span class="legend-item"
-          ><span class="size size-m">M</span> Moderate</span
+          ><span class="size size-m">M</span> Moderate
+          <span class="legend-weeks">3 weeks</span></span
         >
         <span class="legend-item"
-          ><span class="size size-l">L</span> Substantial</span
+          ><span class="size size-l">L</span> Substantial
+          <span class="legend-weeks">6 weeks</span></span
         >
         <span class="legend-item"
-          ><span class="size size-xl">XL</span> Major initiative</span
+          ><span class="size size-xl">XL</span> Major initiative
+          <span class="legend-weeks">12 weeks</span></span
         >
         <span class="legend-item"
-          ><span class="size size-xxl">XXL</span> Longer-timeline
-          initiative</span
+          ><span class="size size-xxl">XXL</span> Longer-timeline initiative
+          <span class="legend-weeks">20 weeks</span></span
         >
       </div>
 
