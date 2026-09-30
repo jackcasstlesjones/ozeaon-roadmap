@@ -1045,12 +1045,53 @@
                 <tr>
                   <td>18 Sep 2026</td>
                   <td>
+                    Brought realtime delivery into the first Notifications
+                    release, so the bell and unread count update the moment
+                    something happens instead of on a polling interval, and
+                    removed it from Notifications &mdash; second pass (12 to 11
+                    breakdown points). The notifications estimate now includes
+                    live delivery, and the first release stays L at 12 days.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>18 Sep 2026</td>
+                  <td>
                     Moved Educational Resources out of Phase 2 to the top of
                     Phase 3. Folded paid organisation subscriptions into the
-                    Organization verification system item &mdash; verification
-                    is the tier organisations pay for, and subscriptions are
-                    the first logical revenue generator &mdash; and raised it
-                    from M to L for the recurring billing work.
+                    Organization verification system item, now renamed
+                    Organization verification system &amp; paid subscriptions
+                    &mdash; verification is the tier organisations pay for, and
+                    subscriptions are the first logical revenue generator
+                    &mdash; and raised it from M to L with a breakdown covering
+                    plans and pricing tiers, recurring Stripe billing,
+                    entitlement gating and a billing surface with invoices. The
+                    total estimate rises from 400 to 403 weeks.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr class="is-milestone">
+                  <td>
+                    <span class="changelog__milestone-tag">Milestone</span>16 Sep 2026
+                  </td>
+                  <td>
+                    Added effort estimates to the roadmap. The legend now maps
+                    each size to weeks (S 2, M 3, L 6, XL 12, XXL 20), and new
+                    Effort by phase, Estimation and Scaling the team sections
+                    total the 54 open items at 400 weeks for a single stream,
+                    200 for two and 133 for three, noting that most of Phase 4
+                    sits behind the Chain dependency begins milestone, so extra
+                    streams help little there.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>15 Sep 2026</td>
+                  <td>
+                    Raised platform fees: funding from 1&ndash;2% to 5%, tipping
+                    from 5% to 9% and bounties from 2&ndash;3% to 9% in the
+                    Platform fee engine and Tipping items, and added a 9% fee
+                    take to Paywalls.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -1059,11 +1100,120 @@
                   <td>
                     Removed Premium accounts and Advanced premium analytics, and
                     cleared the references they left behind in Paywalls and the
-                    Platform fee engine. Split the pre-token runway into two
-                    phases at the Payments release milestone: Educational
-                    Resources through Internationalisation &amp; localisation
-                    now form Phase 2, the previous Phase 2 becomes Phase 3, and
-                    Token economy becomes Phase 4.
+                    Platform fee engine, including the premium fee band. Split
+                    the pre-token runway into two phases at the Payments release
+                    milestone: Educational Resources through
+                    Internationalisation &amp; localisation now form Phase 2,
+                    the previous Phase 2 becomes Phase 3, and Token economy
+                    becomes Phase 4.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Rescoped Notifications from XL to L as a first release: the
+                    bell, dropdown panel and notifications page for posts,
+                    projects, articles, organisation membership and your own
+                    membership, with notifications addressed to a person or an
+                    organisation and an interval-polled unread count.
+                    Preferences, mute, quick actions, grouping and digests, fan-
+                    out and batching, retention and automatic clearing, realtime
+                    delivery and scheduled notifications move to Notifications
+                    &mdash; second pass, which rises from M to XL.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Reframed Internationalisation &amp; localisation as
+                    foundational for a global platform rather than a retrofit.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Added a Legal flag for work compelled by statute, where
+                    timing is a legal exposure question rather than a
+                    prioritisation one, and applied it to Account hard deletion,
+                    Legal pages, Compliance audit, Stripe integration, Content
+                    reporting &amp; moderation queue, Accessibility audit &amp;
+                    remediation, GDPR self-serve endpoints, Regulatory &amp;
+                    custody assessment, Wallet &amp; custody layer and Public
+                    ICO &amp; fiat on-ramp. Raised the tipping fee from 1% to
+                    5%.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Split Content moderation &amp; GDPR endpoints into Content
+                    reporting &amp; moderation queue (M), placed early for the
+                    DSA notice-and-action obligation, and GDPR self-serve
+                    endpoints, now covering export and erasure only. Moved
+                    Educational Resources and Open Calls up to sit directly
+                    below the Payments release milestone. Narrowed Forms rework
+                    to a visual and UX pass, leaving validation unchanged.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Gave founding members their entitlements through existing
+                    items, each keyed off the alpha badge: a fee exemption in
+                    Stripe integration, lifetime premium in Premium accounts, a
+                    1,000 PRG grant in the Progress (PRG) contribution ledger
+                    and a private founding-member pod in DAO pods.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Replaced For You / Trending / Featured (L) with a
+                    Recommendation &amp; ranking engine (XXL) covering
+                    engagement and social-graph signals, anti-gaming, cold
+                    start, permission filtering and caching. Moved DAO-driven
+                    inclusion queue and Open Calls - DAO endorsement flow below
+                    DAO pods and Progress-weighted governance, which they depend
+                    on, and moved Public ICO &amp; fiat on-ramp above Proof-of-
+                    Progress staking, since the ICO is a liquidity event rather
+                    than what pays for the work.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Added Content versioning &amp; edit history, Accessibility
+                    audit &amp; remediation, Admin &amp; back-office console,
+                    Internationalisation &amp; localisation, Transactional email
+                    &amp; delivery, Notifications &mdash; second pass,
+                    Attestation &amp; signed claims and Treasury accounting
+                    &amp; disbursement to fill gaps across the phases.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Added Forms rework (S) after Initial launch. Split Quizzes
+                    (L) out of Educational Resources into Phase 3 ahead of
+                    Learn2Earn rewards. Moved Open Calls up to sit after
+                    Educational Resources and raised it from L to XL.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Added breakdowns to every L, XL and XXL item, listing the
+                    deliverables behind each estimate and flagging overlaps and
+                    dependencies between items.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -1074,13 +1224,37 @@
                     organisation-run endorsement, and moved the DAO endorsement
                     flow into Phase 3 as its own item alongside the DAO-driven
                     inclusion queue. Raised Tokenomics simulation &amp;
-                    parameter review from M to L, since it gates four
-                    multi-quarter items and the public ICO.
+                    parameter review from M to L, since it gates four longer-
+                    timeline items and the public ICO. Rescoped Compliance audit
+                    as post-launch work.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
                   <td>14 Sep 2026</td>
+                  <td>
+                    Kept Educational Resources Foundation-curated and added a
+                    DAO-driven inclusion queue (L) to Phase 3. Moved DAO pods
+                    from Phase 2 into Phase 3, since pods need the Progress
+                    ledger first, and renamed Learn2Earn quizzes to Learn2Earn
+                    rewards.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>14 Sep 2026</td>
+                  <td>
+                    Introduced an XXL size for longer-timeline initiatives and
+                    raised Wallet &amp; custody layer, $OZN contracts &amp;
+                    external audit, Proof-of-Progress staking and Public ICO
+                    &amp; fiat on-ramp from XL to XXL.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr class="is-milestone">
+                  <td>
+                    <span class="changelog__milestone-tag">Milestone</span>14 Sep 2026
+                  </td>
                   <td>
                     Added Phase 3 - Token economy, covering the dual-token model
                     from the white paper as an integration over existing
@@ -1088,7 +1262,8 @@
                     becomes unavoidable: Progress (PRG) is non-transferable and
                     so ships as a ledger with no blockchain, while $OZN, staking
                     and the ICO sit below a Chain dependency begins milestone
-                    behind tokenomics and regulatory assessments.
+                    behind tokenomics and regulatory assessments. $OZN funding
+                    &amp; tipping rails carries funding and tipping on-chain.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -1097,13 +1272,62 @@
                   <td>
                     Marked Automated moderation and Alpha badges as done -
                     automated content checks now run before publishing, and the
-                    Founding Member badge is granted to users and organisations
-                    joining before the alpha signup window closes.
+                    badge is granted to users and organisations created before
+                    User-to-user invites ships.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
-                  <td>18 Aug 2026</td>
+                  <td>27 Aug 2026</td>
+                  <td>
+                    Marked Account hard deletion and Organisation hard deletion
+                    as done, and Automated moderation, Alpha badges and Feed
+                    filters as in progress. Moved Compliance audit below the
+                    Initial launch milestone.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>19 Aug 2026</td>
+                  <td>
+                    Moved Articles - reviews to just after the Initial launch
+                    milestone, followed by Feed filters.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>19 Aug 2026</td>
+                  <td>
+                    Added Automated moderation (M) ahead of Compliance audit and
+                    Organisation ownership transfer (S) after Content retention
+                    &amp; restoration. Split Tipping out of Project funding into
+                    its own item. Added Premium accounts and Advanced premium
+                    analytics at the end of Phase 2.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>19 Aug 2026</td>
+                  <td>
+                    Dropped donations from Stripe integration and Project
+                    funding. Moved Connections &amp; blocking and Organization
+                    verification system into Phase 2 after Notes &amp;
+                    Bookmarks, and added Privacy settings (M) to Phase 2.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>19 Aug 2026</td>
+                  <td>
+                    Added an in-progress status and applied it to Account hard
+                    deletion, Organisation hard deletion and Legal pages.
+                    Renamed DAO to DAO pods, and dropped unpublish from the
+                    Articles publish flow.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>19 Aug 2026</td>
                   <td>
                     Split Articles - comments &amp; reviews into two items:
                     Articles - comments, which is complete, and Articles -
@@ -1113,22 +1337,22 @@
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
-                  <td>18 Aug 2026</td>
+                  <td>19 Aug 2026</td>
                   <td>
                     Added a Done treatment for shipped items - a soft red row
                     with a red Done badge - and applied it to Mobile designs,
                     Articles - comments, Projects - comments, and the Articles
-                    and Projects publish, and hard deletion items.
+                    and Projects publish &amp; hard deletion items.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
                   <td>10 Aug 2026</td>
                   <td>
-                    Added a Sidebar category colour filters item after
-                    Educational Resources and rewrote Feed filters to make clear
-                    it covers the in-feed article/project filters, not the
-                    sidebar's global category colour filters.
+                    Added a Sidebar category filters item after Educational
+                    Resources and rewrote Feed filters to make clear it covers
+                    the in-feed article/project filters, not the sidebar's
+                    global category colour filters.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -1151,7 +1375,7 @@
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
-                  <td>29 Jul 2026</td>
+                  <td>31 Jul 2026</td>
                   <td>
                     Clarified the Articles and Projects publish flows and the
                     Account and Organisation deletion items to explicitly call
@@ -1161,7 +1385,7 @@
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
-                  <td>29 Jul 2026</td>
+                  <td>31 Jul 2026</td>
                   <td>
                     Added Alpha badges after Compliance audit, granting badges
                     to users and organisations created before User-to-user
@@ -1170,7 +1394,7 @@
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
-                  <td>29 Jul 2026</td>
+                  <td>31 Jul 2026</td>
                   <td>
                     Reframed the Closed public beta milestone as Initial launch,
                     removed the Open beta milestone, and folded the previously
@@ -1179,11 +1403,11 @@
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
-                  <td>29 Jul 2026</td>
+                  <td>31 Jul 2026</td>
                   <td>
-                    Added Content retention &amp; restoration, covering
-                    soft-delete retention windows, admin-initiated restoration
-                    and grace periods on account and organisation deletion.
+                    Added Content retention &amp; restoration, covering soft-
+                    delete retention windows, admin-initiated restoration and
+                    grace periods on account and organisation deletion.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
@@ -1211,38 +1435,44 @@
                   <td>20 Jul 2026</td>
                   <td>
                     Elevated Rate limiting &amp; monitoring, Security hardening
-                    and SEO &amp; metadata above the Open beta milestone, and
-                    repositioned Search and Connections &amp; blocking to after
-                    it.
+                    and SEO &amp; metadata above the Open beta milestone.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr class="is-milestone">
                   <td>
-                    <span class="changelog__milestone-tag">Milestone</span>20
-                    Jul 2026
+                    <span class="changelog__milestone-tag">Milestone</span>20 Jul 2026
                   </td>
                   <td>
                     Introduced Closed public beta and Open beta milestone
                     markers, split the backlog into pre- and post-beta sections,
-                    and trimmed external email from the Notifications scope.
+                    moved User-to-user invites into the pre-beta runway and
+                    raised it from M to L, and trimmed external email from the
+                    Notifications scope.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr>
                   <td>20 Jul 2026</td>
                   <td>
-                    Added Legal pages, Compliance audit, Rate limiting &amp;
-                    monitoring, Security hardening and SEO &amp; metadata as
-                    ops-tagged items; introduced User-to-user invites and
+                    Dropped member notification from the Organisation deletion
+                    item.
+                  </td>
+                  <td>Jack Casstles-Jones</td>
+                </tr>
+                <tr>
+                  <td>20 Jul 2026</td>
+                  <td>
+                    Added Legal pages, plus Compliance audit, Rate limiting
+                    &amp; monitoring, Security hardening and SEO &amp; metadata
+                    as ops-tagged items; introduced User-to-user invites and
                     Messaging; expanded Connections to include user blocking.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr class="is-milestone">
                   <td>
-                    <span class="changelog__milestone-tag">Milestone</span>20
-                    Jul 2026
+                    <span class="changelog__milestone-tag">Milestone</span>20 Jul 2026
                   </td>
                   <td>
                     Introduced Phase 1 and Phase 2 groupings and added the
@@ -1256,16 +1486,15 @@
                 <tr>
                   <td>7 Jul 2026</td>
                   <td>
-                    Added Notifications as an XL-effort backlog item covering
-                    the notifications bell, a dedicated notifications page and
-                    external email notifications.
+                    Moved Notifications up the backlog from 15th to 5th and
+                    added external email notifications to its scope alongside
+                    the notifications bell and dedicated notifications page.
                   </td>
                   <td>Jack Casstles-Jones</td>
                 </tr>
                 <tr class="is-milestone">
                   <td>
-                    <span class="changelog__milestone-tag">Milestone</span>6 Jul
-                    2026
+                    <span class="changelog__milestone-tag">Milestone</span>6 Jul 2026
                   </td>
                   <td>
                     Roadmap first published with an ordered backlog of the
